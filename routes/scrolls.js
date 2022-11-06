@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { ensureAuth } = require('../middleware/auth');
 
-const Scroll = require('../models/scroll');
+const Scroll = require('../models/Scroll');
 
 // @desc    Show add page
 // @route   GET /scrolls/add
