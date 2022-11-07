@@ -1,0 +1,9 @@
+Scroll Icons:
+
+1. scroll-empty Icon <a href="https://www.flaticon.com/free-icons/scroll" title="scroll icons">Scroll icons created by Freepik - Flaticon</a>
+
+2. scroll-feather1 Icon <a href="https://www.flaticon.com/free-icons/scroll" title="scroll icons">Scroll icons created by Freepik - Flaticon</a>
+
+3. scroll-feather2 Icon <a href="https://www.flaticon.com/free-icons/poem" title="poem icons">Poem icons created by Good Ware - Flaticon</a>
+
+4. scroll-papyrus Icon <a href="https://www.flaticon.com/free-icons/papyrus" title="papyrus icons">Papyrus icons created by Freepik - Flaticon</a>
