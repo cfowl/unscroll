@@ -12,12 +12,18 @@
 </head>
 
 <body>
+
+<header>
     {{> _header}}
+</header>
+
+<main>
     {{> _add_btn}}
 
     <div class="container">
         {{{body}}}
     </div>
+</main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.0/ckeditor.js" integrity="sha512-tjxUra6WjSA8H5+nC7G61SVqEXj1e958LdR4N8BGZeRx9tObm/YhsrUzY6tH4EuHQyZqOyu317pgV7f8YPFoAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -35,6 +41,14 @@
         });
     </script>
 
+<footer class="page-footer grey darken-4 footer-fixed">
+    <div class="center-align font-small">
+        <div>&copy; 2022 Chris Fowler</div>
+        <div>Attributions: 
+            <a href="https://www.flaticon.com/free-icons/scroll" title="scroll icons" target="_blank">Scroll icons created by Freepik - Flaticon</a>
+        </div>
+    </div>
+</footer>
 
 </body>
 
