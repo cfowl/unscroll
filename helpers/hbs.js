@@ -32,5 +32,9 @@ module.exports = {
     },
     equals: (a, b) => {
         return a === b;
+    },
+    contains: (a, b) => {
+        a = a.toString();
+        return a.includes(b);
     }
 };
