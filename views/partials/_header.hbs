@@ -10,6 +10,9 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="/dashboard">Dashboard</a></li>
             <li><a href="/scrolls">Public Scrolls</a></li>
+            {{#if (contains user "googleId: '104800435635587428982'")}}     {{!-- if chris2fowler(at)gmail.com is the user --}}
+                <li><a href="/users">Users</a></li>
+            {{/if}}
             <li><a href="/auth/logout">Logout</a></li>
         </ul>
     </div>
