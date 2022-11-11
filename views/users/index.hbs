@@ -1,0 +1,16 @@
+<h1>Users</h1>
+<div>
+    {{#if (contains user "googleId: '104800435635587428982'")}}     {{!-- if chris2fowler(at)gmail.com is the user --}}
+        {{#each users}}
+            <ol>
+                <li>Display Name: {{{displayName}}}</li>
+                <li>Google ID: {{{googleId}}}</li>
+            </ol>
+        {{else}}
+            <p>No Users to display</p>
+        {{/each}}
+    {{/if}}
+    {{#unless (contains user "googleId: '104800435635587428982'")}}     {{!-- if chris2fowler(at)gmail.com is the user --}}
+        <p>You are not authorized to view this information!</p>
+    {{/unless}}
+</div>
