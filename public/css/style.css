@@ -38,8 +38,8 @@ p {
 
 #add-btn {
     position: fixed;
-    top: 100px;
-    right: 35px;
+    bottom: 100px;
+    right: 30px;
 }
 
 .mobile {
