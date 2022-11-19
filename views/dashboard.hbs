@@ -6,6 +6,7 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th>Tags</th>
                 <th>Date</th>
                 <th>Status</th>
                 <th></th>
@@ -15,7 +16,8 @@
             {{#each scrolls}}
                 <tr>
                     <td><a href="/scrolls/{{_id}}">{{title}}</a></td>
-                    <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                    <td>{{tags}}</td>
+                    <td>{{formatDate createdOn 'MMMM Do YYYY, h:mm:ss a'}}</td>
                     <td><span class="dash-status">{{status}}</span></td>
                     <td>
                         <a href="/scrolls/edit/{{_id}}" class="btn btn-float"><i class="fas fa-edit fa-small"></i></a>
