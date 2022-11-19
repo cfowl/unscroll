@@ -19,7 +19,10 @@ const scrollSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    createdAt: {
+    tags: {
+        type: String
+    },
+    createdOn: {
         type: Date,
         default: Date.now
     }
