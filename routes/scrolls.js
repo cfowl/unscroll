@@ -29,7 +29,7 @@ router.get('/', ensureAuth, async (req, res) => {
     try {
         const scrolls = await Scroll.find({ status: 'public' })
             .populate('user')
-            .sort({ createdAt: 'desc' })
+            .sort({ createdOn: 'desc' })
             .lean();
 
         res.render('scrolls/index', { scrolls });

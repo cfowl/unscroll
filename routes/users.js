@@ -9,7 +9,7 @@ const User = require('../models/User');
 router.get('/', ensureAuth, async (req, res) => {
     try {
         const users = await User.find()
-            .sort({ createdAt: 'desc' })
+            .sort({ createdOn: 'desc' })
             .lean();
 
         res.render('users/index', {
