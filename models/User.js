@@ -5,6 +5,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     displayName: {
         type: String,
         required: true
@@ -20,7 +24,7 @@ const UserSchema = new mongoose.Schema({
     image: {
         type: String
     },
-    createdAt: {
+    createdOn: {
         type: Date,
         default: Date.now
     }
