@@ -29,13 +29,6 @@ p {
     font-size: .9rem;
 }
 
-.footer-fixed {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 1rem;
-}
-
 #logo-header {
     width: 10%;
 }

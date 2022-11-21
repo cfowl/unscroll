@@ -1,0 +1,118 @@
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------------------------ CLASSES ------------------------------  */
+
+.card {
+    margin: 1rem auto;
+    box-shadow: 2px 2px 4px #bbb;
+}
+
+.sans-serif {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.caps {
+    text-transform: uppercase;
+}
+
+.test-border {
+    border: 1px solid red;
+}
+
+.no-under {
+    text-decoration: none;
+}
+
+.no-marg {
+    margin: 0;
+}
+
+.marg-top-1 {
+    margin-top: 1rem;
+}
+
+.divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: #eee;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.center-txt { 
+    text-align: center;
+}
+
+.pad-top-4 {
+    padding-top: 4rem;
+}
+
+.pad-bot-2 {
+    padding-bottom: 2rem;
+}
+
+.marg-bot-0 {
+    margin-bottom: 0;
+}
+
+.section {
+    padding: 1.25rem 0;
+}
+
+.font08 {
+    font-size: .8rem;
+}
+
+.font09 {
+    font-size: .9rem;
+}
+
+.font25 {
+    font-size: 2.5rem;
+}
+
+.bg-grey.darken4 {
+    background-color: #222;
+}
+
+.bg-red.darken1 {
+    background-color: #E53935;
+}
+
+.btn {
+    padding: .5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px #bbb;
+}
+
+.btn:hover {
+    box-shadow: 1px 2px 3px #777;
+}
+
+.blue.lighten2 {
+    color: dodgerblue;
+}
+
+.white {
+    color: white;
+}
+
+footer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+}
