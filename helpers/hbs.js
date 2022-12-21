@@ -3,7 +3,8 @@ const momentTimezone = require('moment-timezone');
 
 module.exports = {
     formatDate: (date) => {
-        return moment(date).tz('America/Denver').format('lll');
+        userZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        return moment(date).tz(userZone).format('lll');
     },
     truncate: (str, len) => {
         if(str.length > len && str.length > 0) {
