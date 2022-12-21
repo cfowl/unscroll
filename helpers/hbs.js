@@ -2,7 +2,7 @@ const moment = require('moment');
 
 module.exports = {
     formatDate: (date) => {
-        return moment(date).format('lll');
+        return moment(date).tz('America/Denver').format('lll');
     },
     truncate: (str, len) => {
         if(str.length > len && str.length > 0) {
