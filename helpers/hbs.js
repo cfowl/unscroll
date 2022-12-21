@@ -2,11 +2,10 @@ const moment = require('moment');
 const momentTimezone = require('moment-timezone');
 
 module.exports = {
-    formatDate: (date) => {
+    formatDate: (date, USERZONE) => {
         // using Intl.DateTimeFormat().resolvedOptions().timeZone to get user timezone didn't work with Heroku
-        const userZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        // return moment(date).tz(`${userZone}`).format('lll');
-        return userZone;
+        // const userZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        return moment(date).tz(USERZONE).format('lll');
     },
     truncate: (str, len) => {
         if(str.length > len && str.length > 0) {
