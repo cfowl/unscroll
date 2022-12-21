@@ -5,7 +5,8 @@ module.exports = {
     formatDate: (date) => {
         // using Intl.DateTimeFormat().resolvedOptions().timeZone to get user timezone didn't work with Heroku
         const userZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        return moment(date).tz(`${userZone}`).format('lll');
+        // return moment(date).tz(`${userZone}`).format('lll');
+        return userZone;
     },
     truncate: (str, len) => {
         if(str.length > len && str.length > 0) {
