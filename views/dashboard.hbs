@@ -1,8 +1,3 @@
-<script>  
-    // Testing timezone when running on heroku
-    const USERZONE = console.log('Timezone ' + Intl.DateTimeFormat().resolvedOptions().timeZone);
-</script>
-
 <h6>Dashboard</h6>
 <h3>Welcome {{name}}</h3>
 <p>Here are your scrolls </p>
@@ -22,7 +17,7 @@
                 <tr>
                     <td><a href="/scrolls/{{_id}}">{{title}}</a></td>
                     <td>{{tags}}</td>
-                    <td>{{formatDate createdOn USERZONE}}</td>
+                    <td>{{formatDate createdOn}}</td>
                     <td><span class="dash-status">{{status}}</span></td>
                     <td>
                         <a href="/scrolls/edit/{{_id}}" class="btn btn-float"><i class="fas fa-edit fa-small"></i></a>
