@@ -11,5 +11,8 @@ scrollDates.forEach(sd => {
     // );
     // console.log("Local date: " + localDate);
 
-    console.log(moment.tz(sd.innerHTML, userZone).toString());
+    let UTCDate = sd.innerHTML;
+    let localDate = moment.tz(sd.innerHTML, userZone).formate('lll').toString();
+    sd.innerHTML = localDate;
+    // console.log(moment.tz(sd.innerHTML, userZone).formate('lll').toString());
 });
