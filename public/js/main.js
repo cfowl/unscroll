@@ -3,9 +3,11 @@ let scrollDates = document.querySelectorAll('.scroll-date');
 
 scrollDates.forEach(sd => {
     let UTCDate = sd.innerHTML;
-    let localDateTime = new Date(UTCDate).toLocaleString(
+    console.log("UTC date: " + UTCDate);
+
+    let localDate = new Date(UTCDate).toLocaleString(
         'en-us',
         { year:"numeric", month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" }
     );
-    sd.innerHTML = localDateTime;
+    console.log("Local date: " + localDate);
 });
