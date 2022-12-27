@@ -10,6 +10,15 @@ html, body {
     line-height: 1.5;
 }
 
+footer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+}
+
+
 /* ---------------------------------------------------------------------- */
 /* ------------------------------ CLASSES ------------------------------  */
 
@@ -86,6 +95,10 @@ html, body {
     background-color: #222;
 }
 
+.bg-grey.darken3 {
+    background-color: #424242;
+}
+
 .bg-red.darken1 {
     background-color: #E53935;
 }
@@ -109,10 +122,165 @@ html, body {
     color: white;
 }
 
-footer {
+.hide {
+    display: none;
+}
+
+.grid10 {
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------------------------ IDS ----------------------------------  */
+
+#header-wrap {
+    margin: 0 0 1rem 0;
+    padding: .8rem 1rem .5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo-img {
+    margin: 0 0 .65rem 0;
+    vertical-align: middle;
+    width: 50px;
+}
+
+#logo-hdr {
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: white;
+    z-index: 2;
+}
+
+#logo-hdr:hover {
+    color: bisque;
+}
+
+#add-btn {
+    /* temporary */
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+#add-btn:hover {
+    border: 1px solid bisque;
+    box-shadow: 0 0 5px bisque;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------------------------ NAV TOGGLE ---------------------------  */
+
+.hambars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 44px;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    z-index: 100;
+}
+
+.hambars span,
+.hambars span:before,
+.hambars span:after {
+    content: " ";
+    height: 4px;
+    width: 30px;
+    position: absolute;
+    background-color: white;
+    transition: 150ms ease-in-out;
+    border-radius: 5px;
+}
+
+.hambars:hover > span,
+.hambars:hover > span:before,
+.hambars:hover > span:after {
+    background-color: bisque;
+}
+
+.hambars span:before {
+    top: -10px;
+}
+
+.hambars span:after {
+    top: 10px;
+}
+
+.open span {
+    background: transparent;
+}
+
+.open span:before, .open span:after {
+    top: 0;
+    width: 33.3333333333px;
+}
+
+.open span:before {
+    transform: rotate(-315deg);
+}
+
+.open span:after {
+    transform: rotate(135deg);
+}
+
+.open:hover > span {
+    background-color: transparent;
+}
+
+.open:hover > span:before, .open:hover > span:after {
+    background-color: white;
+}
+
+.navMenu {
+    position: absolute;
+    top: -40vh;
+    right: 0;
+    width: 50vw;
+    height: 40vh;
+    border-radius: 0 0 0 10px;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    transition: 250ms ease-out;
+}
+
+.navMenu ul {
+    list-style-type: none;
+    margin: 0 auto .5rem;
+    padding: 0;
+}
+
+.navMenu a {
     display: block;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 1rem;
+    margin: 1rem 0;
+    font-family: sans-serif;
+    color: transparent;
+    text-decoration: none;
+}
+
+.navMenu.open a {
+    color: white;
+    transition: 215ms step-end;
+}
+
+.navMenu.open {
+    top: 0;
 }
