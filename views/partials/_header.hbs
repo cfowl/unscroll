@@ -1,19 +1,20 @@
-<nav class="grey darken-3">
-    <div class="nav-wrapper container">
-
-
-        <a href="/dashboard" class="brand-logo center">
-            <img id="logo-header" src="/images/scroll-empty.png" alt="Papyrus Scroll Icon">
+<header>  
+    <div id="header-wrap" class="bg-grey darken3">
+        <a href="/dashboard" id="logo-hdr">
+            <img id="logo-img" src="/images/scroll-empty.png" alt="Papyrus Scroll Icon">
             UnScroll
         </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/scrolls">Public Scrolls</a></li>
-            {{#if (contains user "googleId: '104800435635587428982'")}}     {{!-- if chris2fowler(at)gmail.com is the user --}}
-                <li><a href="/users">Users</a></li>
-            {{/if}}
-            <li><a href="/auth/logout">Logout</a></li>
-        </ul>
+        <a href="#" class="hambars white"><span></span></a>
+        <div class="navMenu bg-grey darken3">
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/scrolls">Public Scrolls</a></li>
+                {{!-- if chris2fowler(at)gmail.com is the current user, show users link --}}
+                {{#if (contains user "googleId: '104800435635587428982'")}}
+                    <li><a href="/users">Users</a></li>
+                {{/if}}
+                <li><a href="/auth/logout">Logout</a></li>
+            </ul>
+        </div>
     </div>
-</nav>
+</header>
