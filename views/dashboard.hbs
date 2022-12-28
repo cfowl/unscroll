@@ -1,8 +1,10 @@
-<h6>Dashboard</h6>
-<h3>Welcome {{name}}</h3>
-<p>Here are your scrolls </p>
+{{!-- Dashboard Layout Body --}}
+<p class="right-txt font08">Welcome {{name}}</p>
+<h1>Dashboard</h1>
+
 {{#if scrolls}}
-    <table class="striped">
+    <h3>Here are your scrolls </h3>
+    <table>
         <thead>
             <tr>
                 <th>Title</th>
@@ -31,6 +33,7 @@
             {{/each}}
         </tbody>
     </table>
+
 {{else}}
-    <p>...you have not created any scrolls</p>
+    <p class="font09">You have no scrolls. Click the red button to start.</p>
 {{/if}}

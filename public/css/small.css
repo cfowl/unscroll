@@ -4,14 +4,22 @@
 }
 
 html, body {
-    width: 100vw;
+    width: 100%;
     padding: 0;
     margin: 0;
+}
+
+body {
     line-height: 1.5;
+    font-family: sans-serif;
+}
+
+main {
+    width: 100%;
+    padding: 0 1rem 0;
 }
 
 footer {
-    display: block;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -63,12 +71,20 @@ footer {
     text-align: center;
 }
 
+.right-txt {
+    text-align: right;
+}
+
 .pad-top-4 {
     padding-top: 4rem;
 }
 
 .pad-bot-2 {
     padding-bottom: 2rem;
+}
+
+.pad-right-1 {
+    padding-right: 1rem;
 }
 
 .marg-bot-0 {
@@ -89,6 +105,10 @@ footer {
 
 .font25 {
     font-size: 2.5rem;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .bg-grey.darken4 {
@@ -122,6 +142,10 @@ footer {
     color: white;
 }
 
+.tan {
+    color: bisque;
+}
+
 .hide {
     display: none;
 }
@@ -142,22 +166,29 @@ footer {
     justify-content: space-between;
 }
 
-#logo-img {
-    margin: 0 0 .65rem 0;
-    vertical-align: middle;
-    width: 50px;
-}
-
 #logo-hdr {
+    display: block;
+    margin: 0 auto;
     font-family: sans-serif;
     text-decoration: none;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: white;
     z-index: 2;
 }
 
-#logo-hdr:hover {
-    color: bisque;
+#logo-brand {
+    border-top: 4px groove white;
+    border-bottom: 4px groove white;
+}
+
+#logo-brand:hover {
+    color: white;
+}
+
+#logo-img {
+    margin: 0 0 .40rem 0;
+    vertical-align: middle;
+    width: 50px;
 }
 
 #add-btn {
@@ -193,7 +224,7 @@ footer {
     width: 44px;
     position: absolute;
     top: 20px;
-    right: 15px;
+    right: 10px;
     z-index: 100;
 }
 
@@ -252,10 +283,11 @@ footer {
     position: absolute;
     top: -40vh;
     right: 0;
-    width: 50vw;
-    height: 40vh;
+    width: 180px;
+    height: fit-content;
+    padding: 6rem 0 0 0;
     border-radius: 0 0 0 10px;
-    font-size: 1.5em;
+    font-size: 1.3em;
     display: flex;
     flex-direction: column;
     justify-content: end;
