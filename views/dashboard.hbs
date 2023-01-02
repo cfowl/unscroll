@@ -4,9 +4,9 @@
 
 {{#if scrolls}}
     <h3>Here are your scrolls </h3>
-    <table>
+    <table id="scroll-table">
         <thead>
-            <tr>
+            <tr class="scroll-table-head">
                 <th>Title</th>
                 <th>Tags</th>
                 <th>Date</th>
@@ -16,17 +16,18 @@
         </thead>
         <tbody>
             {{#each scrolls}}
-                <tr>
+                <tr class="scroll-row">
                     <td><a href="/scrolls/{{_id}}">{{title}}</a></td>
                     <td>{{tags}}</td>
                     <td class="scroll-date">{{formatDate createdOn}}</td>
-                    <td><span class="dash-status">{{status}}</span></td>
-                    <td>
-                        <a href="/scrolls/edit/{{_id}}" class="btn btn-float"><i class="fas fa-edit fa-small"></i></a>
-
+                    <td><span class="">{{status}}</span></td>
+                    <td class="flex">
+                        {{!-- Edit --}}
+                        <a href="/scrolls/edit/{{_id}}" class="btn border1 font075 marg-right-1 marg-bot-05"><i class="fas fa-edit fa-small"></i></a>
+                        {{!-- Delete --}}
                         <form action="/scrolls/{{_id}}" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red"><i class="fas fa-trash fa-small"></i></button>
+                            <button type="submit" class="btn red darken1 border1"><i class="fas fa-trash fa-small"></i></button>
                         </form>
                     </td>
                 </tr>
