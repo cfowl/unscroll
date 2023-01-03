@@ -21,15 +21,10 @@ module.exports = {
     stripTags: (input) => {
         return input.replace(/<(?:.|\n)*?>/gm, '');
     },
-    editIcon: (scrollUser, loggedUser, scrollId, floating = true) => {
+    editIcon: (scrollUser, loggedUser, scrollId) => {
         if(scrollUser._id.toString() === loggedUser._id.toString()) {
-            if(floating) {
-                return `<a href="/scrolls/edit/${scrollId}" class="btn-floating halfway-fab blue">
-                <i class="fas fa-edit fa-small"></i></a>`;
-            } else {
-                return `<a href="/scrolls/edit/${scrollId}">
-                <i class="fas fa-edit"></i></a>`;
-            }
+            return `<a href="/scrolls/edit/${scrollId}">
+                <i class="material-icons">edit</i></a>`;
         } else {
             return '';
         }
