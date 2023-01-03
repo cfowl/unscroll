@@ -23,11 +23,11 @@
                     <td><span class="">{{status}}</span></td>
                     <td class="flex">
                         {{!-- Edit --}}
-                        <a href="/scrolls/edit/{{_id}}" class="btn border1 font075 marg-right-1 marg-bot-05"><i class="fas fa-edit fa-small"></i></a>
+                        <a href="/scrolls/edit/{{_id}}" class="btn border1 marg-right-05 marg-bot-05"><i class="material-icons">edit</i></a>
                         {{!-- Delete --}}
                         <form action="/scrolls/{{_id}}" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red darken1 border1"><i class="fas fa-trash-can fa-small"></i></button>
+                            <button type="submit" class="btn red darken1 border1"><i class="material-icons">delete_forever</i></button>
                         </form>
                     </td>
                 </tr>
