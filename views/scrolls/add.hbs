@@ -1,42 +1,37 @@
-<h3>Create a Scroll</h3>
+<h1>Create a Scroll</h1>
 <div class="row">
-    <form action="/scrolls" method="POST" class="col s12">
+    <form action="/scrolls" method="POST" id="add-form" class="col s12">
+        {{!-- Scroll Title --}}
         <div class="row">
-            <div class="input-field">
-                <input type="text" name="title" id="title">
-                <label for="title">Title</label>
-            </div>
+            <label for="title">
+                <input type="text" name="title" id="title" placeholder="Scroll Title">
+            </label>
         </div>
-
+        {{!-- Scroll Status --}}
         <div class="row">
-            <div class="input-field">
-                <select name="status" id="status">
-                    <option value="public" selected>Public</option>
-                    <option value="private">Private</option>
-                </select>
-                <label for="status">Status</label>
-            </div>
+            <label for="private">Private
+                <input type="radio" name="status" id="private" value="private" checked>
+            </label>
+            <label for="public">Public
+                <input type="radio" name="status" id="public" value="public">
+            </label>
         </div>
-
+        {{!-- Scroll Tags --}}
         <div class="row">
-            <div class="input-field">
-                <input type="text" name="tags" id="tags">
-                <label for="tags">Tags (separate by comma)</label>
-            </div>
+            <label for="tags">
+                <input type="text" name="tags" id="tags" placeholder="Tags (separate by comma)">
+            </label>
         </div>
-
+        {{!-- Scroll Body --}}
         <div class="row">
-            <div class="input-field">
-                <h5>Scroll Body:</h5>
-                <textarea name="body" id="body"></textarea>
-            </div>
+            <label>Scroll Body:
+                <textarea name="body" id="scroll-body" placeholder="Unscroll your soul..."></textarea>
+            </label>
         </div>
-
+        {{!-- Save or Cancel Buttons --}}
         <div class="row">
-            <div class="input-field">
-                <input type="submit" value="Save" class="btn">
-                <a href="/dashboard" class="btn orange">Cancel</a>
-            </div>
+            <input type="submit" value="Save" class="btn border1 bg-tan">
+            <a href="/dashboard" class="btn border1 bg-grey darken3 white">Cancel</a>
         </div>
 
     </form>
