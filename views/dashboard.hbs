@@ -8,7 +8,7 @@
         <thead>
             <tr class="scroll-table-head">
                 <th>Title</th>
-                <th>Tags</th>
+                {{!-- <th>Tags</th> --}}
                 <th>Date</th>
                 <th>Status</th>
                 <th></th>
@@ -18,12 +18,12 @@
             {{#each scrolls}}
                 <tr class="scroll-row">
                     <td><a href="/scrolls/{{_id}}">{{title}}</a></td>
-                    <td>{{tags}}</td>
+                    {{!-- <td>{{tags}}</td> --}}
                     <td class="scroll-date">{{formatDate createdOn}}</td>
                     <td><span class="">{{status}}</span></td>
-                    <td class="flex">
+                    <td>
                         {{!-- Edit --}}
-                        <a href="/scrolls/edit/{{_id}}" class="btn border1 marg-right-05 marg-bot-05"><i class="material-icons">edit</i></a>
+                        <a href="/scrolls/edit/{{_id}}" class="btn border1 marg-bot-05"><i class="material-icons">edit</i></a>
                         {{!-- Delete --}}
                         <form action="/scrolls/{{_id}}" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">

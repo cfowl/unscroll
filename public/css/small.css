@@ -96,10 +96,6 @@ footer {
     margin-bottom: .5rem !important;
 }
 
-.marg-right-05 {
-    margin-right: .5rem !important;
-}
-
 .section {
     padding: 1.25rem 0;
 }
@@ -134,11 +130,6 @@ footer {
 
 .bg-red.darken1 {
     background-color: #E53935;
-}
-
-.flex {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .btn {
