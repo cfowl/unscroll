@@ -7,12 +7,10 @@
         <a href="#" class="hambars white"><span></span></a>
         <div class="navMenu bg-grey darken3">
             <ul class="sidenav" id="mobile-demo">
+                <li><a href="/scrolls/add">New Scroll <i class="material-icons">add</i></a></li>
                 <li><a href="/dashboard">Dashboard</a></li>
                 <li><a href="/scrolls">Public Scrolls</a></li>
-                {{!-- if chris2fowler(at)gmail.com is the current user, show users link --}}
-                {{#if (contains user "googleId: '104800435635587428982'")}}
-                    <li><a href="/users">Users</a></li>
-                {{/if}}
+                {{{usersLink user}}}
                 <li><a href="/auth/logout">Logout</a></li>
             </ul>
         </div>

@@ -35,5 +35,12 @@ module.exports = {
     contains: (a, b) => {
         a = a.toString();
         return a.includes(b);
+    },
+    usersLink: (loggedUser) => {
+        // if chris2fowler(at)gmail.com is the current user, then show users link
+        console.log(loggedUser);
+        if(loggedUser.googleId === '104800435635587428982') {
+            return `<li><a href="/users">Users</a></li>`;
+        }
     }
 };
