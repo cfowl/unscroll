@@ -140,7 +140,7 @@ footer {
     text-align: center;
     text-decoration: none;
     border-radius: 4px;
-    box-shadow: 0px 2px 2px #bbb;
+    box-shadow: 2px 2px 2px #bbb;
     cursor: pointer;
 
     display: flex;
@@ -148,7 +148,7 @@ footer {
 }
 
 .btn:hover {
-    box-shadow: 1px 2px 3px #777;
+    box-shadow: 3px 3px 3px #777;
 }
 
 .blue.lighten2 {
@@ -185,8 +185,16 @@ footer {
     background-color: #d2d2d2;
 }
 
+.scroll-row:nth-of-type(even) .btn {
+    box-shadow: 2px 2px 2px #777;
+}
+
 .scroll-row td {
     padding: .5rem .3rem;
+}
+
+.material-icons {
+    font-size: 1.3rem;
 }
 
 /* ---------------------------------------------------------------------- */
