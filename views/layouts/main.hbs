@@ -26,16 +26,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.0/ckeditor.js" integrity="sha512-tjxUra6WjSA8H5+nC7G61SVqEXj1e958LdR4N8BGZeRx9tObm/YhsrUzY6tH4EuHQyZqOyu317pgV7f8YPFoAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // enables the sidenav in materialize.js
-        M.Sidenav.init(document.querySelector('.sidenav'));
-
-        // enables the form select in materialize.js
-        M.FormSelect.init(document.querySelector('#status'));
-
-        // adds text editor to the form textarea
-        CKEDITOR.replace('body', {
-            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+        // Add the CKEDITOR text editor to the form textarea
+        CKEDITOR.replace('scroll-body', {
+            // plugins: 'wysiwygarea, toolbar, basicstyles, link',
         });
+        // Enable spell check
+        CKEDITOR.config.disableNativeSpellChecker = false;
+
     </script>
 
 {{> _footer-main}}
