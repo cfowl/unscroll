@@ -137,7 +137,7 @@ footer {
 }
 
 .bg-tan {
-    background-color: bisque;
+    background-color: burlywood;
 }
 
 .bg-none {
@@ -173,6 +173,10 @@ form:not(#delete-form) .btn {
 
 .white {
     color: white;
+}
+
+.black {
+    color: black;
 }
 
 .tan {
@@ -282,8 +286,8 @@ form:not(#delete-form) .btn {
     padding: .5rem;
     border: 1px solid black;
     border-radius: 5px;
+    -webkit-border-radius: 5px;
     -webkit-appearance: none;
-    -webkit-border-radius: 0;
 }
 
 #add-form .row {
