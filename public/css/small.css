@@ -286,7 +286,9 @@ footer {
     margin: 1rem 1rem 1rem 0;
     padding: 1rem;
     line-height: normal;
+    border-radius: 5px;
     -webkit-border-radius: 5px;
+    appearance: none;
     -webkit-appearance: none;
 }
 
