@@ -3,6 +3,7 @@ const router = express.Router();
 const { ensureAuth } = require('../middleware/auth');
 
 const Scroll = require('../models/Scroll');
+const User = require('../models/User');
 
 // @desc    Show add page
 // @route   GET /scrolls/add
@@ -123,7 +124,10 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
           .populate('user')
           .lean();
 
-        res.render('scrolls/index', { scrolls });
+        const user = await User.findById(req.params.userId)
+          .lean();
+
+        res.render('scrolls/index', { scrolls, user });
     } catch (err) {
         console.error(err);
         res.render('error/500');

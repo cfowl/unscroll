@@ -69,7 +69,7 @@ footer {
 }
 
 .center-block {
-    display: block;
+    display: block !important;
     margin: 0 auto;
 }
 
@@ -258,10 +258,6 @@ footer {
 .user-item {
     margin: 0 0 2rem 0;
     width: fit-content;
-}
-
-.scroll-title {
-    margin: 0;
 }
 
 /* ---------------------------------------------------------------------- */

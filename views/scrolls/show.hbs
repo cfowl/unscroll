@@ -1,9 +1,11 @@
 {{!-- Shows ONE scroll --}}
 
+<h1 class="no-marg">Scroll</h1>
+
 <div class="card pad-0_5">
-    <h1 class="scroll-title">{{scroll.title}}
+    <h2 class="no-marg">{{scroll.title}}
         <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
-    </h1>
+    </h2>
     <span class="italic font08">
         by {{scroll.user.displayName}},
         <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
@@ -13,7 +15,7 @@
 </div>
 
 <a href="/scrolls/user/{{scroll.user._id}}" class="wide-fit center-block no-under">
-    <figure class="center-txt sma">
+    <figure class="center-txt">
         <img src="{{scroll.user.image}}" class="circle">
         <figcaption class="btn block bg-blue lighten2 white">More from {{scroll.user.firstName}}</figcaption>
     </figure>
