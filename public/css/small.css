@@ -52,16 +52,12 @@ footer {
     border: 2px solid !important;
 }
 
+.border-top1 {
+    border-top: 1px inset;
+}
+
 .no-under {
     text-decoration: none;
-}
-
-.no-marg {
-    margin: 0;
-}
-
-.marg-top-1 {
-    margin-top: 1rem;
 }
 
 .divider {
@@ -72,12 +68,33 @@ footer {
     margin: 0 auto;
 }
 
+.center-block {
+    display: block;
+    margin: 0 auto;
+}
+
+.block {
+    display: block !important;
+}
+
+.circle {
+    border-radius: 100%;
+}
+
+.float-r {
+    float: right;
+}
+
 .center-txt { 
     text-align: center;
 }
 
 .right-txt {
     text-align: right;
+}
+
+.pad-0_5 {
+    padding: .5rem;
 }
 
 .pad-top-4 {
@@ -88,8 +105,28 @@ footer {
     padding-bottom: 2rem;
 }
 
+.pad-right-0_5 {
+    padding-right: .5rem;
+}
+
 .pad-right-1 {
     padding-right: 1rem;
+}
+
+.no-marg {
+    margin: 0;
+}
+
+.marg-top-1 {
+    margin-top: 1rem;
+}
+
+.marg-top-0_5 {
+    margin-top: .5rem;
+}
+
+.marg-right-0_5 {
+    margin-right: .5rem;
 }
 
 .marg-bot-0 {
@@ -124,6 +161,14 @@ footer {
     font-weight: bold;
 }
 
+.italic {
+    font-style: italic;
+}
+
+.wide-fit {
+    width: fit-content;
+}
+
 .bg-grey.darken4 {
     background-color: #222;
 }
@@ -134,6 +179,10 @@ footer {
 
 .bg-red.darken1 {
     background-color: #E53935;
+}
+
+.bg-blue.lighten2 {
+    background-color: dodgerblue;
 }
 
 .bg-tan {
@@ -204,6 +253,15 @@ footer {
 
 .scroll-row td {
     padding: .5rem .3rem;
+}
+
+.user-item {
+    margin: 0 0 2rem 0;
+    width: fit-content;
+}
+
+.scroll-title {
+    margin: 0;
 }
 
 /* ---------------------------------------------------------------------- */

@@ -1,26 +1,20 @@
 {{!-- Shows ONE scroll --}}
-<div class="row">
-    <div class="col s12 m8">
-        <h3>{{scroll.title}}
-            <small>{{{editIcon scroll.user user scroll._id}}}</small>
-        </h3>
-        <div class="card scroll">
-            <div class="card-content">
-                <span class="card-title scroll-date">{{formatDate scroll.createdOn}}</span>
-                {{{scroll.body}}}
-                Tags: {{scroll.tags}}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4">
-        <div class="card center-align">
-            <div class="card-content">
-                <span class="card-title">{{scroll.user.displayName}}</span>
-                <img src="{{scroll.user.image}}" class="circle responsive-img img-small">
-            </div>
-            <div class="card-action">
-                <a href="/scrolls/user/{{scroll.user._id}}">More From {{scroll.user.firstName}}</a>
-            </div>
-        </div>
-    </div>
+
+<div class="card pad-0_5">
+    <h1 class="scroll-title">{{scroll.title}}
+        <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
+    </h1>
+    <span class="italic font08">
+        by {{scroll.user.displayName}},
+        <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
+    </span>
+    <div class="border-top1">{{{scroll.body}}}</div>
+    <span class="italic">Tags: {{scroll.tags}}</span>
 </div>
+
+<a href="/scrolls/user/{{scroll.user._id}}" class="wide-fit center-block no-under">
+    <figure class="center-txt sma">
+        <img src="{{scroll.user.image}}" class="circle">
+        <figcaption class="btn block bg-blue lighten2 white">More from {{scroll.user.firstName}}</figcaption>
+    </figure>
+</a>

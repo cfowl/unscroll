@@ -24,7 +24,7 @@ module.exports = {
     editIcon: (scrollUser, loggedUser, scrollId) => {
         if(scrollUser._id.toString() === loggedUser._id.toString()) {
             return `<a href="/scrolls/edit/${scrollId}">
-                <i class="material-icons">edit</i></a>`;
+                <i class="material-icons bg-blue lighten2 white pad-0_5 circle">edit</i></a>`;
         } else {
             return '';
         }
