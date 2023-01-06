@@ -1,51 +1,42 @@
-<h3>Edit Scroll</h3>
-<div class="row">
-    <form action="/scrolls/{{scroll._id}}" method="POST" class="col s12">
-        {{!-- overrides the POST method --}}
-        <input type="hidden" name="_method" value="PUT">
+<h1>Edit Scroll</h1>
 
-        <div class="row">
-            <div class="input-field">
-                <input type="text" name="title" id="title" value="{{scroll.title}}">
-                <label for="title">Title</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field">
-                <select name="status" id="status">
-                    {{#if (equals scroll.status 'public')}}
-                        <option value="public" selected>Public</option>
-                        <option value="private">Private</option>
-                    {{else}}
-                        <option value="public">Public</option>
-                        <option value="private" selected>Private</option>
-                    {{/if}}
-                </select>
-                <label for="status">Status</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field">
-                <input type="text" name="tags" id="tags" value="{{scroll.tags}}">
-                <label for="tags">Tags (separated by comma)</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field">
-                <h5>Scroll Body:</h5>
-                <textarea name="body" id="body">{{scroll.body}}</textarea>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field">
-                <input type="submit" value="Save" class="btn">
-                <a href="/dashboard" class="btn orange">Cancel</a>
-            </div>
-        </div>
-
-    </form>
-</div>
+<form action="/scrolls/{{scroll._id}}" method="POST" id="add_edit-form">
+    {{!-- overrides the POST method --}}
+    <input type="hidden" name="_method" value="PUT">
+    {{!-- Scroll Title --}}
+    <div class="row">
+        <label for="title">
+            <input type="text" name="title" id="title" value="{{scroll.title}}">
+        </label>
+    </div>
+    {{!-- Scroll Status --}}
+    <div class="row">
+        <label for="private">Private
+            <input type="radio" name="status" id="private" value="private"
+            {{#if (equals scroll.status 'private')}}checked{{/if}}
+            >
+        </label>
+        <label for="public">Public
+            <input type="radio" name="status" id="public" value="public"
+            {{#if (equals scroll.status 'public')}}checked{{/if}}
+            >
+        </label>
+    </div>
+    {{!-- Scroll Tags --}}
+    <div class="row">
+        <label for="tags">
+            <input type="text" name="tags" id="tags" value="{{scroll.tags}}">
+        </label>
+    </div>
+    {{!-- Scroll Body --}}
+    <div class="row">
+        <label>Scroll Body:
+            <textarea name="body" id="scroll-body">{{scroll.body}}</textarea>
+        </label>
+    </div>
+    {{!-- Save or Cancel Buttons --}}
+    <div class="row">
+        <input type="submit" value="Save" class="btn border1 bg-tan black">
+        <a href="/dashboard" class="btn border1 bg-grey darken3 white">Cancel</a>
+    </div>
+</form>

@@ -1,38 +1,36 @@
 <h1>Create a Scroll</h1>
-<div class="row">
-    <form action="/scrolls" method="POST" id="add-form" class="col s12">
-        {{!-- Scroll Title --}}
-        <div class="row">
-            <label for="title">
-                <input type="text" name="title" id="title" placeholder="Scroll Title">
-            </label>
-        </div>
-        {{!-- Scroll Status --}}
-        <div class="row">
-            <label for="private">Private
-                <input type="radio" name="status" id="private" value="private" checked>
-            </label>
-            <label for="public">Public
-                <input type="radio" name="status" id="public" value="public">
-            </label>
-        </div>
-        {{!-- Scroll Tags --}}
-        <div class="row">
-            <label for="tags">
-                <input type="text" name="tags" id="tags" placeholder="Tags (separate by comma)">
-            </label>
-        </div>
-        {{!-- Scroll Body --}}
-        <div class="row">
-            <label>Scroll Body:
-                <textarea name="body" id="scroll-body" placeholder="Unscroll your soul..."></textarea>
-            </label>
-        </div>
-        {{!-- Save or Cancel Buttons --}}
-        <div class="row">
-            <input type="submit" value="Save" class="btn border1 bg-tan black">
-            <a href="/dashboard" class="btn border1 bg-grey darken3 white">Cancel</a>
-        </div>
 
-    </form>
-</div>
+<form action="/scrolls" method="POST" id="add-form">
+    {{!-- Scroll Title --}}
+    <div class="row">
+        <label for="title">
+            <input type="text" name="title" id="title" placeholder="Scroll Title">
+        </label>
+    </div>
+    {{!-- Scroll Status --}}
+    <div class="row">
+        <label for="private">Private
+            <input type="radio" name="status" id="private" value="private" checked>
+        </label>
+        <label for="public">Public
+            <input type="radio" name="status" id="public" value="public">
+        </label>
+    </div>
+    {{!-- Scroll Tags --}}
+    <div class="row">
+        <label for="tags">
+            <input type="text" name="tags" id="tags" placeholder="Tags (separate by comma)">
+        </label>
+    </div>
+    {{!-- Scroll Body --}}
+    <div class="row">
+        <label>Scroll Body:
+            <textarea name="body" id="scroll-body"></textarea>
+        </label>
+    </div>
+    {{!-- Save or Cancel Buttons --}}
+    <div class="row">
+        <input type="submit" value="Save" class="btn border1 bg-tan black">
+        <a href="/dashboard" class="btn border1 bg-grey darken3 white">Cancel</a>
+    </div>
+</form>

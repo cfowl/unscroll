@@ -3,9 +3,6 @@ const momentTimezone = require('moment-timezone');
 
 module.exports = {
     formatDate: (date) => {
-        // using Intl.DateTimeFormat().resolvedOptions().timeZone to get user timezone didn't work with Heroku
-        // const userZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        // return moment(date).tz('America/Denver').format('lll z');
         return moment(date).format('lll');
     },
     truncate: (str, len) => {

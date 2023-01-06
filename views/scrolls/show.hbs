@@ -1,11 +1,9 @@
 {{!-- Shows ONE scroll --}}
 
-<h1 class="no-marg">Scroll</h1>
+<h1 class="no-marg">{{scroll.title}}</h1>
 
-<div class="card pad-0_5">
-    <h2 class="no-marg">{{scroll.title}}
-        <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
-    </h2>
+<div class="card pad-0_5 bg-tan lighten3">
+    <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
     <span class="italic font08">
         by {{scroll.user.displayName}},
         <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
