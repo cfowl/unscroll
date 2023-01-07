@@ -8,8 +8,8 @@
         <thead>
             <tr class="scroll-table-head">
                 <th>Title</th>
-                {{!-- <th>Tags</th> --}}
                 <th>Date</th>
+                <th class="hide-small">Tags</th>
                 <th>Status</th>
                 <th></th>
             </tr>
@@ -18,8 +18,8 @@
             {{#each scrolls}}
                 <tr class="scroll-row">
                     <td><a href="/scrolls/{{_id}}">{{title}}</a></td>
-                    {{!-- <td>{{tags}}</td> --}}
                     <td class="scroll-date">{{formatDate createdOn}}</td>
+                    <td class="hide-small">{{tags}}</td>
                     <td><span class="">{{status}}</span></td>
                     <td class="center-txt flex-large">
                         {{!-- Edit Button --}}
