@@ -11,6 +11,12 @@ module.exports = {
             new_str = str.substr(0, len);
             new_str = str.substr(0, new_str.lastIndexOf(' '));
             new_str = new_str.length > 0 ? new_str : str.substr(0, len);
+            // make sure empty new lines count as string of text
+            if(new_str.split('<p>').length >= 6) new_str = new_str.substring(0, 125);
+            // remove <strong> and <em> to avoid problems with no closing tags
+            // while(new_str.includes('<strong>')) {
+            //     new_str.replace('<strong>', '');
+            // }
             return new_str + '...';
         }
         return str;
