@@ -1,19 +1,21 @@
 {{!-- Shows ALL PUBLIC scrolls --}}
 <h1 class="no-marg">Scrolls</h1>
-{{#each scrolls}}
-    <div class="card pad-0_5 bg-tan lighten3">
-        <h2 class="no-marg">{{{title}}}
-            <span class="float-r">{{{editIcon user ../user _id}}}</span>
-        </h2>
-        <span class="italic font09">
-            by {{{user.displayName}}},
-            <span class="scroll-date">{{formatDate createdOn}}</span>
-        </span>
-        <p>{{{truncate body 250}}}</p>
-        <span class="italic">Tags: {{{tags}}}</span>
-
-        <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-blue lighten2 white marg-top-1 no-under">Read More</a>
-    </div>
-{{else}}
-    <p>{{user.displayName}} has no scrolls.</p>
-{{/each}}
+<div class="flex-large">
+    {{#each scrolls}}
+        <div class="card pad-0_5 bg-tan lighten3">
+            <h2 class="no-marg">{{{title}}}
+                <span class="float-r">{{{editIcon user ../user _id}}}</span>
+            </h2>
+            <span class="italic font08">
+                by {{{user.displayName}}},
+                <span class="scroll-date">{{formatDate createdOn}}</span>
+            </span>
+            <p>{{{truncate body 250}}}</p>
+            {{#if tags}}<span class="italic font09">Tags: {{{tags}}}</span>{{/if}}
+    
+            <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-blue lighten2 white marg-top-1 no-under">Read More</a>
+        </div>
+    {{else}}
+        <p>{{user.displayName}} has no scrolls.</p>
+    {{/each}}
+</div>

@@ -4,12 +4,12 @@
 
 <div class="card pad-0_5 bg-tan lighten3">
     <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
-    <span class="italic font08">
+    <span class="italic font08 border-bot1">
         by {{scroll.user.displayName}},
         <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
     </span>
-    <div class="border-top1">{{{scroll.body}}}</div>
-    <span class="italic">Tags: {{scroll.tags}}</span>
+    <div>{{{scroll.body}}}</div>
+    {{#if tags}}<span class="italic">Tags: {{scroll.tags}}</span>{{/if}}
 </div>
 
 <a href="/scrolls/user/{{scroll.user._id}}" class="wide-fit center-block no-under">

@@ -1,0 +1,22 @@
+@media only screen and (min-width: 38em) {
+    .flex-large {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+
+    .flex-large .card {
+        margin: 0 2rem 2rem 0;
+        max-width: 300px;
+        height: fit-content;
+    }
+
+    .card {
+        border-radius: 1rem;
+    }
+
+    .dash-btn {
+        height: 48px;
+        margin: 0 1rem 0 0;
+    }
+}

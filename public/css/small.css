@@ -52,8 +52,8 @@ footer {
     border: 2px solid !important;
 }
 
-.border-top1 {
-    border-top: 1px inset;
+.border-bot1 {
+    border-bottom: 1px groove;
 }
 
 .no-under {
@@ -134,7 +134,7 @@ footer {
 }
 
 .marg-bot-05 {
-    margin-bottom: .5rem !important;
+    margin-bottom: .5rem;
 }
 
 .section {
