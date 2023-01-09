@@ -182,11 +182,11 @@ footer {
 }
 
 .bg-red.darken1 {
-    background-color: #E53935;
+    background-color: #e53935;
 }
 
 .bg-blue.lighten2 {
-    background-color: dodgerblue;
+    background-color: #2d00f7;
 }
 
 .bg-tan {
@@ -256,7 +256,7 @@ footer {
 }
 
 .scroll-row:nth-of-type(even) {
-    background-color: #d2d2d2;
+    background-color: #ddd;
 }
 
 .scroll-row:nth-of-type(even) .btn {
@@ -338,7 +338,7 @@ footer {
 
 #scroll-table a {
     text-decoration: none;
-    color: dodgerblue;
+    color: #2d00f7;
 }
 
 #add_edit-form .row {
