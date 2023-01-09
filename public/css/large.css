@@ -3,6 +3,11 @@
     .hide-small {
         display: initial;
     }
+    
+    .table-cell {
+        display: table-cell;
+    }
+    
     .flex-large {
         display: flex;
         flex-wrap: wrap;
