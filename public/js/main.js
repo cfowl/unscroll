@@ -12,3 +12,8 @@ hambars.addEventListener('click', () => {
     hambars.classList.toggle('open');
     navMenu.classList.toggle('open');
 });
+
+// copyright date
+let currentYear = new Date().getFullYear();
+let yearDisplay = document.querySelector('#copyright-year');
+yearDisplay.innerHTML = currentYear;
