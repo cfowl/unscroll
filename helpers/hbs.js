@@ -25,6 +25,10 @@ module.exports = {
         return input.replace(/<(?:.|\n)*?>/gm, '');
     },
     editIcon: (scrollUser, loggedUser, scrollId) => {
+        if(loggedUser === null) {
+            // guests will be null
+            return '';
+        }
         if(scrollUser._id.toString() === loggedUser._id.toString()) {
             return `<a href="/scrolls/edit/${scrollId}">
                 <i class="material-icons bg-blue lighten2 white pad-0_5 circle">edit</i></a>`;
@@ -40,10 +44,15 @@ module.exports = {
         return a.includes(b);
     },
     usersLink: (loggedUser) => {
-        // if chris2fowler(at)gmail.com is the current user, then show users link
-        console.log(loggedUser);
+        if(loggedUser === null) {
+            // guests will be null
+            return;
+        }
         if(loggedUser.googleId === '104800435635587428982') {
+            // if chris2fowler(at)gmail.com is the current user, then show users link
             return `<li><a href="/users">Users</a></li>`;
+        } else {
+            return;
         }
     }
 };

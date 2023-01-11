@@ -42,7 +42,8 @@ router.get('/', ensureAuth, async (req, res) => {
 
 // @desc    Show one scroll
 // @route   GET /scrolls/:id
-router.get('/:id', ensureAuth, async (req, res) => {
+// guests and authorized users can access this route, therefore no ensureAuth
+router.get('/:id', async (req, res) => {
     try {
         const scroll = await Scroll.findById(req.params.id)
           .populate('user')
