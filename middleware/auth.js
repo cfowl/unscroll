@@ -6,9 +6,6 @@ module.exports = {
         }
         else {
             // otherwise, redirect to login page
-            req.session.requestedURL = req.originalUrl;
-            req.session.save();
-            console.log('------- Requested URL = ' + req.session.requestedURL + ' -------');
             res.redirect('/');
         }
     },

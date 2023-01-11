@@ -9,12 +9,8 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 // @desc    Google Auth callback
 // @route   GET /auth/google/callback
 router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
-    // res.redirect('/dashboard');
-    let requestedURL = req.session.requestedURL;
-    console.log('******* Requested URL = ' + req.session.requestedURL + ' *******');
-    req.session.requestedURL = null;
-    delete req.session.requestedURL;
-    res.redirect(requestedURL || '/dashboard');
+    // redirect to dashboard after logging in
+    res.redirect('/dashboard');
 });
 
 // @desc    Logout user
