@@ -4,7 +4,7 @@
     {{#unless (usersMatch scroll.user user)}}
         {{!-- and if the scroll user is not the logged user, don't show the scroll --}}
         <h1 class="no-marg">Private Scroll</h1>
-        <p>You are not authorized to view this scroll.</p>
+        <p>You are not authorized to view this scroll. If this is your scroll, please log in.</p>
         <a href="/dashboard" class="btn bg-blue lighten2 white">Go to Dashboard</a>
     {{else}}
         {{!-- otherwise, show the scroll --}}
