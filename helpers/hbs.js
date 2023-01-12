@@ -26,18 +26,23 @@ module.exports = {
     },
     editIcon: (scrollUser, loggedUser, scrollId) => {
         if(loggedUser === null) {
-            // guests will be null
+            // guests will be null, don't show anything
             return '';
         }
         if(scrollUser._id.toString() === loggedUser._id.toString()) {
+            // scroll user and logged user match, so show the editIcon
             return `<a href="/scrolls/edit/${scrollId}">
                 <i class="material-icons bg-blue lighten2 white pad-0_5 circle">edit</i></a>`;
         } else {
+            // scroll user and logged user don't match, don't show anything
             return '';
         }
     },
     equals: (a, b) => {
         return a === b;
+    },
+    notEqual: (a, b) => {
+        return a != b;
     },
     contains: (a, b) => {
         a = a.toString();
@@ -45,14 +50,28 @@ module.exports = {
     },
     usersLink: (loggedUser) => {
         if(loggedUser === null) {
-            // guests will be null
-            return;
+            // guests will be null, don't show anything
+            return '';
         }
         if(loggedUser.googleId === '104800435635587428982') {
-            // if chris2fowler(at)gmail.com is the current user, then show users link
+            // if logged user is chris2fowler@gmail.com, show users link
             return `<li><a href="/users">Users</a></li>`;
         } else {
-            return;
+            // logged user is not authorized, don't show anything
+            return '';
+        }
+    },
+    usersMatch: (scrollUser, loggedUser) => {
+        if(loggedUser === null) {
+            // guests will be null
+            return false;
+        }
+        if(scrollUser._id.toString() === loggedUser._id.toString()) {
+            // scroll user and logged user match
+            return true;
+        } else {
+            // scroll user and logged user don't match
+            return false;
         }
     }
 };
