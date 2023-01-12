@@ -1,13 +1,13 @@
 {{!-- Shows ONE scroll --}}
 {{#if (equals scroll.status 'private')}}
     {{!-- if the scroll is private --}}
-    {{#unless (usersMatch scroll.user user)}}
+    {{#if (not (usersMatch scroll.user user))}}
         {{!-- and if the scroll user is not the logged user, don't show the scroll --}}
         <h1 class="no-marg">Private Scroll</h1>
         <p>You are not authorized to view this scroll. If this is your scroll, please log in.</p>
         <a href="/dashboard" class="btn bg-blue lighten2 white">Go to Dashboard</a>
     {{else}}
-        {{!-- otherwise, show the scroll --}}
+        {{!-- scroll is private and logged user is the author, show the scroll --}}
         <h1 class="no-marg">{{scroll.title}}</h1>
 
         <div class="card pad-0_5 bg-tan lighten3">
@@ -26,5 +26,25 @@
                 <figcaption class="btn block bg-blue lighten2 white">More from {{scroll.user.firstName}}</figcaption>
             </figure>
         </a>
-    {{/unless}}
+    {{/if}}
+{{else}}
+    {{!-- scroll is public, show the scroll --}}
+    <h1 class="no-marg">{{scroll.title}}</h1>
+
+    <div class="card pad-0_5 bg-tan lighten3">
+        <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
+        <span class="italic font08 border-bot1">
+            by {{scroll.user.displayName}},
+            <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
+        </span>
+        <div>{{{scroll.body}}}</div>
+        {{#if tags}}<span class="italic">Tags: {{scroll.tags}}</span>{{/if}}
+    </div>
+
+    <a href="/scrolls/user/{{scroll.user._id}}" class="wide-fit center-block no-under">
+        <figure class="center-txt">
+            <img src="{{scroll.user.image}}" class="circle">
+            <figcaption class="btn block bg-blue lighten2 white">More from {{scroll.user.firstName}}</figcaption>
+        </figure>
+    </a>
 {{/if}}
