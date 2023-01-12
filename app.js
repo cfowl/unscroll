@@ -39,7 +39,7 @@ if(process.env.NODE_ENV === "development") {
 }
 
 // Handelbars helpers
-const { formatDate, stripTags, truncate, editIcon, equals, contains, usersLink, usersMatch } = require('./helpers/hbs');
+const { formatDate, stripTags, truncate, editIcon, equals, contains, usersLink, usersMatch, logOutInLink } = require('./helpers/hbs');
 
 // Handlebars
 app.engine('hbs',
@@ -52,7 +52,8 @@ app.engine('hbs',
             equals,
             contains,
             usersLink,
-            usersMatch
+            usersMatch,
+            logOutInLink
         },
         defaultLayout: 'main',
         extname: '.hbs'

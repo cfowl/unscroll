@@ -73,5 +73,14 @@ module.exports = {
             // scroll user and logged user don't match
             return false;
         }
+    },
+    logOutInLink: (loggedUser) => {
+        if(loggedUser === null) {
+            // guests will be null, show login link
+            return `<li><a href="/">Log In</a></li>`;
+        } else {
+            // user logged in, show logout link
+            return `<li><a href="/auth/logout">Log Out</a></li>`;
+        }
     }
 };
