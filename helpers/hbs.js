@@ -82,5 +82,13 @@ module.exports = {
             // user logged in, show logout link
             return `<li><a href="/auth/logout">Log Out</a></li>`;
         }
+    },
+    not: (result) => {
+        // switcth true/false like ! operator
+        if(result === true) {
+            return false;
+        } else {
+            return true;
+        }
     }
 };
