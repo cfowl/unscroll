@@ -3,6 +3,15 @@
     .hide-small {
         display: initial;
     }
+
+    .pad-4-large {
+        padding: 4rem;
+    }
+
+    #main-body {
+        margin: 0 auto 6rem;
+        max-width: 80rem;
+    }
     
     .table-cell {
         display: table-cell;
