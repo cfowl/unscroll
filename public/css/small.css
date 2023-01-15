@@ -1,3 +1,60 @@
+/* ---------------------------------------------------------------------- */
+/* ------------------------------ COLORS & FONTS -----------------------  */
+
+/* https://coolors.co/9b1d20-003459-fdf5e6-1f2f16-00a8e8 */
+
+:root {
+    --prussian-blue: #003459;
+    --carolina-blue: #00A8E8;
+    --ruby-red: #9b1d20;
+    --old-lace: #FDF5E6;
+    --phthalo-green: #1F2F16;
+}
+
+.black {
+    color: var(--phthalo-green);
+}
+
+.dark-blue {
+    color: var(--prussian-blue);
+}
+
+.light-blue {
+    color: var(--carolina-blue);
+}
+
+.red {
+    color: var(--ruby-red);
+}
+
+.tan {
+    color: var(--old-lace);
+}
+
+.bg-black {
+    background-color: var(--phthalo-green);
+}
+
+.bg-dark-blue {
+    background-color: var(--prussian-blue);
+}
+
+.bg-light-blue {
+    background-color: var(--carolina-blue);
+}
+
+.bg-red {
+    background-color: var(--ruby-red);
+}
+
+.bg-tan {
+    background-color: var(--old-lace);
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------------------------ ELEMENTS -----------------------------  */
+
 *, *:before, *:after {
     -webkit-box-sizing: inherit;
     box-sizing: border-box;
@@ -101,6 +158,10 @@ footer {
     padding: .5rem;
 }
 
+.pad-1 {
+    padding: 1rem;
+}
+
 .pad-top-4 {
     padding-top: 4rem;
 }
@@ -119,6 +180,10 @@ footer {
 
 .no-marg {
     margin: 0;
+}
+
+.marg-left-0_5 {
+    margin-left: .5rem;
 }
 
 .marg-top-1 {
@@ -173,32 +238,8 @@ footer {
     width: fit-content;
 }
 
-.bg-grey.darken4 {
-    background-color: #222;
-}
-
-.bg-grey.darken3 {
-    background-color: #424242;
-}
-
-.bg-red.darken1 {
-    background-color: #e53935;
-}
-
-.bg-blue.lighten2 {
-    background-color: #2d00f7;
-}
-
-.bg-tan {
-    background-color: burlywood;
-}
-
-.bg-tan.lighten2 {
-    background-color: antiquewhite;
-}
-
-.bg-tan.lighten3 {
-    background-color: oldlace;
+.white {
+    color: white;
 }
 
 .bg-none {
@@ -221,26 +262,6 @@ footer {
     box-shadow: 3px 3px 3px #777;
 }
 
-.blue.lighten2 {
-    color: dodgerblue;
-}
-
-.white {
-    color: white;
-}
-
-.black {
-    color: black;
-}
-
-.tan {
-    color: bisque;
-}
-
-.red.darken1 {
-    color: #E53935;
-}
-
 .hide {
     display: none;
 }
@@ -250,17 +271,8 @@ footer {
     grid-template-columns: 10fr 1fr;
 }
 
-.scroll-table-head {
-    background-color: #222;
-    color: white;
-}
-
 .scroll-row:nth-of-type(even) {
-    background-color: #ddd;
-}
-
-.scroll-row:nth-of-type(even) .btn {
-    box-shadow: 2px 2px 2px #777;
+    background-color: var(--old-lace);
 }
 
 .scroll-row td {
@@ -288,17 +300,16 @@ footer {
     font-family: sans-serif;
     text-decoration: none;
     font-size: 2rem;
-    color: white;
     z-index: 2;
 }
 
 #logo-brand {
-    border-top: 4px groove white;
-    border-bottom: 4px groove white;
+    border-top: 4px groove var(--old-lace);
+    border-bottom: 4px groove var(--old-lace);
 }
 
 #logo-brand:hover {
-    color: white;
+    color: var(--carolina-blue);
 }
 
 #logo-img {
@@ -308,7 +319,6 @@ footer {
 }
 
 #add-btn {
-    /* temporary */
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -318,14 +328,13 @@ footer {
     display: grid;
     justify-content: center;
     align-content: center;
-    color: white;
     font-size: 1.4rem;
     text-decoration: none;
 }
 
 #add-btn:hover {
-    border: 1px solid bisque;
-    box-shadow: 0 0 5px bisque;
+    background-color: var(--carolina-blue);
+    color: var(--old-lace);
 }
 
 #scroll-table {
@@ -336,18 +345,13 @@ footer {
     hyphens: auto;
 }
 
-#scroll-table a {
-    text-decoration: none;
-    color: #2d00f7;
-}
-
 #add_edit-form .row {
     margin: 0 0 .75rem 0;
 }
 
 #add_edit-form input {
     padding: .5rem;
-    border: 1px solid black;
+    border: 1px solid var(--phthalo-green);
     border-radius: 5px;
 }
 
@@ -389,7 +393,7 @@ footer {
     height: 4px;
     width: 30px;
     position: absolute;
-    background-color: white;
+    background-color: var(--old-lace);
     transition: 150ms ease-in-out;
     border-radius: 5px;
 }
@@ -397,7 +401,7 @@ footer {
 .hambars:hover > span,
 .hambars:hover > span:before,
 .hambars:hover > span:after {
-    background-color: bisque;
+    background-color: var(--carolina-blue);
 }
 
 .hambars span:before {
@@ -429,10 +433,6 @@ footer {
     background-color: transparent;
 }
 
-.open:hover > span:before, .open:hover > span:after {
-    background-color: white;
-}
-
 .navMenu {
     position: absolute;
     top: -80vh;
@@ -446,7 +446,6 @@ footer {
     flex-direction: column;
     justify-content: end;
     transition: 250ms ease-out;
-    opacity: 98%;
 }
 
 .navMenu ul {
@@ -463,11 +462,16 @@ footer {
     text-decoration: none;
 }
 
-.navMenu.open a {
-    color: white;
-    transition: 215ms step-end;
-}
-
 .navMenu.open {
     top: 0;
+}
+
+.navMenu.open a {
+    color: var(--old-lace);
+    transition: 215ms color step-end;
+}
+
+.navMenu.open a:hover {
+    color: var(--carolina-blue);
+    transition: none;
 }

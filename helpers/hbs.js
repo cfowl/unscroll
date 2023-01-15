@@ -32,7 +32,7 @@ module.exports = {
         if(scrollUser._id.toString() === loggedUser._id.toString()) {
             // scroll user and logged user match, so show the editIcon
             return `<a href="/scrolls/edit/${scrollId}">
-                <i class="material-icons bg-blue lighten2 white pad-0_5 circle">edit</i></a>`;
+                <i class="material-icons bg-red tan marg-left-0_5 pad-0_5 circle">edit</i></a>`;
         } else {
             // scroll user and logged user don't match, don't show anything
             return '';
