@@ -6,7 +6,7 @@
     <h2>Here are your scrolls </h2>
     <table id="scroll-table">
         <thead>
-            <tr class="bg-black tan">
+            <tr class="bg-color3 white">
                 <th>Title</th>
                 <th>Date</th>
                 <th class="hide-small table-cell">Tags</th>
@@ -17,17 +17,17 @@
         <tbody>
             {{#each scrolls}}
                 <tr class="scroll-row">
-                    <td><a href="/scrolls/{{_id}}" class="dark-blue">{{title}}</a></td>
+                    <td><a href="/scrolls/{{_id}}" class="color2">{{title}}</a></td>
                     <td class="scroll-date">{{formatDate createdOn}}</td>
                     <td class="hide-small">{{tags}}</td>
                     <td><span>{{status}}</span></td>
                     <td class="center-txt flex-large">
                         {{!-- Edit Button --}}
-                        <a href="/scrolls/edit/{{_id}}" class="btn dark-blue border2 bg-none marg-bot-05 dash-btn"><i class="material-icons">edit</i></a>
+                        <a href="/scrolls/edit/{{_id}}" class="btn color3 border2 bg-none marg-bot-05 dash-btn"><i class="material-icons">edit</i></a>
                         {{!-- Delete Button --}}
                         <form action="/scrolls/{{_id}}" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red border2 bg-none dash-btn"><i class="material-icons">delete_forever</i></button>
+                            <button type="submit" class="btn color5 border2 bg-none dash-btn"><i class="material-icons">delete_forever</i></button>
                         </form>
                     </td>
                 </tr>
@@ -36,5 +36,5 @@
     </table>
 
 {{else}}
-    <p class="font09">You have no scrolls. Click the tan button to start.</p>
+    <p class="font09">You have no scrolls. Click the + button to start.</p>
 {{/if}}

@@ -1,54 +1,63 @@
 /* ---------------------------------------------------------------------- */
 /* ------------------------------ COLORS & FONTS -----------------------  */
 
-/* https://coolors.co/9b1d20-003459-fdf5e6-1f2f16-00a8e8 */
+/* 
+    https://coolors.co/9b1d20-003459-fdf5e6-1f2f16-00a8e8
+    https://coolors.co/b6465f-c5cbd3-054a91-000000-ea8c55
+*/
 
 :root {
-    --prussian-blue: #003459;
-    --carolina-blue: #00A8E8;
-    --ruby-red: #9b1d20;
-    --old-lace: #FDF5E6;
-    --phthalo-green: #1F2F16;
+    /* --color1: #1F2F16;
+    --color2: #003459;
+    --color3: #00A8E8;
+    --color4: #FDF5E6;
+    --color5: #9b1d20; */
+
+    --color1: #EA8C55;
+    --color2: #000500;
+    --color3: #054A91;
+    --color4: #C5CBD3;
+    --color5: #B6465F;
 }
 
-.black {
-    color: var(--phthalo-green);
+.color1 {
+    color: var(--color1);
 }
 
-.dark-blue {
-    color: var(--prussian-blue);
+.color2 {
+    color: var(--color2);
 }
 
-.light-blue {
-    color: var(--carolina-blue);
+.color3 {
+    color: var(--color3);
 }
 
-.red {
-    color: var(--ruby-red);
+.color4 {
+    color: var(--color4);
 }
 
-.tan {
-    color: var(--old-lace);
+.color5 {
+    color: var(--color5);
 }
 
-.bg-black {
-    background-color: var(--phthalo-green);
+.bg-color1 {
+    background-color: var(--color1);
 }
 
-.bg-dark-blue {
-    background-color: var(--prussian-blue);
+.bg-color2 {
+    background-color: var(--color2);
 }
 
-.bg-light-blue {
-    background-color: var(--carolina-blue);
+.bg-color3 {
+    background-color: var(--color3);
 }
 
-.bg-red {
-    background-color: var(--ruby-red);
+.bg-color4 {
+    background-color: var(--color4);
 }
 
-.bg-tan {
-    background-color: var(--old-lace);
+.bg-color5 {
+    background-color: var(--color5);
 }
 
 
@@ -162,6 +171,10 @@ footer {
     padding: 1rem;
 }
 
+.pad-2 {
+    padding: 2rem;
+}
+
 .pad-top-4 {
     padding-top: 4rem;
 }
@@ -188,6 +201,10 @@ footer {
 
 .marg-top-1 {
     margin-top: 1rem;
+}
+
+.marg-top-2 {
+    margin-top: 2rem;
 }
 
 .marg-top-0_5 {
@@ -272,7 +289,7 @@ footer {
 }
 
 .scroll-row:nth-of-type(even) {
-    background-color: var(--old-lace);
+    background-color: var(--color4);
 }
 
 .scroll-row td {
@@ -304,12 +321,12 @@ footer {
 }
 
 #logo-brand {
-    border-top: 4px groove var(--old-lace);
-    border-bottom: 4px groove var(--old-lace);
+    border-top: 4px groove var(--color4);
+    border-bottom: 4px groove var(--color4);
 }
 
 #logo-brand:hover {
-    color: var(--carolina-blue);
+    color: var(--color1);
 }
 
 #logo-img {
@@ -333,8 +350,9 @@ footer {
 }
 
 #add-btn:hover {
-    background-color: var(--carolina-blue);
-    color: var(--old-lace);
+    background-color: var(--color2);
+    color: var(--color4);
+    border: 2px solid var(--color4);
 }
 
 #scroll-table {
@@ -351,7 +369,7 @@ footer {
 
 #add_edit-form input {
     padding: .5rem;
-    border: 1px solid var(--phthalo-green);
+    border: 1px solid var(--color2);
     border-radius: 5px;
 }
 
@@ -393,7 +411,7 @@ footer {
     height: 4px;
     width: 30px;
     position: absolute;
-    background-color: var(--old-lace);
+    background-color: var(--color4);
     transition: 150ms ease-in-out;
     border-radius: 5px;
 }
@@ -401,7 +419,7 @@ footer {
 .hambars:hover > span,
 .hambars:hover > span:before,
 .hambars:hover > span:after {
-    background-color: var(--carolina-blue);
+    background-color: var(--color1);
 }
 
 .hambars span:before {
@@ -467,11 +485,11 @@ footer {
 }
 
 .navMenu.open a {
-    color: var(--old-lace);
+    color: var(--color4);
     transition: 215ms color step-end;
 }
 
 .navMenu.open a:hover {
-    color: var(--carolina-blue);
+    color: var(--color1);
     transition: none;
 }

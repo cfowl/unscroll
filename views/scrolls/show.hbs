@@ -5,12 +5,12 @@
         {{!-- and if the scroll user is not the logged user, don't show the scroll --}}
         <h1 class="no-marg">Private Scroll</h1>
         <p>You are not authorized to view this scroll. If this is your scroll, please log in.</p>
-        <a href="/dashboard" class="btn bg-dark-blue tan">Go to Dashboard</a>
+        <a href="/dashboard" class="btn bg-color2 color4">Go to Dashboard</a>
     {{else}}
         {{!-- scroll is private and logged user is the author, show the scroll --}}
         <h1 class="no-marg">{{scroll.title}}</h1>
 
-        <div class="card pad-0_5 pad-4-large bg-tan">
+        <div class="card pad-0_5 pad-4-large bg-color4">
             <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
             <span class="italic font08 border-bot1">
                 by {{scroll.user.displayName}},
@@ -23,7 +23,7 @@
         <a href="/scrolls/user/{{scroll.user._id}}" class="wide-fit center-block no-under">
             <figure class="center-txt">
                 <img src="{{scroll.user.image}}" class="circle">
-                <figcaption class="btn block bg-dark-blue tan">More from {{scroll.user.firstName}}</figcaption>
+                <figcaption class="btn block bg-color2 color4">More from {{scroll.user.firstName}}</figcaption>
             </figure>
         </a>
     {{/if}}
@@ -31,7 +31,7 @@
     {{!-- scroll is public, show the scroll --}}
     <h1 class="no-marg">{{scroll.title}}</h1>
 
-    <div class="card pad-0_5 pad-4-large bg-tan">
+    <div class="card pad-1 pad-2-large bg-color4">
         <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
         <span class="italic font08 border-bot1">
             by {{scroll.user.displayName}},
@@ -44,7 +44,7 @@
     <a href="/scrolls/user/{{scroll.user._id}}" class="wide-fit center-block no-under">
         <figure class="center-txt">
             <img src="{{scroll.user.image}}" class="circle">
-            <figcaption class="btn block bg-dark-blue tan">More from {{scroll.user.firstName}}</figcaption>
+            <figcaption class="btn block bg-color3 white">More from {{scroll.user.firstName}}</figcaption>
         </figure>
     </a>
 {{/if}}

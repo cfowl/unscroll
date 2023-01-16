@@ -1,8 +1,8 @@
 {{!-- Shows ALL PUBLIC scrolls --}}
 <h1 class="no-marg">Scrolls</h1>
-<div class="flex-large">
+<div class="flex-large marg-top-2">
     {{#each scrolls}}
-        <div class="card pad-1 bg-tan">
+        <div class="card pad-1 bg-color4">
             <span class="float-r">{{{editIcon user ../user _id}}}</span>
             <h2 class="no-marg">{{{title}}}
             </h2>
@@ -13,7 +13,7 @@
             <p>{{{truncate body 250}}}</p>
             {{#if tags}}<span class="italic font09">Tags: {{{tags}}}</span>{{/if}}
     
-            <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-dark-blue tan marg-top-1 no-under">View Scroll</a>
+            <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-color2 white marg-top-1 no-under">View Scroll</a>
         </div>
     {{else}}
         <p>{{user.displayName}} has no scrolls.</p>
