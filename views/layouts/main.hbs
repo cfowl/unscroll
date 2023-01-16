@@ -10,7 +10,6 @@
     <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
     <link rel="stylesheet" href="/css/small.css">
     <link rel="stylesheet" href="/css/large.css">
-    <script src="/js/main.js" type="module" defer></script>
     <title>UnScroll</title>
 </head>
 
@@ -38,6 +37,8 @@
 
 {{> _footer-main}}
 
+    {{!-- This can't be deferred so I put it here rather than in <head> --}}
+    <script src="/js/main.js" type="module"></script>
 </body>
 
 </html>

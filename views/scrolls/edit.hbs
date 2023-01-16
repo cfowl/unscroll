@@ -5,26 +5,29 @@
     <input type="hidden" name="_method" value="PUT">
     {{!-- Scroll Title --}}
     <div class="row">
-        <label for="title">
+        <label for="title">Title: 
             <input type="text" name="title" id="title" value="{{scroll.title}}">
         </label>
     </div>
     {{!-- Scroll Status --}}
     <div class="row">
-        <label for="private">Private
-            <input type="radio" name="status" id="private" value="private"
-            {{#if (equals scroll.status 'private')}}checked{{/if}}
-            >
-        </label>
-        <label for="public">Public
-            <input type="radio" name="status" id="public" value="public"
-            {{#if (equals scroll.status 'public')}}checked{{/if}}
-            >
-        </label>
+        <fieldset class="wide-fit">
+            <legend>Status</legend>
+            <label for="private">Private
+                <input type="radio" name="status" id="private" value="private"
+                {{#if (equals scroll.status 'private')}}checked{{/if}}
+                >
+            </label>
+            <label for="public">Public
+                <input type="radio" name="status" id="public" value="public"
+                {{#if (equals scroll.status 'public')}}checked{{/if}}
+                >
+            </label>
+        </fieldset>
     </div>
     {{!-- Scroll Tags --}}
     <div class="row">
-        <label for="tags">
+        <label for="tags">Tags: 
             <input type="text" name="tags" id="tags" value="{{scroll.tags}}">
         </label>
     </div>

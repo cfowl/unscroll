@@ -1,5 +1,10 @@
 {{!-- Shows ALL PUBLIC scrolls --}}
-<h1 class="no-marg">Scrolls</h1>
+<h1 class="no-marg">
+    {{#if user.displayName}}
+        {{user.displayName}}'s
+    {{/if}}
+    Scrolls
+</h1>
 <div class="flex-large marg-top-2">
     {{#each scrolls}}
         <div class="card pad-1 bg-color4">

@@ -367,7 +367,7 @@ footer {
     margin: 0 0 .75rem 0;
 }
 
-#add_edit-form input {
+#add_edit-form input, #add_edit-form fieldset {
     padding: .5rem;
     border: 1px solid var(--color2);
     border-radius: 5px;
