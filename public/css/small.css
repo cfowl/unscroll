@@ -148,7 +148,7 @@ footer {
 }
 
 .circle {
-    border-radius: 100%;
+    border-radius: 100% !important;
 }
 
 .float-r {
@@ -347,6 +347,15 @@ footer {
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+
+#add-btn:hover {
+    background-color: var(--color2);
+    color: var(--color4);
+    border: 2px solid var(--color4);
+}
+
+.add-btn {
     width: 45px;
     height: 45px;
     border-radius: 100%;
@@ -357,7 +366,7 @@ footer {
     text-decoration: none;
 }
 
-#add-btn:hover {
+.add-btn:hover {
     background-color: var(--color2);
     color: var(--color4);
     border: 2px solid var(--color4);
