@@ -40,6 +40,12 @@
     color: var(--color5);
 }
 
+.hover-color1:hover {
+    color: var(--color1);
+}
+
+/* add other hovers here */
+
 .bg-color1 {
     background-color: var(--color1);
 }
