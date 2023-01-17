@@ -12,6 +12,10 @@
         padding: 4rem;
     }
 
+    .inline-large {
+        display: inline !important;
+    }
+
     #main-body {
         margin: 0 auto 6rem;
         max-width: 80rem;

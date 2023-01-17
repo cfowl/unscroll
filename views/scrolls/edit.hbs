@@ -6,13 +6,12 @@
     {{!-- Scroll Title --}}
     <div class="row">
         <label for="title">Title: 
-            <input type="text" name="title" id="title" value="{{scroll.title}}">
+            <input type="text" name="title" id="title" class="block pad-0_5" value="{{scroll.title}}" required>
         </label>
     </div>
     {{!-- Scroll Status --}}
-    <div class="row">
-        <fieldset class="wide-fit">
-            <legend>Status</legend>
+    <div class="row">Status: 
+        <fieldset class="wide-fit font095 pad-0_3">
             <label for="private">Private
                 <input type="radio" name="status" id="private" value="private"
                 {{#if (equals scroll.status 'private')}}checked{{/if}}
@@ -28,13 +27,13 @@
     {{!-- Scroll Tags --}}
     <div class="row">
         <label for="tags">Tags: 
-            <input type="text" name="tags" id="tags" value="{{scroll.tags}}">
+            <input type="text" name="tags" id="tags" class="block pad-0_5" placeholder="(separate tags by comma)" value="{{scroll.tags}}">
         </label>
     </div>
     {{!-- Scroll Body --}}
     <div class="row">
         <label>Scroll Body:
-            <textarea name="body" id="scroll-body">{{scroll.body}}</textarea>
+            <textarea name="body" id="scroll-body" required>{{scroll.body}}</textarea>
         </label>
     </div>
     {{!-- Save or Cancel Buttons --}}

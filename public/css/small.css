@@ -163,6 +163,10 @@ footer {
     text-align: right;
 }
 
+.pad-0_3 {
+    padding: .3rem;
+}
+
 .pad-0_5 {
     padding: .5rem;
 }
@@ -237,6 +241,10 @@ footer {
 
 .font09 {
     font-size: .9rem;
+}
+
+.font095 {
+    font-size: .95rem;
 }
 
 .font2_5 {
@@ -368,9 +376,21 @@ footer {
 }
 
 #add_edit-form input, #add_edit-form fieldset {
-    padding: .5rem;
+    /* padding: .5rem; */
     border: 1px solid var(--color2);
     border-radius: 5px;
+}
+
+fieldset {
+    margin: 0;
+}
+
+fieldset label {
+    margin: 0 .65rem;
+}
+
+fieldset label input {
+    margin: 0;
 }
 
 #add_edit-form .btn {
