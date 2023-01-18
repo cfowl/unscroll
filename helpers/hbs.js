@@ -9,14 +9,28 @@ module.exports = {
         if(str.length > len && str.length > 0) {
             let new_str = str + ' ';
             new_str = str.substr(0, len);
-            new_str = str.substr(0, new_str.lastIndexOf(' '));
+            
+            // split string before <em> and <strong> tags
+            if(new_str.includes('<em>')) {
+                new_str = new_str.split('<em>')[0];
+            } else if (new_str.includes('<strong>')) {
+                new_str = new_str.split('<strong>')[0];
+            }
+
+            // make sure new string isn't ''
             new_str = new_str.length > 0 ? new_str : str.substr(0, len);
+
             // make sure empty new lines count as string of text
             if(new_str.split('<p>').length >= 6) new_str = new_str.substring(0, 125);
-            // remove <strong> and <em> to avoid problems with no closing tags
-            // while(new_str.includes('<strong>')) {
-            //     new_str.replace('<strong>', '');
-            // }
+
+            // don't end with a < or <*
+            while(new_str.charAt(new_str.length - 1) === '<p' || new_str.charAt(new_str.length - 2) === '<') {
+                new_str = new_str.slice(0, -1);
+            }
+
+            // strip off any trailing blanks spaces
+            new_str = new_str.substr(0, new_str.lastIndexOf(' '));
+            
             return new_str + '...';
         }
         return str;
