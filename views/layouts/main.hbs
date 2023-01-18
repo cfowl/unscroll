@@ -27,18 +27,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.0/ckeditor.js" integrity="sha512-tjxUra6WjSA8H5+nC7G61SVqEXj1e958LdR4N8BGZeRx9tObm/YhsrUzY6tH4EuHQyZqOyu317pgV7f8YPFoAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // Add the CKEDITOR text editor to the form textarea
-        let editor = CKEDITOR.replace('scroll-body', {
-            // plugins: 'wysiwygarea, toolbar, basicstyles, link',
-        });
-        // Enable spell check
-        CKEDITOR.config.disableNativeSpellChecker = false;
+        // check if #scroll-body textarea is on the page
+        if(document.querySelector('#scroll-body')) {
+            // Add the CKEDITOR text editor to the form textarea
+            let editor = CKEDITOR.replace('scroll-body', {
+                // plugins: 'wysiwygarea, toolbar, basicstyles, link',
+            });
+            // Enable spell check
+            CKEDITOR.config.disableNativeSpellChecker = false;
 
-        // Shows a warning if the scroll body is blank
-        editor.on( 'required', (event) => {
-            editor.showNotification( 'The scroll body cannot be blank', 'warning', 2000 );
-            event.cancel();
-        });
+            // Shows a warning if the scroll body is blank
+            editor.on( 'required', (event) => {
+                editor.showNotification( 'The scroll body cannot be blank', 'warning', 2000 );
+                event.cancel();
+            });
+        }
 
     </script>
 
