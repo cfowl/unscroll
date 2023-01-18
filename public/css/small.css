@@ -153,6 +153,14 @@ footer {
     display: block !important;
 }
 
+.flex {
+    display: flex;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
 .circle {
     border-radius: 100% !important;
 }
@@ -171,6 +179,10 @@ footer {
 
 .pad-0_3 {
     padding: .3rem;
+}
+
+.pad-0_4 {
+    padding: .4rem;
 }
 
 .pad-0_5 {
@@ -253,6 +265,10 @@ footer {
     font-size: .95rem;
 }
 
+.font1 {
+    font-size: 1rem;
+}
+
 .font2_5 {
     font-size: 2.5rem;
 }
@@ -267,6 +283,10 @@ footer {
 
 .wide-fit {
     width: fit-content;
+}
+
+.wide15 {
+    width: 15rem;
 }
 
 .white {
