@@ -49,4 +49,14 @@
         height: 48px;
         margin: 0 1rem 0 0;
     }
+
+    .dash-search {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .dash-search .marg-top-1_5 {
+        margin-top: 0;
+    }
 }
