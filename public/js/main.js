@@ -32,7 +32,8 @@ yearDisplay.innerHTML = currentYear;
 // ------------ //
 // get dashboard table scroll rows
 let dashScrolls = Array.from(document.getElementsByClassName('scroll-row'));
-// get status select dropdown
+
+// get status select dropdown <<<<
 let statusSearch = document.querySelector('#statusSearch');
 // listen for changes to status select dropdown value
 statusSearch.addEventListener('change', () => {
