@@ -33,7 +33,49 @@ yearDisplay.innerHTML = currentYear;
 // get dashboard table scroll rows
 let dashScrolls = Array.from(document.getElementsByClassName('scroll-row'));
 
-// get status select dropdown <<<<
+// >>>> title search functionality <<<<
+// get title search button
+let titleSearchBtn = document.querySelector('#titleSearchBtn');
+// get title search input
+let titleSearch = document.querySelector('#titleSearch');
+// listen for click on title search button
+titleSearchBtn.addEventListener('click', () => {
+    // loop through scrolls
+    dashScrolls.forEach(scroll => {
+        let title = scroll.querySelector('.scroll-title').innerHTML.toLowerCase();
+        let titleValue = titleSearch.value.toLowerCase();
+        // only show scrolls that match the searched title
+        if(title.includes(titleValue)) {
+            scroll.classList.remove('hide');
+        } else {
+            scroll.classList.add('hide');
+        }
+    });
+});
+
+// >>>> tag search functionality <<<<
+// get tag search button
+let tagSearchBtn = document.querySelector('#tagSearchBtn');
+// get tag search input
+let tagSearch = document.querySelector('#tagSearch');
+// listen for click on tag search button
+tagSearchBtn.addEventListener('click', () => {
+    // loop through scrolls
+    dashScrolls.forEach(scroll => {
+        // convert tags and searched value to lowercase for comparison
+        let tag = scroll.querySelector('.scroll-tags').innerHTML.toLowerCase();
+        let tagValue = tagSearch.value.toLowerCase();
+        // show only scrolls that match the searched tag
+        if(tag.includes(tagValue)) {
+            scroll.classList.remove('hide');
+        } else {
+            scroll.classList.add('hide');
+        }
+    });
+});
+
+// >>>> status search functionality <<<<
+// get status select dropdown
 let statusSearch = document.querySelector('#statusSearch');
 // listen for changes to status select dropdown value
 statusSearch.addEventListener('change', () => {
@@ -58,7 +100,3 @@ statusSearch.addEventListener('change', () => {
         }
     });
 });
-
-
-// let title = dashScrolls[0].querySelector('.scroll-title').innerHTML;
-// let tags = dashScrolls[0].querySelector('.scroll-tags').innerHTML;
