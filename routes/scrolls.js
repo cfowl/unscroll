@@ -24,7 +24,7 @@ router.post('/', ensureAuth, async (req, res) => {
     }
 });
 
-// @desc    Show all scrolls
+// @desc    Show all public scrolls
 // @route   GET /scrolls
 router.get('/', ensureAuth, async (req, res) => {
     try {
@@ -125,10 +125,7 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
           .populate('user')
           .lean();
 
-        const user = await User.findById(req.params.userId)
-          .lean();
-
-        res.render('scrolls/index', { scrolls, user });
+        res.render('scrolls/index', { scrolls });
     } catch (err) {
         console.error(err);
         res.render('error/500');
