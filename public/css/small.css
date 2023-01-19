@@ -92,6 +92,14 @@ main {
     margin: 0 0 6rem 0;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid var(--color2);
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -151,14 +159,6 @@ footer {
 
 .block {
     display: block !important;
-}
-
-.flex {
-    display: flex;
-}
-
-.space-around {
-    justify-content: space-around;
 }
 
 .circle {
@@ -221,16 +221,28 @@ footer {
     margin-left: .5rem;
 }
 
-.marg-top-1 {
-    margin-top: 1rem;
+.marg-left-2 {
+    margin-left: 2rem;
 }
 
-.marg-top-2 {
-    margin-top: 2rem;
+.marg-top-0_1 {
+    margin-top: .1rem;
 }
 
 .marg-top-0_5 {
     margin-top: .5rem;
+}
+
+.marg-top-1 {
+    margin-top: 1rem;
+}
+
+.marg-top-1_5 {
+    margin-top: 1.5rem;
+}
+
+.marg-top-2 {
+    margin-top: 2rem;
 }
 
 .marg-right-0_5 {
@@ -241,8 +253,12 @@ footer {
     margin-bottom: 0;
 }
 
-.marg-bot-05 {
+.marg-bot-0_5 {
     margin-bottom: .5rem;
+}
+
+.marg-bot-1 {
+    margin-bottom: 1rem;
 }
 
 .section {
@@ -283,6 +299,10 @@ footer {
 
 .wide-fit {
     width: fit-content;
+}
+
+.wide10 {
+    width: 10rem;
 }
 
 .wide15 {
@@ -398,6 +418,22 @@ footer {
     border: 2px solid var(--color4);
 }
 
+.search-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: grid;
+    float: right;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.search-btn:hover {
+    background-color: var(--color5);
+}
+
 #scroll-table {
     font-family: monospace;
     table-layout: fixed;
@@ -410,8 +446,7 @@ footer {
     margin: 0 0 .75rem 0;
 }
 
-#add_edit-form input, #add_edit-form fieldset {
-    /* padding: .5rem; */
+#add_edit-form input, #add_edit-form fieldset, .search-box {
     border: 1px solid var(--color2);
     border-radius: 5px;
 }
