@@ -111,7 +111,7 @@ footer {
 /* ---------------------------------------------------------------------- */
 /* ------------------------------ CLASSES ------------------------------  */
 
-.hide-small {
+.hide, .hide-small, .title-hide, .tag-hide, .status-hide {
     display: none;
 }
 
@@ -331,10 +331,6 @@ footer {
 
 .btn:hover {
     box-shadow: 3px 3px 3px #777;
-}
-
-.hide {
-    display: none;
 }
 
 .grid10 {

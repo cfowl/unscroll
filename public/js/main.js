@@ -46,9 +46,9 @@ titleSearchBtn.addEventListener('click', () => {
         let titleValue = titleSearch.value.toLowerCase();
         // only show scrolls that match the searched title
         if(title.includes(titleValue)) {
-            scroll.classList.remove('hide');
+            scroll.classList.remove('title-hide');
         } else {
-            scroll.classList.add('hide');
+            scroll.classList.add('title-hide');
         }
     });
 });
@@ -67,9 +67,9 @@ tagSearchBtn.addEventListener('click', () => {
         let tagValue = tagSearch.value.toLowerCase();
         // show only scrolls that match the searched tag
         if(tag.includes(tagValue)) {
-            scroll.classList.remove('hide');
+            scroll.classList.remove('tag-hide');
         } else {
-            scroll.classList.add('hide');
+            scroll.classList.add('tag-hide');
         }
     });
 });
@@ -84,19 +84,19 @@ statusSearch.addEventListener('change', () => {
         let scrollStatus = scroll.querySelector('.scroll-status').innerHTML;
         // show all scrolls
         if(statusSearch.value === 'all') {
-            scroll.classList.remove('hide');
+            scroll.classList.remove('status-hide');
         }
         // show only private scrolls
         if(statusSearch.value === 'private' && scrollStatus.includes('public')) {
-            scroll.classList.add('hide');
+            scroll.classList.add('status-hide');
         } else if(statusSearch.value === 'private' && scrollStatus.includes('private')) {
-            scroll.classList.remove('hide');
+            scroll.classList.remove('status-hide');
         }
         // show only public scrolls
         if(statusSearch.value === 'public' && scrollStatus.includes('private')) {
-            scroll.classList.add('hide');
+            scroll.classList.add('status-hide');
         } else if(statusSearch.value === 'public' && scrollStatus.includes('public')) {
-            scroll.classList.remove('hide');
+            scroll.classList.remove('status-hide');
         }
     });
 });
