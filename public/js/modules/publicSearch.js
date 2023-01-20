@@ -63,7 +63,7 @@ export function enablePublicSearch() {
         publicScrolls.forEach(scroll => {
             let scrollUser = scroll.querySelector('.scroll-user').innerHTML;
             // show all scrolls
-            if(publicUserSearch.value === '') {
+            if(publicUserSearch.value === 'all') {
                 scroll.classList.remove('user-hide');
             }
             // show only scrolls by the selected user
