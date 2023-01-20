@@ -1,22 +1,59 @@
 {{!-- Shows ALL PUBLIC scrolls --}}
-<h1 class="no-marg">
-    {{#if user.displayName}}
-        {{user.displayName}}'s
+<h1>
+    {{#if author.displayName}}
+        {{{author.displayName}}}'s
     {{/if}}
     Scrolls
 </h1>
+    
+{{!-- Reset View --}}
+<div class="wide-fit marg-bot-1">
+    <a href="" class="btn bg-color3 white">Reset Search</a>
+</div>
+
+{{!-- Searches --}}
+<div class="marg-bot-1 scroll-search">
+    {{!-- Title Search --}}
+    <div class="wide-fit marg-top-1_5">
+        <label for="publicTitleSearch">Title: 
+            <input type="text" name="publicTitleSearch" id="publicTitleSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1" placeholder="search titles">
+        </label>
+        <div id="publicTitleSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+    </div>
+    {{!-- Tag Search --}}
+    <div class="wide-fit marg-top-1_5">
+        <label for="publicTagSearch">Tag: 
+            <input type="text" name="publicTagSearch" id="publicTagSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1" placeholder="or search tags">
+        </label>
+        <div id="publicTagSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+    </div>
+    {{!-- User Search --}}
+    {{#if users}}
+        <div class="wide-fit marg-top-1_5">
+            <label for="publicUserSearch">User: 
+                <select name="publicUserSearch" id="publicUserSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1">
+                    <option value="" disabled selected></option>
+                    {{#each users}}
+                        <option value="{{{displayName}}}">{{{displayName}}}</option>
+                    {{/each}}
+                </select>
+            </label>
+        </div>
+    {{/if}}
+</div>
+
 <div class="flex-large marg-top-2">
     {{#each scrolls}}
-        <div class="card pad-1 bg-color4">
+        <div class="public-scroll card pad-1 bg-color4">
             <span class="float-r">{{{editIcon user ../user _id}}}</span>
-            <h2 class="no-marg">{{{title}}}
+            <h2 class="scroll-title no-marg">{{{title}}}
             </h2>
             <span class="italic font08">
-                by {{{user.displayName}}},
+                by <span class="scroll-user">{{{user.displayName}}}</span>,
                 <span class="scroll-date">{{formatDate createdOn}}</span>
             </span>
             <p>{{{truncate body 250}}}</p>
-            {{#if tags}}<span class="italic font09">Tags: {{{tags}}}</span>{{/if}}
+            {{#if tags}}<span class="scroll-tags italic font09">Tags: {{{tags}}}</span>{{/if}}
     
             <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-color2 white marg-top-1 no-under">View Scroll</a>
         </div>

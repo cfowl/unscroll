@@ -45,18 +45,19 @@
         border-radius: 1rem;
     }
 
-    .dash-btn {
+    .tool-btn {
         height: 48px;
         margin: 0 1rem 0 0;
     }
 
-    .dash-search {
+    .scroll-search {
         display: flex;
-        justify-content: space-evenly;
+        /* justify-content: left; */
         flex-wrap: wrap;
     }
 
-    .dash-search .marg-top-1_5 {
+    .scroll-search .marg-top-1_5 {
         margin-top: 0;
+        margin-right: 4rem;
     }
 }

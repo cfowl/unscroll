@@ -33,7 +33,11 @@ router.get('/', ensureAuth, async (req, res) => {
             .sort({ createdOn: 'desc' })
             .lean();
 
-        res.render('scrolls/index', { scrolls });
+        const users = await User.find()
+            .sort({ firstName: 'asc' })
+            .lean();
+
+        res.render('scrolls/index', { scrolls, users });
     } catch (err) {
         console.error(err);
         res.render('error/500');
@@ -125,7 +129,10 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
           .populate('user')
           .lean();
 
-        res.render('scrolls/index', { scrolls });
+        const author = await User.findById(req.params.userId)
+          .lean();
+
+        res.render('scrolls/index', { scrolls, author });
     } catch (err) {
         console.error(err);
         res.render('error/500');

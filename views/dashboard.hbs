@@ -7,28 +7,29 @@
     
     {{!-- Reset View --}}
     <div class="wide-fit marg-bot-1">
-        <a href="/dashboard" id="resetDashboard" class="btn bg-color3 white">Reset Dashboard</a>
+        <a href="" class="btn bg-color3 white">Reset Search</a>
     </div>
 
-    <div class="marg-bot-1 dash-search">
+    {{!-- Searches --}}
+    <div class="marg-bot-1 scroll-search">
         {{!-- Title Search --}}
         <div class="wide-fit marg-top-1_5">
-            <label for="titleSearch">Title: 
-                <input type="text" name="titleSearch" id="titleSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1" placeholder="search titles">
+            <label for="dashTitleSearch">Title: 
+                <input type="text" name="dashTitleSearch" id="dashTitleSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1" placeholder="search titles">
             </label>
-            <div id="titleSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+            <div id="dashTitleSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
         </div>
         {{!-- Tag Search --}}
         <div class="wide-fit marg-top-1_5">
-            <label for="tagSearch">Tag: 
-                <input type="text" name="tagSearch" id="tagSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1" placeholder="or search tags">
+            <label for="dashTagSearch">Tag: 
+                <input type="text" name="dashTagSearch" id="dashTagSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1" placeholder="or search tags">
             </label>
-            <div id="tagSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+            <div id="dashTagSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
         </div>
         {{!-- Status Search --}}
         <div class="wide-fit marg-top-1_5">
-            <label for="statusSearch">Status: 
-                <select name="statusSearch" id="statusSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1">
+            <label for="dashStatusSearch">Status: 
+                <select name="dashStatusSearch" id="dashStatusSearch" class="marg-top-0_1 wide10 search-box pad-0_5 font1">
                     <option value="all">All</option>
                     <option value="private">Private</option>
                     <option value="public">Public</option>
@@ -49,7 +50,7 @@
         </thead>
         <tbody>
             {{#each scrolls}}
-                <tr class="scroll-row">
+                <tr class="dash-scroll scroll-row">
                     <td><a href="/scrolls/{{_id}}" class="color3 hover-color1 scroll-title">{{title}}</a></td>
                     <td class="scroll-date">{{formatDate createdOn}}</td>
                     <td class="scroll-tags">{{tags}}</td>
@@ -57,11 +58,11 @@
                     <td>
                         <div class="center-txt flex-large">
                             {{!-- Edit Button --}}
-                            <a href="/scrolls/edit/{{_id}}" class="btn color3 border2 bg-none marg-bot-05 dash-btn"><i class="material-icons">edit</i></a>
+                            <a href="/scrolls/edit/{{_id}}" class="btn color3 border2 bg-none marg-bot-05 tool-btn"><i class="material-icons">edit</i></a>
                             {{!-- Delete Button --}}
                             <form action="/scrolls/{{_id}}" method="POST"> {{!-- removed id="delete-form" --}}
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="btn color5 border2 bg-none dash-btn"><i class="material-icons">delete_forever</i></button>
+                                <button type="submit" class="btn color5 border2 bg-none tool-btn"><i class="material-icons">delete_forever</i></button>
                             </form>
                         </div>
                     </td>
