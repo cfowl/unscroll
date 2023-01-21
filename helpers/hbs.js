@@ -104,5 +104,9 @@ module.exports = {
         } else {
             return true;
         }
+    },
+    profileLink: (loggedUser) => {
+        // created the My Profile link
+        return `<li><a href="/users/${loggedUser._id}">My Account</a></li>`;
     }
 };
