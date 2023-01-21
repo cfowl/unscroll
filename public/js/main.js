@@ -39,3 +39,18 @@ enableDashSearch();
 // enable public search functionality
 // ------------ //
 enablePublicSearch();
+
+// ++++++++++++ //
+// edit account button
+// ------------ //
+let editAccountBtn = document.querySelector('#editAccountBtn');
+let editAccountFormBtns = document.querySelector('#editAccountFormBtns');
+let accountInputDisabled = Array.from(document.getElementsByClassName('accountInputDisabled'));
+
+editAccountBtn.addEventListener('click', () => {
+    editAccountBtn.classList.add('hide');
+    editAccountFormBtns.classList.remove('hide');
+    accountInputDisabled.forEach(input => {
+        input.attributes.removeNamedItem('disabled');
+    });
+});
