@@ -7,8 +7,12 @@ const User = require('../models/User');
 
 // @desc    Show add page
 // @route   GET /scrolls/add
-router.get('/add', ensureAuth, (req, res) => {
-    res.render('scrolls/add');
+router.get('/add', ensureAuth, async (req, res) => {
+    const users = await User.find()
+      .sort({ firstName: 'asc' })
+      .lean();
+
+    res.render('scrolls/add', { users });
 });
 
 // @desc    Process add form
@@ -69,8 +73,15 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         const scroll = await Scroll.findOne({ _id: req.params.id }).lean();
         if(!scroll) return res.render('error/404');
 
-        if(scroll.user != req.user.id) res.redirect('/scrolls');
-        else res.render('scrolls/edit', { scroll });
+        if(scroll.user != req.user.id) {
+            res.redirect('/scrolls');
+        } else {
+            const users = await User.find()
+              .sort({ firstName: 'asc' })
+              .lean();
+    
+            res.render('scrolls/edit', { scroll, users });
+        }
     } catch (err) {
         console.error(err);
         res.render('error/500');
