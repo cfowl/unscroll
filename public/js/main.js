@@ -40,17 +40,73 @@ enableDashSearch();
 // ------------ //
 enablePublicSearch();
 
+
 // ++++++++++++ //
 // edit account button
 // ------------ //
 let editAccountBtn = document.querySelector('#editAccountBtn');
-let editAccountFormBtns = document.querySelector('#editAccountFormBtns');
-let accountInputDisabled = Array.from(document.getElementsByClassName('accountInputDisabled'));
+if(editAccountBtn != null) {
+    let editAccountFormBtns = document.querySelector('#editAccountFormBtns');
+    let accountInputDisabled = Array.from(document.getElementsByClassName('accountInputDisabled'));
 
-editAccountBtn.addEventListener('click', () => {
-    editAccountBtn.classList.add('hide');
-    editAccountFormBtns.classList.remove('hide');
-    accountInputDisabled.forEach(input => {
-        input.attributes.removeNamedItem('disabled');
+    editAccountBtn.addEventListener('click', () => {
+        editAccountBtn.classList.add('hide');
+        editAccountFormBtns.classList.remove('hide');
+        accountInputDisabled.forEach(input => {
+            input.attributes.removeNamedItem('disabled');
+        });
     });
-});
+}
+
+
+// ++++++++++++ //
+// share a scroll with select users functionality
+// ------------ //
+let scrollStatusToggle = document.querySelector('#scrollStatusToggle');
+// make sure we're on the add or edit scroll page before proceeding
+if(scrollStatusToggle != null) {
+    // if public status is checked when the page loads, make sure user dropdown is available
+    let multiUserSelectWrapper = document.querySelector('#multiUserSelectWrapper');
+    window.addEventListener('load', () => {
+        let publicStatus = document.querySelector('#public');
+        if(publicStatus.checked) {
+            multiUserSelectWrapper.classList.toggle('hide');
+        }
+    });
+
+    // toggle user dropdown when scroll status changes private <<-->> public
+    scrollStatusToggle.addEventListener('change', () => {
+        multiUserSelectWrapper.classList.toggle('hide');
+    });
+
+    // toggle user checkboxes when user dropdown is clicked
+    let multiUserDropdown = document.querySelector('#multiUserDropdown');
+    let multiUserCheckboxes = document.querySelector('#multiUserCheckboxes');
+    multiUserDropdown.addEventListener('click', (event) => {
+        event.preventDefault();
+        multiUserDropdown.classList.toggle('row');
+        multiUserDropdown.querySelector('.search-box').classList.toggle('no-border-radius-bottom');
+        multiUserCheckboxes.classList.toggle('hide');
+    });
+
+    // create an empty array and add the authorID to it 
+    let statusUsers = [];
+    let authorID = document.querySelector('#authorID').innerHTML;
+    statusUsers.push(authorID)
+    
+    // everytime a user box is checked, a list of statusUsers is updated
+    // and the hidden input which gets submitted with the form as statusUsers is populated
+    let statusUsersInput = document.querySelector('#statusUsers');
+    let userCheckboxes = Array.from(document.getElementsByClassName('checkbox'));
+    userCheckboxes.forEach(box => {
+        box.addEventListener('click', () => {
+            if(box.checked) {
+                statusUsers.push(box.value);
+            } else {
+                let i = statusUsers.indexOf(box.value);
+                statusUsers.splice(i, 1);
+            }
+            statusUsersInput.value = statusUsers;
+        });        
+    });
+}
