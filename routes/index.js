@@ -16,7 +16,9 @@ router.get('/', ensureGuest, (req, res) => {
 // @route   GET /dashboard
 router.get('/dashboard', ensureAuth, async (req, res) => {
     try {
-        let scrolls = await Scroll.find({ user: req.user.id }).lean();
+        let scrolls = await Scroll.find({ user: req.user.id })
+          .lean()
+          .sort({createdOn: 'desc'});
         res.render('dashboard', {
             name: req.user.firstName,
             scrolls
