@@ -108,5 +108,21 @@ module.exports = {
     profileLink: (loggedUser) => {
         // created the My Profile link
         return `<li><a href="/users/${loggedUser._id}">My Account</a></li>`;
+    },
+    isPublicScroll: (statusUsers, item) => {
+        statusUsers = statusUsers.toString();
+        item = item._id.toString();
+
+        // check if item is in list
+        if(statusUsers.includes(item)) {
+            return true;
+        } else if(statusUsers === '') {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    getUserIdFrom: (user) => {
+        return user._id.toString();
     }
 };
