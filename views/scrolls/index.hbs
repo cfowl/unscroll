@@ -46,6 +46,7 @@
 
 <div class="flex-large marg-top-2">
     {{#each scrolls}}
+    {{#if (isPublicScroll statusUsers ../user)}}
         <div class="public-scroll card pad-1 bg-color4">
             <span class="float-r">{{{editIcon user ../user _id}}}</span>
             <h2 class="scroll-title no-marg">{{{title}}}
@@ -59,6 +60,7 @@
     
             <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-color2 white marg-top-1 no-under">View Scroll</a>
         </div>
+    {{/if}}
     {{else}}
         <p>{{user.displayName}} has no scrolls.</p>
     {{/each}}
