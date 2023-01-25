@@ -14,7 +14,6 @@ export function enablePublicSearch() {
 
     // if we're not on the publicboard, exit function
     if(publicTitleSearchBtn === null) {
-        console.log('exiting public searches');
         return;
     }
 
