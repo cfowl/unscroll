@@ -261,6 +261,10 @@ footer {
     margin-bottom: 1rem;
 }
 
+.marg-0_5 {
+    margin: 0.5rem;
+}
+
 .section {
     padding: 1.25rem 0;
 }
@@ -349,6 +353,10 @@ footer {
 .user-item {
     margin: 0 0 2rem 0;
     width: fit-content;
+}
+
+.no-border-radius-bottom {
+    border-radius: 5px 5px 0 0 !important;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -473,6 +481,23 @@ fieldset label input {
 
 #add_edit-form textarea {
     font-size: 1.5rem;
+}
+
+#multiUserDropdown {
+    position: relative;
+}
+
+#over-select {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#multiUserCheckboxes {
+    border: 1px solid var(--color2);
+    border-radius: 0 0 5px 5px;
 }
 
 
