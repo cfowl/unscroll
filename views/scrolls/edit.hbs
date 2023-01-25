@@ -11,7 +11,7 @@
     </div>
     {{!-- Scroll Status --}}
     <div class="row">Status: 
-        <fieldset class="wide-fit font1 pad-0_4 wide15 flex space-around">
+        <fieldset id="scrollStatusToggle" class="wide-fit font1 pad-0_4 wide15 flex space-around">
             <label for="private">Private
                 <input type="radio" name="status" id="private" value="private"
                 {{#if (equals scroll.status 'private')}}checked{{/if}}
@@ -23,6 +23,29 @@
                 >
             </label>
         </fieldset>
+    </div>
+    {{!-- Select Users to Share With --}}
+    <div id="multiUserSelectWrapper" class="hide">
+        {{!-- Dropdown Toggle Box --}}
+        <div id="multiUserDropdown" class="row">
+            <label>Share With All: 
+                <select class="search-box block wide15 font1 pad-0_5">
+                    <option>or Select Users</option>
+                </select>
+                <div id="over-select"></div>
+            </label>
+        </div>
+        {{!-- User Checkbox Options --}}
+        <div id="multiUserCheckboxes" class="row hide wide15 pad-0_5 font1">
+            {{#each users}}
+                <label for="{{displayName}}" class="block marg-top-0_5 marg-bot-0_5">
+                    <input type="checkbox" name="{{displayName}}" id="{{displayName}}" class="checkbox" value="{{_id}}">
+                    {{displayName}}
+                </label>
+            {{/each}}
+        </div>
+        <input class="hide" type="text" name="statusUsers" id="statusUsers">
+        <div class="hide" id="authorID">{{getUserIdFrom user}}</div>
     </div>
     {{!-- Scroll Tags --}}
     <div class="row">
