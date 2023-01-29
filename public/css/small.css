@@ -309,6 +309,10 @@ footer {
     width: fit-content;
 }
 
+.high2_5 {
+    height: 2.5rem;
+}
+
 .wide10 {
     width: 10rem;
 }
