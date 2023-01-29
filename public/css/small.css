@@ -328,9 +328,12 @@ footer {
     padding: .5rem .75rem;
     text-align: center;
     text-decoration: none;
-    border-radius: 5px;
     box-shadow: 2px 2px 2px #bbb;
     cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .btn:hover {
@@ -474,9 +477,6 @@ fieldset label input {
     padding: 1rem;
     line-height: normal;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    appearance: none;
-    -webkit-appearance: none;
 }
 
 #add_edit-form textarea {
