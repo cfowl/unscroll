@@ -321,11 +321,16 @@ footer {
     background-color: unset;
 }
 
+#dashDateSearch {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    
+}
+
 #dashStatusSearch, #publicUserSearch {
     border-radius: 5px;
     -webkit-border-radius: 5px;
-    appearance: none;
-    -webkit-appearance: none;
+    color: black;
     background-color: white;
 }
 
