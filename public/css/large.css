@@ -54,9 +54,4 @@
         display: flex;
         flex-wrap: wrap;
     }
-
-    .scroll-search .marg-top-1_5 {
-        margin-top: 0;
-        margin-right: 4rem;
-    }
 }

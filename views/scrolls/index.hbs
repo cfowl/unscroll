@@ -16,24 +16,24 @@
 {{!-- Searches --}}
 <div class="marg-bot-1 scroll-search">
     {{!-- Title Search --}}
-    <div class="wide-fit marg-top-1_5">
+    <div class="wide-fit marg-bot-0_5 marg-right-2">
         <label for="publicTitleSearch">Title: 
-            <input type="text" name="publicTitleSearch" id="publicTitleSearch" class="marg-top-0_1 wide10 high2_5 search-box pad-0_5 font1" placeholder="search titles">
+            <input type="text" name="publicTitleSearch" id="publicTitleSearch" class="wide10 high2_5 search-box pad-0_5 font1" placeholder="search titles">
         </label>
         <div id="publicTitleSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
     </div>
     {{!-- Tag Search --}}
-    <div class="wide-fit marg-top-1_5">
+    <div class="wide-fit marg-bot-0_5 marg-right-2">
         <label for="publicTagSearch">Tag: 
-            <input type="text" name="publicTagSearch" id="publicTagSearch" class="marg-top-0_1 wide10 high2_5 search-box pad-0_5 font1" placeholder="or search tags">
+            <input type="text" name="publicTagSearch" id="publicTagSearch" class="wide10 high2_5 search-box pad-0_5 font1" placeholder="or search tags">
         </label>
         <div id="publicTagSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
     </div>
     {{!-- User Search --}}
     {{#if users}}
-        <div class="wide-fit marg-top-1_5">
+        <div class="wide-fit marg-bot-0_5 marg-right-2">
             <label for="publicUserSearch">User: 
-                <select name="publicUserSearch" id="publicUserSearch" class="marg-top-0_1 wide10 high2_5 search-box pad-0_5 font1">
+                <select name="publicUserSearch" id="publicUserSearch" class="wide10 high2_5 search-box pad-0_5 font1">
                     <option value="all">All</option>
                     {{#each users}}
                         <option value="{{{displayName}}}">{{{displayName}}}</option>
