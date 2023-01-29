@@ -3,9 +3,11 @@ export function enableDashSearch() {
     // dynamic dashboard search and display
     // ------------ //
     
-    // get dashboard table scroll rows
+    // get the scroll rows from the dashboard table
     let dashScrolls = Array.from(document.getElementsByClassName('dash-scroll'));
 
+    
+    // ------------------------------------- //
     // >>>> title search functionality <<<<
     // get title search button
     let dashTitleSearchBtn = document.querySelector('#dashTitleSearchBtn');
@@ -17,6 +19,7 @@ export function enableDashSearch() {
         return;
     }
 
+    
     // listen for click on title search button
     dashTitleSearchBtn.addEventListener('click', () => {
         // loop through scrolls
@@ -32,6 +35,8 @@ export function enableDashSearch() {
         });
     });
 
+
+    // ------------------------------------- //
     // >>>> tag search functionality <<<<
     // get tag search button
     let dashTagSearchBtn = document.querySelector('#dashTagSearchBtn');
@@ -53,6 +58,7 @@ export function enableDashSearch() {
         });
     });
 
+    // ------------------------------------- //
     // >>>> status search functionality <<<<
     // get status select dropdown
     let dashStatusSearch = document.querySelector('#dashStatusSearch');
@@ -76,6 +82,33 @@ export function enableDashSearch() {
                 scroll.classList.add('status-hide');
             } else if(dashStatusSearch.value === 'public' && scrollStatus.includes('public')) {
                 scroll.classList.remove('status-hide');
+            }
+        });
+    });
+
+
+    // ------------------------------------- //
+    // >>>> date search functionality <<<<
+    // get date select dropdown
+    let dashDateSearch = document.querySelector('#dashDateSearch');
+    // listen for changes to date input value
+    dashDateSearch.addEventListener('change', () => {
+        // format date searched
+        const userZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        let searchDate = moment.tz(dashDateSearch.value, userZone).format('ll').toString();
+        console.log(searchDate);
+        // loop through scrolls
+        dashScrolls.forEach(scroll => {
+            let scrollDate = scroll.querySelector('.scroll-date').innerHTML.toString();
+            if(searchDate === 'Invalid date') {
+                // show all scrolls
+                scroll.classList.remove('date-hide');
+            } else if(scrollDate.includes(searchDate)) {
+                // show scrolls with matching date
+                scroll.classList.remove('date-hide');
+            } else {
+                // hide scrolls with mismatched date
+                scroll.classList.add('date-hide');
             }
         });
     });

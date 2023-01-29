@@ -111,7 +111,7 @@ footer {
 /* ---------------------------------------------------------------------- */
 /* ------------------------------ CLASSES ------------------------------  */
 
-.hide, .hide-small, .title-hide, .tag-hide, .status-hide, .user-hide {
+.hide, .hide-small, .title-hide, .tag-hide, .status-hide, .user-hide, .date-hide {
     display: none;
 }
 
