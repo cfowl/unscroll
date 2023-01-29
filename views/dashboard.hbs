@@ -40,6 +40,7 @@
                     <option value="all">All</option>
                     <option value="private">Private</option>
                     <option value="public">Public</option>
+                    <option value="shared">Shared</option>
                 </select>
             </label>
         </div>
@@ -61,7 +62,13 @@
                     <td><a href="/scrolls/{{_id}}" class="color3 hover-color1 scroll-title">{{title}}</a></td>
                     <td class="scroll-date">{{formatDate createdOn}}</td>
                     <td class="scroll-tags">{{tags}}</td>
-                    <td class="scroll-status">{{status}}</td>
+                    <td class="scroll-status">
+                        {{#if (areStatusUsers statusUsers)}}
+                            shared
+                        {{else}}
+                            {{status}}
+                        {{/if}}
+                    </td>
                     <td>
                         <div class="center-txt flex-large">
                             {{!-- Edit Button --}}

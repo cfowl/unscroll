@@ -70,18 +70,10 @@ export function enableDashSearch() {
             // show all scrolls
             if(dashStatusSearch.value === 'all') {
                 scroll.classList.remove('status-hide');
-            }
-            // show only private scrolls
-            if(dashStatusSearch.value === 'private' && scrollStatus.includes('public')) {
-                scroll.classList.add('status-hide');
-            } else if(dashStatusSearch.value === 'private' && scrollStatus.includes('private')) {
+            } else if(scrollStatus.includes(dashStatusSearch.value)) {
                 scroll.classList.remove('status-hide');
-            }
-            // show only public scrolls
-            if(dashStatusSearch.value === 'public' && scrollStatus.includes('private')) {
+            } else {
                 scroll.classList.add('status-hide');
-            } else if(dashStatusSearch.value === 'public' && scrollStatus.includes('public')) {
-                scroll.classList.remove('status-hide');
             }
         });
     });
