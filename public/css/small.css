@@ -321,6 +321,13 @@ footer {
     background-color: unset;
 }
 
+.btn, #dashDateSearch, #dashStatusSearch, #publicUserSearch {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
 .btn {
     display: inline-block;
     border: unset;
@@ -330,10 +337,6 @@ footer {
     text-decoration: none;
     box-shadow: 2px 2px 2px #bbb;
     cursor: pointer;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    appearance: none;
-    -webkit-appearance: none;
 }
 
 .btn:hover {
