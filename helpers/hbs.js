@@ -124,5 +124,21 @@ module.exports = {
     },
     getUserIdFrom: (user) => {
         return user._id.toString();
+    },
+    isLoggedUser: (userID, loggedUser) => {
+        console.log('User ID: ' + userID);
+        console.log('Logged User ID: ' + loggedUser._id)
+        if(userID.toString() === loggedUser._id.toString()) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    areStatusUsers: (statusUsers) => {
+        if(statusUsers.toString() === '') {
+            return false;
+        } else {
+            return true;
+        }
     }
 };
