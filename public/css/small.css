@@ -321,9 +321,13 @@ footer {
     background-color: unset;
 }
 
-/* #dashDateSearch, #dashStatusSearch, #publicUserSearch {
-
-} */
+#dashStatusSearch, #publicUserSearch {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: white;
+}
 
 .btn {
     display: inline-block;
