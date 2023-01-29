@@ -32,10 +32,12 @@
         {{!-- User Checkbox Options --}}
         <div id="multiUserCheckboxes" class="row hide wide15 pad-0_5 font1">
             {{#each users}}
-                <label for="{{displayName}}" class="block marg-top-0_5 marg-bot-0_5">
-                    <input type="checkbox" name="{{displayName}}" id="{{displayName}}" class="checkbox" value="{{_id}}">
-                    {{displayName}}
-                </label>
+                {{#if (not (isLoggedUser _id ../user))}}
+                    <label for="{{displayName}}" class="block marg-top-0_5 marg-bot-0_5">
+                        <input type="checkbox" name="{{displayName}}" id="{{displayName}}" class="checkbox" value="{{_id}}">
+                        {{displayName}}
+                    </label>
+                {{/if}}
             {{/each}}
         </div>
         <input class="hide" type="text" name="statusUsers" id="statusUsers">
