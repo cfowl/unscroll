@@ -249,6 +249,10 @@ footer {
     margin-right: .5rem;
 }
 
+.marg-right-2 {
+    margin-right: 2rem;
+}
+
 .marg-bot-0 {
     margin-bottom: 0;
 }
@@ -321,13 +325,7 @@ footer {
     background-color: unset;
 }
 
-#dashDateSearch {
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    
-}
-
-#dashStatusSearch, #publicUserSearch {
+#dashStatusSearch, #dashDateSearch, #publicUserSearch {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     color: black;
