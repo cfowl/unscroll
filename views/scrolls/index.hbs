@@ -55,6 +55,7 @@
                 by <span class="scroll-user">{{{user.displayName}}}</span>,
                 <span class="scroll-date">{{formatDate createdOn}}</span>
             </span>
+            <div class="italic font08">{{#if (areStatusUsers statusUsers)}}(shared with you){{/if}}</div>
             <p>{{{truncate body 250}}}</p>
             {{#if tags}}<span class="scroll-tags italic font09">Tags: {{{tags}}}</span>{{/if}}
     
