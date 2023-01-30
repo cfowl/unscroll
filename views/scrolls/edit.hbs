@@ -40,7 +40,9 @@
             {{#each users}}
                 {{#if (not (isLoggedUser _id ../user))}}
                     <label for="{{displayName}}" class="block marg-top-0_5 marg-bot-0_5">
-                        <input type="checkbox" name="{{displayName}}" id="{{displayName}}" class="checkbox" value="{{_id}}">
+                        <input type="checkbox" name="{{displayName}}" id="{{displayName}}" class="checkbox" value="{{_id}}"
+                            {{#if (isSharedUser _id ../scroll.statusUsers)}}checked{{/if}}
+                        >
                         {{displayName}}
                     </label>
                 {{/if}}

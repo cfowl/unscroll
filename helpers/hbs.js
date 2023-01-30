@@ -126,8 +126,6 @@ module.exports = {
         return user._id.toString();
     },
     isLoggedUser: (userID, loggedUser) => {
-        console.log('User ID: ' + userID);
-        console.log('Logged User ID: ' + loggedUser._id)
         if(userID.toString() === loggedUser._id.toString()) {
             return true;
         } else {
@@ -139,6 +137,13 @@ module.exports = {
             return false;
         } else {
             return true;
+        }
+    },
+    isSharedUser: (user, sharedUsers) => {
+        if(sharedUsers.toString().includes(user.toString())) {
+            return true;
+        } else {
+            return false
         }
     }
 };
