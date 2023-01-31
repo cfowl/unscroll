@@ -16,8 +16,8 @@ const scrollSchema = new mongoose.Schema({
         enum: ['public', 'private']
     },
     statusUsers: {
-        type: Array,
-        default: ['']
+        type: String,
+        default: ''
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
