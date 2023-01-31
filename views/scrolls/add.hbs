@@ -34,8 +34,8 @@
             {{#each users}}
                 {{#if (not (isLoggedUser _id ../user))}}
                     <label for="{{displayName}}" class="block marg-top-0_5 marg-bot-0_5">
-                        <input type="checkbox" name="{{displayName}}" id="{{displayName}}" class="checkbox" value="{{_id}}">
-                        {{displayName}}
+                        <input class="checkbox" type="checkbox" name="{{displayName}}" id="{{displayName}}" value="{{_id}}">
+                        <img class="wide1 inline" src="{{image}}" alt="{{displayName}}'s profile picture"> {{displayName}}
                     </label>
                 {{/if}}
             {{/each}}
