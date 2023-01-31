@@ -28,6 +28,10 @@ const UserSchema = new mongoose.Schema({
     createdOn: {
         type: Date,
         default: Date.now
+    },
+    friends: {
+        type: String,
+        default: ''
     }
 });
 
