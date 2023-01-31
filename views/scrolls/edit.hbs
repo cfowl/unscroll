@@ -43,7 +43,7 @@
                         <input type="checkbox" name="{{displayName}}" id="{{displayName}}" class="checkbox" value="{{_id}}"
                             {{#if (isSharedUser _id ../scroll.statusUsers)}}checked{{/if}}
                         >
-                        {{displayName}}
+                        <img class="wide1 inline" src="{{image}}" alt="{{displayName}}'s profile picture"> {{displayName}}
                     </label>
                 {{/if}}
             {{/each}}
