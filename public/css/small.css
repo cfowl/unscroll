@@ -161,6 +161,10 @@ footer {
     display: block !important;
 }
 
+.inline {
+    display: inline;
+}
+
 .circle {
     border-radius: 100% !important;
 }
@@ -311,6 +315,10 @@ footer {
 
 .high2_5 {
     height: 2.5rem;
+}
+
+.wide1 {
+    width: 1.5rem;
 }
 
 .wide10 {
