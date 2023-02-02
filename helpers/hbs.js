@@ -145,5 +145,13 @@ module.exports = {
         } else {
             return false
         }
+    },
+    formatFriends: (friendsArray) => {
+        let html = `<ul id="friendList">`;
+        friendsArray.forEach(friend => {
+            html += `<li>${friend}</li>`;
+        });
+        html += '</ul>';
+        return html;
     }
 };
