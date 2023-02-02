@@ -110,3 +110,44 @@ if(scrollStatusToggle != null) {
         });        
     });
 }
+
+
+// ++++++++++++ //
+// adding a friend functionality
+// ------------ //
+let userList = document.querySelector('#userList');
+// make sure we're on the right page before proceeding
+if(userList != null) {
+    // listen for user to select a friend from the datalist
+    userList.addEventListener('change', () => {
+        // get the list of existing friends
+        let friendList = document.querySelector('#friendList');
+        if(friendList === null) {
+            friendList = '';
+        } else {
+            friendList = friendList.innerHTML.toString();
+        }
+        // get the hidden input whose value will be submitted
+        let friend = document.querySelector('#friend');
+        // get the newly selected friend's name
+        let friendValue = userList.value;
+        // get the matching datalist option
+        let friendOption = document.querySelector("#users option[value='"+friendValue+"']");
+        // check input
+        if(friendOption === null) {
+            // if the input doesn't match a datalist option, notify the user
+            friend.value = '';
+            userList.value = 'select a valid user';
+            userList.style.color = 'grey';
+        } else if(friendList.includes(friendOption.dataset.value)) {
+            // if the input is already a friend, notify the user
+            friend.value = 'repeat';
+            userList.value = `${friendValue.split(' ')[0]} is already a friend`;
+            userList.style.color = 'grey';
+        } else {
+            // set hidden input value to the selected friend's ID
+            friend.value = friendOption.dataset.value;;
+            userList.style.color = 'black';
+        }
+    });
+}
