@@ -4,6 +4,10 @@
         display: initial;
     }
 
+    .hide-large {
+        display: none;
+    }
+
     .pad-2-large {
         padding: 2rem;
     }
@@ -31,6 +35,10 @@
         justify-content: start;
     }
 
+    .gap2 {
+        gap: 2rem;
+    }
+
     .flex-large .card {
         margin: 0 2rem 2rem 0;
         width: 300px;
@@ -53,5 +61,11 @@
     .scroll-search {
         display: flex;
         flex-wrap: wrap;
+    }
+
+    #account-display, #friend-display {
+        border: 2px solid;
+        padding: 2rem;
+        border-radius: 1rem;
     }
 }
