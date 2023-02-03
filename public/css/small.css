@@ -217,6 +217,10 @@ footer {
     padding-right: 1rem;
 }
 
+.no-pad {
+    padding: 0;
+}
+
 .no-marg {
     margin: 0;
 }
@@ -269,8 +273,16 @@ footer {
     margin-bottom: 1rem;
 }
 
+.marg-bot-2 {
+    margin-bottom: 2rem;
+}
+
 .marg-0_5 {
     margin: 0.5rem;
+}
+
+.no-list-style {
+    list-style-type: none;
 }
 
 .section {
@@ -319,6 +331,10 @@ footer {
 
 .wide1 {
     width: 1.5rem;
+}
+
+.wide2 {
+    width: 2rem;
 }
 
 .wide10 {
@@ -473,7 +489,7 @@ footer {
     hyphens: auto;
 }
 
-#add_edit-form .row {
+form .row {
     margin: 0 0 .75rem 0;
 }
 
@@ -494,7 +510,7 @@ fieldset label input {
     margin: 0;
 }
 
-#add_edit-form .btn {
+form .btn {
     font-size: 1.2rem;
     margin: 1rem 1rem 1rem 0;
     padding: 1rem;

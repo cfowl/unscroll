@@ -44,7 +44,7 @@
         <h2>Friends</h2>
         <p>You can share scrolls publicly, or with your list of friends.</p>
         {{#if oneUser.friends}}
-            {{{formatFriends oneUser.friends}}}
+            {{{formatFriends oneUser.friends users}}}
         {{else}}
             <p>You have not added any friends. Click below to add friends.</p>
         {{/if}}
@@ -52,19 +52,23 @@
             {{!-- overrides the POST method --}}
             <input type="hidden" name="_method" value="PUT">
             {{!-- search a friend to add --}}
-            <label for="friend">Add a new friend: 
-                <input list="users" name="userList" id="userList" class="pad-0_5 font1 wide15 input" autocomplete="off">
-                <datalist id="users">
-                    {{#each users}}
-                        {{#if (not (isLoggedUser _id ../user))}}
-                            <option data-value="{{_id}}" value="{{displayName}}"></option>
-                        {{/if}}
-                    {{/each}}
-                </datalist>
-                <input type="hidden" name="friend" id="friend">
-            </label>
+            <div>
+                <label for="friend">Add a new friend: 
+                    <input list="users" name="userList" id="userList" class="pad-0_5 font1 wide15 input block" autocomplete="off">
+                    <datalist id="users">
+                        {{#each users}}
+                            {{#if (not (isLoggedUser _id ../user))}}
+                                <option data-value="{{_id}}" value="{{displayName}}"></option>
+                            {{/if}}
+                        {{/each}}
+                    </datalist>
+                    <input type="hidden" name="friend" id="friend">
+                </label>
+            </div>
             {{!-- Add Friend Button --}}
-            <input type="submit" value="Add Friend" class="btn font1 high2_5 border1 bg-color3 white">
+            <div class="row">
+                <input type="submit" value="Add Friend" class="btn border1 bg-color3 white">
+            </div>
         </form>
     </div>
 
