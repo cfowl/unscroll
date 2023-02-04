@@ -72,11 +72,11 @@
                     <td>
                         <div class="center-txt flex-large">
                             {{!-- Edit Button --}}
-                            <a href="/scrolls/edit/{{_id}}" class="btn color3 border2 bg-none marg-bot-05 tool-btn"><i class="material-icons">edit</i></a>
+                            <a href="/scrolls/edit/{{_id}}" class="btn tool-btn color3 border2 bg-none marg-bot-05 tool-btn"><i class="material-icons">edit</i></a>
                             {{!-- Delete Button --}}
                             <form action="/scrolls/{{_id}}" method="POST"> {{!-- removed id="delete-form" --}}
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="btn color5 border2 bg-none tool-btn"><i class="material-icons">delete_forever</i></button>
+                                <button type="submit" class="btn tool-btn color5 border2 bg-none tool-btn"><i class="material-icons">delete_forever</i></button>
                             </form>
                         </div>
                     </td>
