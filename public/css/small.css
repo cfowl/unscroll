@@ -162,7 +162,7 @@ footer {
 }
 
 .inline {
-    display: inline;
+    display: inline !important;
 }
 
 .circle {
@@ -333,8 +333,8 @@ footer {
     width: 1.5rem;
 }
 
-.wide2 {
-    width: 2rem;
+.wide2_5 {
+    width: 2.5rem;
 }
 
 .wide10 {
@@ -377,6 +377,10 @@ footer {
 
 .btn:hover {
     box-shadow: 3px 3px 3px #777;
+}
+
+.tool-btn {
+    margin: .25rem 0;
 }
 
 .grid10 {
@@ -489,11 +493,11 @@ footer {
     hyphens: auto;
 }
 
-form .row {
+.form .row {
     margin: 0 0 .75rem 0;
 }
 
-form input, form fieldset, .search-box {
+.form input, .form fieldset, .search-box {
     border: 1px solid var(--color2);
     border-radius: 5px;
 }
@@ -510,7 +514,7 @@ fieldset label input {
     margin: 0;
 }
 
-form .btn {
+.form .btn {
     font-size: 1.2rem;
     margin: 1rem 1rem 1rem 0;
     padding: 1rem;
