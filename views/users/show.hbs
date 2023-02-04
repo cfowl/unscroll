@@ -2,14 +2,14 @@
 
 <div class="flex-large gap2">
     <div id="account-display">
-        <h2>Account Info</h2>
+        <h2>Your Profile</h2>
         <img class="circle" src="{{oneUser.image}}" alt="{{oneUser.displayName}}'s Profile Picture">
         <div>Email: {{oneUser.email}}</div>
         <div>Account: {{oneUser._id}}</div>
         <div>Joined: {{formatDate oneUser.createdOn}}</div>
         <div class="divider marg-top-1 marg-bot-1"></div>
 
-        <form action="/users/{{oneUser._id}}" method="POST" id="add_edit-form">
+        <form action="/users/{{oneUser._id}}" method="POST" id="add_edit-form" class="form">
             {{!-- overrides the POST method --}}
             <input type="hidden" name="_method" value="PUT">
             {{!-- First Name --}}
@@ -41,19 +41,29 @@
     </div>
 
     <div id="friend-display">
-        <h2>Friends</h2>
-        <p>You can share scrolls publicly, or with your list of friends.</p>
+        <h2>Your Friends</h2>
         {{#if oneUser.friends}}
-            {{{formatFriends oneUser.friends users}}}
+            {{#each (getFriendsInfo oneUser.friends users)}}
+                <div class="border-bot1 marg-top-1">
+                    <img src="{{image}}" alt="{{displayName}}'s profile image" class="circle wide2_5">
+                    <span>{{displayName}}</span>
+                    {{!-- Delete Button --}}
+                    <form action="/users/{{../oneUser._id}}/friends/pull/{{_id}}" method="POST" class="inline">
+                        {{!-- overrides the POST method --}}
+                        <input type="hidden" name="_method" value="PUT">
+                        <button type="submit" class="btn float-r white bg-color5">Unfriend</button>
+                    </form>
+                </div>
+            {{/each}}
         {{else}}
             <p>You have not added any friends. Click below to add friends.</p>
         {{/if}}
-        <form action="/users/{{oneUser._id}}/friends" method="POST">
+        <form action="/users/{{oneUser._id}}/friends/push" method="POST" class="form">
             {{!-- overrides the POST method --}}
             <input type="hidden" name="_method" value="PUT">
             {{!-- search a friend to add --}}
-            <div>
-                <label for="friend">Add a new friend: 
+            <div class="marg-top-2">
+                <label for="userList">Add a new friend: 
                     <input list="users" name="userList" id="userList" class="pad-0_5 font1 wide15 input block" autocomplete="off">
                     <datalist id="users">
                         {{#each users}}
@@ -62,7 +72,7 @@
                             {{/if}}
                         {{/each}}
                     </datalist>
-                    <input type="hidden" name="friend" id="friend">
+                    <input type="hidden" name="friendToPush" id="friendToPush">
                 </label>
             </div>
             {{!-- Add Friend Button --}}
