@@ -128,7 +128,7 @@ if(userList != null) {
             friendList = friendList.innerHTML.toString();
         }
         // get the hidden input whose value will be submitted
-        let friend = document.querySelector('#friend');
+        let friend = document.querySelector('#friendToPush');
         // get the newly selected friend's name
         let friendValue = userList.value;
         // get the matching datalist option
