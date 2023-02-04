@@ -146,17 +146,15 @@ module.exports = {
             return false
         }
     },
-    formatFriends: (friends, users) => {
-        console.log(users);
-        let html = `<ul id="friendList" class="no-list-style no-pad marg-bot-2">`;
+    getFriendsInfo: (friends, users) => {
+        let friendsInfo = [];
         friends.forEach(friend => {
             users.forEach(user => {
                 if(friend.toString() === user._id.toString()) {
-                    html += `<li class="marg-bot-0_5 border-bot1 wide-fit"><img class="circle wide2" src="${user.image}">${user.displayName}</li>`;
+                    friendsInfo.push(user);
                 }
             });
         });
-        html += '</ul>';
-        return html;
+        return friendsInfo;
     }
 };
