@@ -16,12 +16,14 @@
 
 <main>
     {{!-- Login Container --}}
-    <div class="card card-large center-txt pad-top-4 pad-bot-2 sans-serif">
+    <div class="card center-block card-large center-txt marg-top-2 pad-top-4 pad-bot-2 sans-serif">
         {{{body}}}
     </div>
 </main>
 
 {{> _footer-login}}
 
+    {{!-- This can't be deferred so I put it here rather than in <head> --}}
+    <script src="/js/main.js" type="module"></script>
 </body>
 </html>
