@@ -105,9 +105,8 @@ module.exports = {
             return true;
         }
     },
-    profileLink: (loggedUser) => {
-        // created the My Profile link
-        return `<li><a href="/users/${loggedUser._id}">My Account</a></li>`;
+    getLoggedUserId: (loggedUser) => {
+        return loggedUser._id;
     },
     isPublicScroll: (statusUsers, item) => {
         statusUsers = statusUsers.toString();
