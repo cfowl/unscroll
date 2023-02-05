@@ -28,11 +28,25 @@ router.get('/:id', ensureAuth, async (req, res) => {
     try {
         const oneUser = await User.findById(req.params.id)
             .lean();
+
+        res.render('users/show', { oneUser });
+    } catch (err) {
+        console.error(err);
+        res.render('error/500');
+    }
+});
+
+// @desc    Show one user's friends
+// @route   GET /users/:id/friends
+router.get('/:id/friends', ensureAuth, async (req, res) => {
+    try {
+        const oneUser = await User.findById(req.params.id)
+            .lean();
         
         const users = await User.find()
             .lean();
 
-        res.render('users/show', { oneUser, users });
+        res.render('users/friends', { oneUser, users });
     } catch (err) {
         console.error(err);
         res.render('error/500');

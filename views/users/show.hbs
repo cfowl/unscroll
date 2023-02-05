@@ -1,85 +1,37 @@
 <h1>My Account</h1>
 
-<div class="flex-large gap2">
-    <div id="account-display">
-        <h2>Your Profile</h2>
-        <img class="circle" src="{{oneUser.image}}" alt="{{oneUser.displayName}}'s Profile Picture">
-        <div>Email: {{oneUser.email}}</div>
-        <div>Account: {{oneUser._id}}</div>
-        <div>Joined: {{formatDate oneUser.createdOn}}</div>
-        <div class="divider marg-top-1 marg-bot-1"></div>
+<img class="circle" src="{{oneUser.image}}" alt="{{oneUser.displayName}}'s Profile Picture">
+<div>Email: {{oneUser.email}}</div>
+<div>Account #: {{oneUser._id}}</div>
+<div>Joined: {{formatDate oneUser.createdOn}}</div>
+<div class="divider marg-top-1 marg-bot-1"></div>
 
-        <form action="/users/{{oneUser._id}}" method="POST" id="add_edit-form" class="form">
-            {{!-- overrides the POST method --}}
-            <input type="hidden" name="_method" value="PUT">
-            {{!-- First Name --}}
-            <div class="row">
-                <label for="firstName">First Name: 
-                    <input type="text" name="firstName" id="firstName" class="block pad-0_5 font1 wide15 accountInputDisabled" value="{{oneUser.firstName}}" required disabled>
-                </label>
-            </div>
-            {{!-- Last Name --}}
-            <div class="row">
-                <label for="lastName">Last Name: 
-                    <input type="text" name="lastName" id="lastName" class="block pad-0_5 font1 wide15 accountInputDisabled" value="{{oneUser.lastName}}" required disabled>
-                </label>
-            </div>
-            {{!-- Display Name --}}
-            <div class="row">
-                <label for="displayName">Display Name: 
-                    <input type="text" name="displayName" id="displayName" class="block pad-0_5 font1 wide15 accountInputDisabled" value="{{oneUser.displayName}}" required disabled>
-                </label>
-            </div>
-            {{!-- Save or Cancel Buttons --}}
-            <div id="editAccountFormBtns" class="row hide">
-                <input type="submit" value="Save" class="btn border1 bg-color3 white">
-                <a href="" class="btn border1 bg-color5 white">Cancel</a>
-            </div>
-            {{!-- Edit Account Button --}}
-            <div id="editAccountBtn" class="btn border1 bg-color3 white">Edit Account</div>
-        </form>
+<form action="/users/{{oneUser._id}}" method="POST" id="add_edit-form" class="form">
+    {{!-- overrides the POST method --}}
+    <input type="hidden" name="_method" value="PUT">
+    {{!-- First Name --}}
+    <div class="row">
+        <label for="firstName">First Name: 
+            <input type="text" name="firstName" id="firstName" class="block pad-0_5 font1 wide15 accountInputDisabled" value="{{oneUser.firstName}}" required disabled>
+        </label>
     </div>
-
-    <div id="friend-display">
-        <h2>Your Friends</h2>
-        {{#if oneUser.friends}}
-            {{#each (getFriendsInfo oneUser.friends users)}}
-                <div class="border-bot1 marg-top-1">
-                    <img src="{{image}}" alt="{{displayName}}'s profile image" class="circle wide2_5">
-                    <span>{{displayName}}</span>
-                    {{!-- Delete Button --}}
-                    <form action="/users/{{../oneUser._id}}/friends/pull/{{_id}}" method="POST" class="inline">
-                        {{!-- overrides the POST method --}}
-                        <input type="hidden" name="_method" value="PUT">
-                        <button type="submit" class="btn float-r white bg-color5">Unfriend</button>
-                    </form>
-                </div>
-            {{/each}}
-        {{else}}
-            <p>You have not added any friends. Click below to add friends.</p>
-        {{/if}}
-        <form action="/users/{{oneUser._id}}/friends/push" method="POST" class="form">
-            {{!-- overrides the POST method --}}
-            <input type="hidden" name="_method" value="PUT">
-            {{!-- search a friend to add --}}
-            <div class="marg-top-2">
-                <label for="userList">Add a new friend: 
-                    <input list="users" name="userList" id="userList" class="pad-0_5 font1 wide15 input block" autocomplete="off">
-                    <datalist id="users">
-                        {{#each users}}
-                            {{#if (not (isLoggedUser _id ../user))}}
-                                <option data-value="{{_id}}" value="{{displayName}}"></option>
-                            {{/if}}
-                        {{/each}}
-                    </datalist>
-                    <input type="hidden" name="friendToPush" id="friendToPush">
-                </label>
-            </div>
-            {{!-- Add Friend Button --}}
-            <div class="row">
-                <input type="submit" value="Add Friend" class="btn border1 bg-color3 white">
-            </div>
-        </form>
+    {{!-- Last Name --}}
+    <div class="row">
+        <label for="lastName">Last Name: 
+            <input type="text" name="lastName" id="lastName" class="block pad-0_5 font1 wide15 accountInputDisabled" value="{{oneUser.lastName}}" required disabled>
+        </label>
     </div>
-
-</div>
+    {{!-- Display Name --}}
+    <div class="row">
+        <label for="displayName">Display Name: 
+            <input type="text" name="displayName" id="displayName" class="block pad-0_5 font1 wide15 accountInputDisabled" value="{{oneUser.displayName}}" required disabled>
+        </label>
+    </div>
+    {{!-- Save or Cancel Buttons --}}
+    <div id="editAccountFormBtns" class="row hide">
+        <input type="submit" value="Save" class="btn border1 bg-color3 white">
+        <a href="" class="btn border1 bg-color5 white">Cancel</a>
+    </div>
+    {{!-- Edit Account Button --}}
+    <div id="editAccountBtn" class="btn border1 bg-color3 white">Edit Account</div>
+</form>

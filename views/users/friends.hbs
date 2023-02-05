@@ -1,0 +1,41 @@
+<h1>Your Friends</h1>
+
+<form action="/users/{{oneUser._id}}/friends/push" method="POST" class="form">
+    {{!-- overrides the POST method --}}
+    <input type="hidden" name="_method" value="PUT">
+    {{!-- search a friend to add --}}
+    <label for="userList">Add a new friend: 
+        <input list="users" name="userList" id="userList" class="pad-0_5 font1 wide15 input block" autocomplete="off">
+        <datalist id="users">
+            {{#each users}}
+                {{#if (not (isLoggedUser _id ../user))}}
+                    <option data-value="{{_id}}" value="{{displayName}}"></option>
+                {{/if}}
+            {{/each}}
+        </datalist>
+        <input type="hidden" name="friendToPush" id="friendToPush">
+    </label>
+    {{!-- Add Friend Button --}}
+    <div class="row">
+        <input type="submit" value="Add Friend" class="btn border1 bg-color3 white">
+    </div>
+</form>
+
+{{#if oneUser.friends}}
+    <div class="flex-large marg-top-2">
+        {{#each (getFriendsInfo oneUser.friends users)}}
+            <div class="card pad-1 marg-top-1 wide20">
+                <img src="{{image}}" alt="{{displayName}}'s profile image" class="circle wide2_5">
+                <span>{{displayName}}</span>
+                {{!-- Delete Button --}}
+                <form action="/users/{{../oneUser._id}}/friends/pull/{{_id}}" method="POST" class="inline">
+                    {{!-- overrides the POST method --}}
+                    <input type="hidden" name="_method" value="PUT">
+                    <button type="submit" class="btn float-r white bg-color5 marg-top-0_5">Unfriend</button>
+                </form>
+            </div>
+        {{/each}}
+    </div>
+{{else}}
+    <p>You have not added any friends. Click below to add friends.</p>
+{{/if}}
