@@ -15,10 +15,12 @@ formatDates(scrollDates);
 let hambars = document.querySelector('.hambars');
 let navMenu = document.querySelector('.navMenu');
 
-hambars.addEventListener('click', () => {
-    hambars.classList.toggle('open');
-    navMenu.classList.toggle('open');
-});
+if(hambars != null) {
+    hambars.addEventListener('click', () => {
+        hambars.classList.toggle('open');
+        navMenu.classList.toggle('open');
+    });
+}
 
 
 // ++++++++++++ //
