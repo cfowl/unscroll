@@ -2,8 +2,6 @@
 <h1>
     {{#if author.displayName}}
         {{{author.displayName}}}'s
-    {{else}}
-        Public
     {{/if}}
     Scrolls
 </h1>
@@ -52,16 +50,16 @@
 
 <div class="flex-large marg-top-2">
     {{#each scrolls}}
-    {{#if (isPublicScroll statusUsers ../user)}}
+    {{#if (isViewableScroll author status selectUsers ../users ../user)}}
         <div class="public-scroll card pad-1 bg-color4">
-            <span class="float-r">{{{editIcon user ../user _id}}}</span>
+            <span class="float-r">{{{editIcon author ../user _id}}}</span>
             <h2 class="scroll-title no-marg">{{{title}}}
             </h2>
             <span class="italic font08">
-                by <span class="scroll-user">{{{user.displayName}}}</span>,
+                by <span class="scroll-user">{{{author.displayName}}}</span>,
                 <span class="scroll-date">{{formatDate createdOn}}</span>
             </span>
-            <div class="italic font08">{{#if (areStatusUsers statusUsers)}}(shared with you){{/if}}</div>
+            <div class="italic font08">{{#if (equals status 'select')}}(shared with you){{/if}}</div>
             <p>{{{truncate body 250}}}</p>
             {{#if tags}}<span class="scroll-tags italic font09">Tags: {{{tags}}}</span>{{/if}}
     
@@ -69,6 +67,6 @@
         </div>
     {{/if}}
     {{else}}
-        <p>{{user.displayName}} has no scrolls.</p>
+        <p>{{author.displayName}} has no scrolls.</p>
     {{/each}}
 </div>
