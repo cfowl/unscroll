@@ -21,8 +21,8 @@
     </div>
 </form>
 
-{{#if oneUser.friends}}
-    <div id="friendList" class="flex-large marg-top-2">
+<div id="friendList" class="flex-large marg-top-2">
+    {{#if oneUser.friends}}
         {{#each (getFriendsInfo oneUser.friends users)}}
             <div class="card pad-1 marg-top-1 wide20">
                 <img src="{{image}}" alt="{{displayName}}'s profile image" class="circle wide2_5">
@@ -35,7 +35,7 @@
                 </form>
             </div>
         {{/each}}
-    </div>
-{{else}}
-    <p>You have not added any friends...</p>
-{{/if}}
+    {{else}}
+        <p>You have not added any friends...</p>
+    {{/if}}
+</div>
