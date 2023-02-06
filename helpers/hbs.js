@@ -142,8 +142,8 @@ module.exports = {
             return true;
         }
     },
-    isSharedUser: (user, sharedUsers) => {
-        if(sharedUsers.toString().includes(user.toString())) {
+    isSelectUser: (user, selectUsers) => {
+        if(selectUsers.toString().includes(user.toString())) {
             return true;
         } else {
             return false
