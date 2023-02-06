@@ -16,6 +16,10 @@
                 by {{scroll.author.displayName}},
                 <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
             </span>
+            <div class="italic font08">
+                {{#if (equals scroll.status 'select')}}(shared with select users){{/if}}
+                {{#if (equals scroll.status 'friends')}}(shared with friends){{/if}}
+            </div>
             <div>{{{scroll.body}}}</div>
             {{#if tags}}<span class="italic">Tags: {{scroll.tags}}</span>{{/if}}
         </div>
@@ -37,6 +41,10 @@
             by {{scroll.author.displayName}},
             <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
         </span>
+        <div class="italic font08">
+            {{#if (equals scroll.status 'select')}}(shared with select users){{/if}}
+            {{#if (equals scroll.status 'friends')}}(shared with friends){{/if}}
+        </div>
         <div>{{{scroll.body}}}</div>
         {{#if tags}}<span class="italic">Tags: {{scroll.tags}}</span>{{/if}}
     </div>
