@@ -80,18 +80,30 @@ if(editAccountBtn != null) {
 let scrollStatusToggle = document.querySelector('#scrollStatusToggle');
 // make sure we're on the add or edit scroll page before proceeding
 if(scrollStatusToggle != null) {
-    // if public status is checked when the page loads, make sure user dropdown is available
+    let privateRadio = document.querySelector('#private');
+    let selectRadio = document.querySelector('#select');
+    let friendsRadio = document.querySelector('#friends');
+    let publicRadio = document.querySelector('#public');
     let multiUserSelectWrapper = document.querySelector('#multiUserSelectWrapper');
+    // if public status is checked when the page loads, make sure user dropdown is available
     window.addEventListener('load', () => {
-        let publicStatus = document.querySelector('#public');
-        if(publicStatus.checked) {
+        if(selectRadio.checked) {
             multiUserSelectWrapper.classList.toggle('hide');
         }
     });
 
-    // toggle user dropdown when scroll status changes private <<-->> public
-    scrollStatusToggle.addEventListener('change', () => {
-        multiUserSelectWrapper.classList.toggle('hide');
+    // toggle user dropdown when scroll status changes to/from private/friends/public and select
+    privateRadio.addEventListener('click', () => {
+        multiUserSelectWrapper.classList.add('hide');
+    });
+    selectRadio.addEventListener('click', () => {
+        multiUserSelectWrapper.classList.remove('hide');
+    });
+    friendsRadio.addEventListener('click', () => {
+        multiUserSelectWrapper.classList.add('hide');
+    });
+    publicRadio.addEventListener('click', () => {
+        multiUserSelectWrapper.classList.add('hide');
     });
 
     // toggle user checkboxes when user dropdown is clicked
@@ -136,19 +148,13 @@ if(userList != null) {
     // listen for user to select a friend from the datalist
     userList.addEventListener('change', () => {
         // get the list of existing friends
-        let friendList = document.querySelector('#friendList');
-        if(friendList === null) {
-            friendList = '';
-        } else {
-            friendList = friendList.innerHTML.toString();
-        }
-        console.log(friendList);
+        let friendList = document.querySelector('#friendList').innerHTML.toString();
         // get the hidden input whose value will be submitted
         let friend = document.querySelector('#friendToPush');
         // get the newly selected friend's name
         let friendValue = userList.value;
         // get the matching datalist option
-        let friendOption = document.querySelector("#users option[value='"+friendValue+"']");
+        let friendOption = document.querySelector(`#users option[value='${friendValue}']`);
         // check input
         if(friendOption === null) {
             // if the input doesn't match a datalist option, notify the user
@@ -162,7 +168,7 @@ if(userList != null) {
             userList.style.color = 'grey';
         } else {
             // set hidden input value to the selected friend's ID
-            friend.value = friendOption.dataset.value;;
+            friend.value = friendOption.dataset.value;
             userList.style.color = 'black';
         }
     });
