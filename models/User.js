@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     },
     friends: {
-        type: String,
+        type: Array,
         default: ''
     }
 });
