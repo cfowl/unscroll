@@ -17,6 +17,16 @@
                 {{#if (equals scroll.status 'private')}}checked{{/if}}
                 >
             </label>
+            <label for="select">Select
+                <input type="radio" name="status" id="select" value="select"
+                {{#if (equals scroll.status 'select')}}checked{{/if}}
+                >
+            </label>
+            <label for="friends">Friends
+                <input type="radio" name="status" id="friends" value="friends"
+                {{#if (equals scroll.status 'friends')}}checked{{/if}}
+                >
+            </label>
             <label for="public">Public
                 <input type="radio" name="status" id="public" value="public"
                 {{#if (equals scroll.status 'public')}}checked{{/if}}
@@ -28,9 +38,9 @@
     <div id="multiUserSelectWrapper" class="hide">
         {{!-- Dropdown Toggle Box --}}
         <div id="multiUserDropdown" class="row">
-            <label>Share With All: 
+            <label>Users shared with: 
                 <select class="search-box block wide15 font1 pad-0_5">
-                    <option>or Select Users</option>
+                    <option>click to select</option>
                 </select>
                 <div id="over-select"></div>
             </label>
@@ -43,7 +53,7 @@
                         <input type="checkbox" name="{{displayName}}" id="{{displayName}}" class="checkbox" value="{{_id}}"
                             {{#if (isSharedUser _id ../scroll.statusUsers)}}checked{{/if}}
                         >
-                        <img class="wide1 inline" src="{{image}}" alt="{{displayName}}'s profile picture"> {{displayName}}
+                        <img class="circle wide1 inline" src="{{image}}" alt="{{displayName}}'s profile picture"> {{displayName}}
                     </label>
                 {{/if}}
             {{/each}}

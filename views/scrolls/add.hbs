@@ -13,6 +13,12 @@
             <label for="private">Private
                 <input type="radio" name="status" id="private" value="private" checked>
             </label>
+            <label for="select">Select
+                <input type="radio" name="status" id="select" value="select">
+            </label>
+            <label for="friends">Friends
+                <input type="radio" name="status" id="friends" value="friends">
+            </label>
             <label for="public">Public
                 <input type="radio" name="status" id="public" value="public">
             </label>
@@ -22,9 +28,9 @@
     <div id="multiUserSelectWrapper" class="hide">
         {{!-- Dropdown Toggle Box --}}
         <div id="multiUserDropdown" class="row">
-            <label>Share With All: 
+            <label>Users shared with: 
                 <select class="search-box block wide15 font1 pad-0_5">
-                    <option>or Select Users</option>
+                    <option>click to select</option>
                 </select>
                 <div id="over-select"></div>
             </label>
@@ -35,7 +41,7 @@
                 {{#if (not (isLoggedUser _id ../user))}}
                     <label for="{{displayName}}" class="block marg-top-0_5 marg-bot-0_5">
                         <input class="checkbox" type="checkbox" name="{{displayName}}" id="{{displayName}}" value="{{_id}}">
-                        <img class="wide1 inline" src="{{image}}" alt="{{displayName}}'s profile picture"> {{displayName}}
+                        <img class="circle wide1 inline" src="{{image}}" alt="{{displayName}}'s profile picture"> {{displayName}}
                     </label>
                 {{/if}}
             {{/each}}
