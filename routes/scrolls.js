@@ -19,7 +19,7 @@ router.get('/add', ensureAuth, async (req, res) => {
 // @route   POST /scrolls
 router.post('/', ensureAuth, async (req, res) => {
     try {
-        req.body.user = req.user.id;
+        req.body.author = req.user.id;
         await Scroll.create(req.body);
         res.redirect('/dashboard');  
     } catch (err) {
@@ -28,12 +28,12 @@ router.post('/', ensureAuth, async (req, res) => {
     }
 });
 
-// @desc    Show all public scrolls
+// @desc    Show all viewable scrolls
 // @route   GET /scrolls
 router.get('/', ensureAuth, async (req, res) => {
     try {
-        const scrolls = await Scroll.find({ status: 'public' })
-            .populate('user')
+        const scrolls = await Scroll.find()
+            .populate('author')
             .sort({ createdOn: 'desc' })
             .lean();
 
@@ -54,7 +54,7 @@ router.get('/', ensureAuth, async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const scroll = await Scroll.findById(req.params.id)
-          .populate('user')
+          .populate('author')
           .lean();
         
         if(!scroll) return res.render('error/404');
@@ -134,10 +134,10 @@ router.delete('/:id', ensureAuth, async (req, res) => {
 router.get('/user/:userId', ensureAuth, async (req, res) => {
     try {
         const scrolls = await Scroll.find({
-            user: req.params.userId,
+            author: req.params.userId,
             status: 'public'
         })
-          .populate('user')
+          .populate('author')
           .lean();
 
         const author = await User.findById(req.params.userId)
