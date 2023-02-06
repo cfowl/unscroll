@@ -44,6 +44,19 @@ enablePublicSearch();
 
 
 // ++++++++++++ //
+// toggle search box
+// ------------ //
+let filterButton = document.querySelector('#filterButton');
+if(filterButton != null) {
+    filterButton.addEventListener('click', () => {
+        let searchBox = document.querySelector('#searchBox');
+        searchBox.classList.toggle('hide');
+        filterButton.classList.toggle('hide');
+    });
+}
+
+
+// ++++++++++++ //
 // edit account button
 // ------------ //
 let editAccountBtn = document.querySelector('#editAccountBtn');
@@ -129,6 +142,7 @@ if(userList != null) {
         } else {
             friendList = friendList.innerHTML.toString();
         }
+        console.log(friendList);
         // get the hidden input whose value will be submitted
         let friend = document.querySelector('#friendToPush');
         // get the newly selected friend's name

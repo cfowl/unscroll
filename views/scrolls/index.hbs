@@ -7,41 +7,47 @@
     {{/if}}
     Scrolls
 </h1>
-    
-{{!-- Reset View --}}
-<div class="wide-fit marg-bot-1">
-    <a href="" class="btn bg-color3 white">Reset Search</a>
-</div>
 
-{{!-- Searches --}}
-<div class="marg-bot-1 scroll-search">
-    {{!-- Title Search --}}
-    <div class="wide-fit marg-bot-0_5 marg-right-2">
-        <label for="publicTitleSearch">Title: 
-            <input type="text" name="publicTitleSearch" id="publicTitleSearch" class="wide10 high2_5 search-box pad-0_5 font1" placeholder="search titles">
-        </label>
-        <div id="publicTitleSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+
+{{!-- Toggle Search Box --}}
+<div id="filterButton" class="wide-fit marg-bot-1 btn bg-color3 white">Filter Scrolls</div>
+    
+<div id="searchBox" class="hide">
+    {{!-- Reset View --}}
+    <div class="wide-fit marg-bot-1">
+        <a href="" class="btn bg-color3 white">Reset Filter</a>
     </div>
-    {{!-- Tag Search --}}
-    <div class="wide-fit marg-bot-0_5 marg-right-2">
-        <label for="publicTagSearch">Tag: 
-            <input type="text" name="publicTagSearch" id="publicTagSearch" class="wide10 high2_5 search-box pad-0_5 font1" placeholder="or search tags">
-        </label>
-        <div id="publicTagSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
-    </div>
-    {{!-- User Search --}}
-    {{#if users}}
+    
+    {{!-- Searches --}}
+    <div class="marg-bot-1 scroll-search">
+        {{!-- Title Search --}}
         <div class="wide-fit marg-bot-0_5 marg-right-2">
-            <label for="publicUserSearch">User: 
-                <select name="publicUserSearch" id="publicUserSearch" class="wide10 high2_5 search-box pad-0_5 font1">
-                    <option value="all">All</option>
-                    {{#each users}}
-                        <option value="{{{displayName}}}">{{{displayName}}}</option>
-                    {{/each}}
-                </select>
+            <label for="publicTitleSearch">Title: 
+                <input type="text" name="publicTitleSearch" id="publicTitleSearch" class="wide10 high2_5 search-box pad-0_5 font1" placeholder="search titles">
             </label>
+            <div id="publicTitleSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
         </div>
-    {{/if}}
+        {{!-- Tag Search --}}
+        <div class="wide-fit marg-bot-0_5 marg-right-2">
+            <label for="publicTagSearch">Tag: 
+                <input type="text" name="publicTagSearch" id="publicTagSearch" class="wide10 high2_5 search-box pad-0_5 font1" placeholder="or search tags">
+            </label>
+            <div id="publicTagSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+        </div>
+        {{!-- User Search --}}
+        {{#if users}}
+            <div class="wide-fit marg-bot-0_5 marg-right-2">
+                <label for="publicUserSearch">User: 
+                    <select name="publicUserSearch" id="publicUserSearch" class="wide10 high2_5 search-box pad-0_5 font1">
+                        <option value="all">All</option>
+                        {{#each users}}
+                            <option value="{{{displayName}}}">{{{displayName}}}</option>
+                        {{/each}}
+                    </select>
+                </label>
+            </div>
+        {{/if}}
+    </div>
 </div>
 
 <div class="flex-large marg-top-2">

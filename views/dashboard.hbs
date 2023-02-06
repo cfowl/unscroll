@@ -5,44 +5,49 @@
 
 {{#if scrolls}}
     {{!-- <h2>Here are your scrolls </h2> --}}
-    
-    {{!-- Reset View --}}
-    <div class="wide-fit marg-bot-1">
-        <a href="" class="btn bg-color3 white">Reset Search</a>
-    </div>
 
-    {{!-- Searches --}}
-    <div class="scroll-search">
-        {{!-- Title Search --}}
-        <div class="wide-fit marg-bot-0_5 marg-right-2">
-            <label for="dashTitleSearch">Title: 
-                <input type="text" name="dashTitleSearch" id="dashTitleSearch" class="wide10 high3 search-box pad-0_5 font1" placeholder="search titles">
-            </label>
-            <div id="dashTitleSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+    {{!-- Toggle Search Box --}}
+    <div id="filterButton" class="wide-fit marg-bot-1 btn bg-color3 white">Filter Scrolls</div>
+    
+    <div id="searchBox" class="hide">
+        {{!-- Reset View --}}
+        <div class="wide-fit marg-bot-1">
+            <a href="" class="btn bg-color3 white">Reset Filter</a>
         </div>
-        {{!-- Date Search --}}
-        <div class="wide-fit marg-bot-0_5 marg-right-2">
-            <label for="dashDateSearch">Date: 
-                <input type="date" name="dashDateSearch" id="dashDateSearch" class="wide10 high2_5 search-box pad-0_5 font1">
-            </label>
-        </div>
-        {{!-- Tag Search --}}
-        <div class="wide-fit marg-bot-0_5 marg-right-2">
-            <label for="dashTagSearch">Tag: 
-                <input type="text" name="dashTagSearch" id="dashTagSearch" class="wide10 high2_5 search-box pad-0_5 font1" placeholder="or search tags">
-            </label>
-            <div id="dashTagSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
-        </div>
-        {{!-- Status Search --}}
-        <div class="wide-fit marg-bot-0_5 marg-right-2">
-            <label for="dashStatusSearch">Status: 
-                <select name="dashStatusSearch" id="dashStatusSearch" class=" wide10 high2_5 search-box pad-0_5 font1">
-                    <option value="all">All</option>
-                    <option value="private">Private</option>
-                    <option value="public">Public</option>
-                    <option value="shared">Shared</option>
-                </select>
-            </label>
+    
+        {{!-- Searches --}}
+        <div class="scroll-search">
+            {{!-- Title Search --}}
+            <div class="wide-fit marg-bot-0_5 marg-right-2">
+                <label for="dashTitleSearch">Title: 
+                    <input type="text" name="dashTitleSearch" id="dashTitleSearch" class="wide10 high3 search-box pad-0_5 font1" placeholder="search titles">
+                </label>
+                <div id="dashTitleSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+            </div>
+            {{!-- Date Search --}}
+            <div class="wide-fit marg-bot-0_5 marg-right-2">
+                <label for="dashDateSearch">Date: 
+                    <input type="date" name="dashDateSearch" id="dashDateSearch" class="wide10 high2_5 search-box pad-0_5 font1">
+                </label>
+            </div>
+            {{!-- Tag Search --}}
+            <div class="wide-fit marg-bot-0_5 marg-right-2">
+                <label for="dashTagSearch">Tag: 
+                    <input type="text" name="dashTagSearch" id="dashTagSearch" class="wide10 high2_5 search-box pad-0_5 font1" placeholder="or search tags">
+                </label>
+                <div id="dashTagSearchBtn" class="search-btn bg-color3 white marg-left-0_5"><i class="material-icons">search</i></div>
+            </div>
+            {{!-- Status Search --}}
+            <div class="wide-fit marg-bot-0_5 marg-right-2">
+                <label for="dashStatusSearch">Status: 
+                    <select name="dashStatusSearch" id="dashStatusSearch" class=" wide10 high2_5 search-box pad-0_5 font1">
+                        <option value="all">All</option>
+                        <option value="private">Private</option>
+                        <option value="public">Public</option>
+                        <option value="shared">Shared</option>
+                    </select>
+                </label>
+            </div>
         </div>
     </div>
 
