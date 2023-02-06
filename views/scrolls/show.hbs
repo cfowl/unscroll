@@ -1,7 +1,7 @@
 {{!-- Shows ONE scroll --}}
 {{#if (equals scroll.status 'private')}}
     {{!-- if the scroll is private --}}
-    {{#if (not (usersMatch scroll.user user))}}
+    {{#if (not (usersMatch scroll.author user))}}
         {{!-- and if the scroll user is not the logged user, don't show the scroll --}}
         <h1 class="no-marg">Private Scroll</h1>
         <p>You are not authorized to view this scroll. If this is your scroll, please log in.</p>
@@ -11,9 +11,9 @@
         <h1 class="no-marg">{{scroll.title}}</h1>
 
         <div class="card pad-0_5 pad-4-large bg-color4">
-            <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
+            <span class="float-r">{{{editIcon scroll.author user scroll._id}}}</span>
             <span class="italic font08 border-bot1">
-                by {{scroll.user.displayName}},
+                by {{scroll.author.displayName}},
                 <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
             </span>
             <div>{{{scroll.body}}}</div>
@@ -32,19 +32,19 @@
     <h1 class="no-marg">{{scroll.title}}</h1>
 
     <div class="card pad-1 pad-2-large bg-color4">
-        <span class="float-r">{{{editIcon scroll.user user scroll._id}}}</span>
+        <span class="float-r">{{{editIcon scroll.author user scroll._id}}}</span>
         <span class="italic font08 border-bot1">
-            by {{scroll.user.displayName}},
+            by {{scroll.author.displayName}},
             <span class="scroll-date">{{formatDate scroll.createdOn}}</span>
         </span>
         <div>{{{scroll.body}}}</div>
         {{#if tags}}<span class="italic">Tags: {{scroll.tags}}</span>{{/if}}
     </div>
 
-    <a href="/scrolls/user/{{scroll.user._id}}" class="wide-fit center-block no-under">
+    <a href="/scrolls/user/{{scroll.author._id}}" class="wide-fit center-block no-under">
         <figure class="center-txt">
-            <img src="{{scroll.user.image}}" class="circle" alt="{{scroll.user.displayName}}'s Profile Picture">
-            <figcaption class="btn center-block bg-color3 white">More from {{scroll.user.firstName}}</figcaption>
+            <img src="{{scroll.author.image}}" class="circle" alt="{{scroll.author.displayName}}'s Profile Picture">
+            <figcaption class="btn center-block bg-color3 white">More from {{scroll.author.firstName}}</figcaption>
         </figure>
     </a>
 {{/if}}
