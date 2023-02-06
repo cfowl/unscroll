@@ -97,7 +97,7 @@ router.put('/:id/friends/push', ensureAuth, async (req, res) => {
                 }
             );
 
-            res.redirect(`/users/${user._id}`);
+            res.redirect(`/users/${user._id}/friends`);
         }
     } catch (err) {
         console.error(err);
@@ -120,7 +120,7 @@ router.put('/:id/friends/pull/:friendID', ensureAuth, async (req, res) => {
                 { $pull: { friends: req.params.friendID } }
             );
 
-            res.redirect(`/users/${user._id}`);
+            res.redirect(`/users/${user._id}/friends`);
         }
     } catch (err) {
         console.error(err);
