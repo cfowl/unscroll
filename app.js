@@ -39,7 +39,7 @@ if(process.env.NODE_ENV === "development") {
 }
 
 // Handelbars helpers
-const { formatDate, stripTags, truncate, editIcon, equals, contains, usersLink, usersMatch, logOutInLink, not, getLoggedUserId, isPublicScroll, getUserIdFrom, isLoggedUser, areStatusUsers, isSharedUser, getFriendsInfo } = require('./helpers/hbs');
+const { formatDate, stripTags, truncate, editIcon, equals, contains, usersLink, usersMatch, logOutInLink, not, getLoggedUserId, isViewableScroll, getUserIdFrom, isLoggedUser, areStatusUsers, isSharedUser, getFriendsInfo } = require('./helpers/hbs');
 
 // Handlebars
 app.engine('hbs',
@@ -56,7 +56,7 @@ app.engine('hbs',
             logOutInLink,
             not,
             getLoggedUserId,
-            isPublicScroll,
+            isViewableScroll,
             getUserIdFrom,
             isLoggedUser,
             areStatusUsers,

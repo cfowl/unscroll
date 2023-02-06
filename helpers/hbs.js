@@ -108,14 +108,18 @@ module.exports = {
     getLoggedUserId: (loggedUser) => {
         return loggedUser._id;
     },
-    isPublicScroll: (statusUsers, item) => {
-        statusUsers = statusUsers.toString();
-        item = item._id.toString();
+    isViewableScroll: (author, status, selectUsers, users, loggedUser) => {
+        author = author._id.toString();
+        status = status.toString();
+        selectUsers = selectUsers.toString();
+        loggedUser = loggedUser._id.toString();
+        let authorFriends = users.find(i => i._id.toString() === author).friends;
 
-        // check if item is in list
-        if(statusUsers.includes(item)) {
+        if(status === 'public') {
             return true;
-        } else if(statusUsers === '') {
+        } else if(status.toString() === 'select' && selectUsers.includes(loggedUser)) {
+            return true;
+        } else if(status.toString() === 'friends' && (authorFriends.includes(loggedUser) || author === loggedUser)) {
             return true;
         } else {
             return false;
@@ -131,8 +135,8 @@ module.exports = {
             return false;
         }
     },
-    areStatusUsers: (statusUsers) => {
-        if(statusUsers.toString() === '') {
+    areStatusUsers: (selectUsers) => {
+        if(selectUsers.toString() === '') {
             return false;
         } else {
             return true;
