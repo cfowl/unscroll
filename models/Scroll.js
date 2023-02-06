@@ -12,14 +12,14 @@ const scrollSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: 'public',
-        enum: ['public', 'private']
+        default: 'private',
+        enum: ['private', 'select', 'friends', 'public']
     },
-    statusUsers: {
+    selectUsers: {
         type: String,
         default: ''
     },
-    user: {
+    author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
