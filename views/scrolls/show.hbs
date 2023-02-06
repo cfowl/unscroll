@@ -20,10 +20,10 @@
             {{#if tags}}<span class="italic">Tags: {{scroll.tags}}</span>{{/if}}
         </div>
 
-        <a href="/scrolls/user/{{scroll.user._id}}" class="wide-fit center-block no-under">
+        <a href="/scrolls/user/{{scroll.author._id}}" class="wide-fit center-block no-under">
             <figure class="center-txt">
-                <img src="{{scroll.user.image}}" class="circle">
-                <figcaption class="btn block bg-color2 color4">More from {{scroll.user.firstName}}</figcaption>
+                <img src="{{scroll.author.image}}" class="circle">
+                <figcaption class="btn block bg-color2 color4">More from {{scroll.author.firstName}}</figcaption>
             </figure>
         </a>
     {{/if}}

@@ -95,7 +95,7 @@ router.put('/:id', ensureAuth, async (req, res) => {
         let scroll = await Scroll.findById(req.params.id).lean();
         if(!scroll) return res.render('error/404');
 
-        if(scroll.user != req.user.id) res.redirect('/scrolls');
+        if(scroll.author != req.user.id) res.redirect('/scrolls');
         else {
             scroll = await Scroll.findOneAndUpdate({ _id: req.params.id }, req.body, {
                 new: true,
@@ -117,7 +117,7 @@ router.delete('/:id', ensureAuth, async (req, res) => {
         const scroll = await Scroll.findById(req.params.id).lean();
         if(!scroll) return res.render('error/404');
 
-        if(scroll.user != req.user.id) res.redirect('/scrolls');
+        if(scroll.author != req.user.id) res.redirect('/scrolls');
 
         else {
             await Scroll.remove({ _id: req.params.id });
