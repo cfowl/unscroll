@@ -134,16 +134,19 @@ router.delete('/:id', ensureAuth, async (req, res) => {
 router.get('/user/:userId', ensureAuth, async (req, res) => {
     try {
         const scrolls = await Scroll.find({
-            author: req.params.userId,
-            status: 'public'
+            author: req.params.userId
         })
           .populate('author')
+          .lean();
+        
+        const users = await User.find()
+          .sort({ firstName: 'asc' })
           .lean();
 
         const author = await User.findById(req.params.userId)
           .lean();
 
-        res.render('scrolls/index', { scrolls, author });
+        res.render('scrolls/index', { scrolls, author, users });
     } catch (err) {
         console.error(err);
         res.render('error/500');

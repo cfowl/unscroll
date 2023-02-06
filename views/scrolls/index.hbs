@@ -50,22 +50,25 @@
 
 <div class="flex-large marg-top-2">
     {{#each scrolls}}
-    {{#if (isViewableScroll author status selectUsers ../users ../user)}}
-        <div class="public-scroll card pad-1 bg-color4">
-            <span class="float-r">{{{editIcon author ../user _id}}}</span>
-            <h2 class="scroll-title no-marg">{{{title}}}
-            </h2>
-            <span class="italic font08">
-                by <span class="scroll-user">{{{author.displayName}}}</span>,
-                <span class="scroll-date">{{formatDate createdOn}}</span>
-            </span>
-            <div class="italic font08">{{#if (equals status 'select')}}(shared with you){{/if}}</div>
-            <p>{{{truncate body 250}}}</p>
-            {{#if tags}}<span class="scroll-tags italic font09">Tags: {{{tags}}}</span>{{/if}}
-    
-            <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-color2 white marg-top-1 no-under">View Scroll</a>
-        </div>
-    {{/if}}
+        {{#if (isViewableScroll author status selectUsers ../users ../user)}}
+            <div class="public-scroll card pad-1 bg-color4">
+                <span class="float-r">{{{editIcon author ../user _id}}}</span>
+                <h2 class="scroll-title no-marg">{{{title}}}
+                </h2>
+                <span class="italic font08">
+                    by <span class="scroll-user">{{{author.displayName}}}</span>,
+                    <span class="scroll-date">{{formatDate createdOn}}</span>
+                </span>
+                <div class="italic font08">
+                    {{#if (equals status 'select')}}(shared with select users){{/if}}
+                    {{#if (equals status 'friends')}}(shared with friends){{/if}}
+                </div>
+                <p>{{{truncate body 250}}}</p>
+                {{#if tags}}<span class="scroll-tags italic font09">Tags: {{{tags}}}</span>{{/if}}
+        
+                <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-color2 white marg-top-1 no-under">View Scroll</a>
+            </div>
+        {{/if}}
     {{else}}
         <p>{{author.displayName}} has no scrolls.</p>
     {{/each}}
