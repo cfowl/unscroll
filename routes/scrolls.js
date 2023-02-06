@@ -73,7 +73,7 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         const scroll = await Scroll.findOne({ _id: req.params.id }).lean();
         if(!scroll) return res.render('error/404');
 
-        if(scroll.user != req.user.id) {
+        if(scroll.author != req.user.id) {
             res.redirect('/scrolls');
         } else {
             const users = await User.find()
