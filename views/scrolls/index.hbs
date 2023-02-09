@@ -45,6 +45,17 @@
                 </label>
             </div>
         {{/if}}
+        {{!-- Status Search --}}
+        <div class="wide-fit marg-bot-0_5 marg-right-2">
+            <label for="publicStatusSearch">Status: 
+                <select name="publicStatusSearch" id="publicStatusSearch" class=" wide10 high2_5 search-box pad-0_5 font1">
+                    <option value="all">All</option>
+                    <option value="select">Select</option>
+                    <option value="friends">Friends</option>
+                    <option value="public">Public</option>
+                </select>
+            </label>
+        </div>
     </div>
 </div>
 
@@ -64,7 +75,8 @@
                     {{#if (equals status 'friends')}}(shared with friends){{/if}}
                 </div>
                 <p>{{{truncate body 250}}}</p>
-                {{#if tags}}<span class="scroll-tags italic font09">Tags: {{{tags}}}</span>{{/if}}
+                <span class="scroll-tags italic font09">Tags: {{#if tags}}{{{tags}}}{{else}}none{{/if}}</span>
+                <div class="scroll-status hide">{{status}}</div>
         
                 <a href="/scrolls/{{_id}}" class="btn wide-fit center-block bg-color2 white marg-top-1 no-under">View Scroll</a>
             </div>
