@@ -121,4 +121,8 @@
         background-color: var(--color4);
         color: var(--color2);
     }
+
+    .navMenu a.active {
+        margin: 0 .5rem;
+    }
 }
