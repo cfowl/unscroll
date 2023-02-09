@@ -72,4 +72,24 @@ export function enablePublicSearch() {
             }
         });
     });
+
+    // ------------------------------------- //
+    // >>>> status search functionality <<<<
+    // get status select dropdown
+    let dashStatusSearch = document.querySelector('#publicStatusSearch');
+    // listen for changes to status select dropdown value
+    dashStatusSearch.addEventListener('change', () => {
+        // loop through scrolls
+        publicScrolls.forEach(scroll => {
+            let scrollStatus = scroll.querySelector('.scroll-status').innerHTML;
+            // show all scrolls
+            if(dashStatusSearch.value === 'all') {
+                scroll.classList.remove('status-hide');
+            } else if(scrollStatus.includes(dashStatusSearch.value)) {
+                scroll.classList.remove('status-hide');
+            } else {
+                scroll.classList.add('status-hide');
+            }
+        });
+    });
 }
