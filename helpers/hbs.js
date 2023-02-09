@@ -69,7 +69,7 @@ module.exports = {
         }
         if(loggedUser.googleId === '104800435635587428982') {
             // if logged user is chris2fowler@gmail.com, show users link
-            return `<li><a href="/users">Users</a></li>`;
+            return `<li><a id="usersLink" class="navLink" href="/users">Users</a></li>`;
         } else {
             // logged user is not authorized, don't show anything
             return '';
