@@ -24,6 +24,34 @@ if(hambars != null) {
 
 
 // ++++++++++++ //
+// nav active link
+// ------------ //
+// remove active class for all links
+let links = Array.from(document.querySelectorAll('.navLink'));
+links.forEach(link => {
+    link.classList.remove('active');
+});
+// add active class for link that matches page URL
+let URL = location.href;
+if(URL.includes('/dash')) {
+    document.querySelector('#dashLink').classList.add('active');
+} else if(URL.includes('/add')) {
+    document.querySelector('#addLink').classList.add('active');
+} else if(URL.includes('/scrolls') && !(URL.includes('/add'))) {
+    document.querySelector('#scrollsLink').classList.add('active');
+} else if(URL.includes('/friends')) {
+    document.querySelector('#friendsLink').classList.add('active');
+} else if(URL.includes('/users/')) {
+    document.querySelector('#accountLink').classList.add('active');
+} else if(URL.includes('/users') && !(URL.includes('/users/'))) {
+    document.querySelector('#usersLink').classList.add('active');
+}
+
+
+    
+
+
+// ++++++++++++ //
 // copyright date
 // ------------ //
 let currentYear = new Date().getFullYear();
@@ -84,6 +112,7 @@ if(scrollStatusToggle != null) {
     let selectRadio = document.querySelector('#select');
     let friendsRadio = document.querySelector('#friends');
     let publicRadio = document.querySelector('#public');
+    let message = document.querySelector('#message');
     let multiUserSelectWrapper = document.querySelector('#multiUserSelectWrapper');
     // if public status is checked when the page loads, make sure user dropdown is available
     window.addEventListener('load', () => {
@@ -95,16 +124,21 @@ if(scrollStatusToggle != null) {
     // toggle user dropdown when scroll status changes to/from private/friends/public and select
     privateRadio.addEventListener('click', () => {
         multiUserSelectWrapper.classList.add('hide');
+        message.innerHTML = '* this scroll will only be visible to you'
     });
     selectRadio.addEventListener('click', () => {
         multiUserSelectWrapper.classList.remove('hide');
+        message.innerHTML = '* this scroll will only be visible to users you select'
     });
     friendsRadio.addEventListener('click', () => {
         multiUserSelectWrapper.classList.add('hide');
+        message.innerHTML = '* this scroll will only be visible to your friends'
     });
     publicRadio.addEventListener('click', () => {
         multiUserSelectWrapper.classList.add('hide');
+        message.innerHTML = '* this scroll will be visible to everyone'
     });
+    
 
     // toggle user checkboxes when user dropdown is clicked
     let multiUserDropdown = document.querySelector('#multiUserDropdown');
