@@ -2,17 +2,10 @@
 /* ------------------------------ COLORS & FONTS -----------------------  */
 
 /* 
-    https://coolors.co/9b1d20-003459-fdf5e6-1f2f16-00a8e8
-    https://coolors.co/b6465f-c5cbd3-054a91-000000-ea8c55
+    https://coolors.co/b6465f-c5cbd3-054a91-000500-ea8c55
 */
 
 :root {
-    /* --color1: #1F2F16;
-    --color2: #003459;
-    --color3: #00A8E8;
-    --color4: #FDF5E6;
-    --color5: #9b1d20; */
-
     --color1: #EA8C55;
     --color2: #000500;
     --color3: #054A91;

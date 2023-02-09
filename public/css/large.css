@@ -1,5 +1,13 @@
 @media only screen and (min-width: 38em) {
 
+    :root {
+        --color1: #EA8C55;
+        --color2: #000500;
+        --color3: #054A91;
+        --color4: #C5CBD3;
+        --color5: #B6465F;
+    }
+
     .hide-small {
         display: initial;
     }
@@ -67,5 +75,50 @@
         border: 2px solid;
         padding: 2rem;
         border-radius: 1rem;
+    }
+
+
+    /* ---------------------------------------------------------------------- */
+    /* ------------------------------ NAV TOGGLE ---------------------------  */
+
+    #header-wrap {
+        flex-wrap: wrap;
+    }
+
+    .hambars {
+        position: initial;
+        z-index: unset;
+        display: none;
+    }
+
+    .navMenu {
+        margin: 0 auto;
+        padding: 0;
+        width: fit-content;
+        position: initial;
+        border-radius: initial;
+    }
+
+    .navMenu ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .navMenu ul li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .navMenu a {
+        margin: 0;
+        padding: .5rem 1rem;
+        color: var(--color1);
+        height: 100%;
+        border-radius: 1rem;
+    }
+
+    .navMenu a:hover, .navMenu a.active {
+        background-color: var(--color4);
+        color: var(--color2);
     }
 }
