@@ -124,19 +124,27 @@ if(scrollStatusToggle != null) {
     // toggle user dropdown when scroll status changes to/from private/friends/public and select
     privateRadio.addEventListener('click', () => {
         multiUserSelectWrapper.classList.add('hide');
-        message.innerHTML = '* this scroll will only be visible to you'
+        if(message != null) {
+            message.innerHTML = '* this scroll will only be visible to you';
+        }
     });
     selectRadio.addEventListener('click', () => {
         multiUserSelectWrapper.classList.remove('hide');
-        message.innerHTML = '* this scroll will only be visible to users you select'
+        if(message != null) {
+            message.innerHTML = '* this scroll will only be visible to users you select';
+        }
     });
     friendsRadio.addEventListener('click', () => {
         multiUserSelectWrapper.classList.add('hide');
-        message.innerHTML = '* this scroll will only be visible to your friends'
+        if(message != null) {
+            message.innerHTML = '* this scroll will only be visible to your friends';
+        }
     });
     publicRadio.addEventListener('click', () => {
         multiUserSelectWrapper.classList.add('hide');
-        message.innerHTML = '* this scroll will be visible to everyone'
+        if(message != null) {
+            message.innerHTML = '* this scroll will be visible to everyone';
+        }
     });
     
 
@@ -151,25 +159,26 @@ if(scrollStatusToggle != null) {
     });
 
     // create an empty array and add the authorID to it 
-    let statusUsers = [];
+    let selectUsers = [];
     let authorID = document.querySelector('#authorID').innerHTML;
-    statusUsers.push(authorID)
+    selectUsers.push(authorID)
     
-    // everytime a user box is checked, a list of statusUsers is updated
-    // and the hidden input which gets submitted with the form as statusUsers is populated
-    let statusUsersInput = document.querySelector('#statusUsers');
+    // everytime a user box is checked, a list of selectUsers is updated
+    // and the hidden input which gets submitted with the form as selectUsers is populated
+    let selectUsersInput = document.querySelector('#selectUsers');
     let userCheckboxes = Array.from(document.getElementsByClassName('checkbox'));
     userCheckboxes.forEach(box => {
         box.addEventListener('click', () => {
             if(box.checked) {
-                statusUsers.push(box.value);
+                selectUsers.push(box.value);
             } else {
-                let i = statusUsers.indexOf(box.value);
-                statusUsers.splice(i, 1);
+                let i = selectUsers.indexOf(box.value);
+                selectUsers.splice(i, 1);
             }
-            statusUsersInput.value = statusUsers;
+            selectUsersInput.value = selectUsers;
         });        
     });
+    console.log(selectUsers);
 }
 
 

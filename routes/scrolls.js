@@ -95,7 +95,10 @@ router.put('/:id', ensureAuth, async (req, res) => {
         let scroll = await Scroll.findById(req.params.id).lean();
         if(!scroll) return res.render('error/404');
 
-        if(scroll.author != req.user.id) res.redirect('/scrolls');
+        if(scroll.author != req.user.id) {
+            console.log('DOESNT MATCH ???????');
+            res.redirect('/scrolls');
+        }
         else {
             scroll = await Scroll.findOneAndUpdate({ _id: req.params.id }, req.body, {
                 new: true,
