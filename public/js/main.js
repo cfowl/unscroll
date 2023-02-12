@@ -168,6 +168,11 @@ if(scrollStatusToggle != null) {
     let selectUsersInput = document.querySelector('#selectUsers');
     let userCheckboxes = Array.from(document.getElementsByClassName('checkbox'));
     userCheckboxes.forEach(box => {
+        // add selectUser if already checked
+        if(box.checked) {
+            selectUsers.push(box.value);
+        }
+        // add/remove selectUser when checked/unchecked
         box.addEventListener('click', () => {
             if(box.checked) {
                 selectUsers.push(box.value);
