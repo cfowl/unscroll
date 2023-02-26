@@ -114,11 +114,27 @@ if(scrollStatusToggle != null) {
     let publicRadio = document.querySelector('#public');
     let message = document.querySelector('#message');
     let multiUserSelectWrapper = document.querySelector('#multiUserSelectWrapper');
-    // if public status is checked when the page loads, make sure user dropdown is available
+    let selectUsersInput = document.querySelector('#selectUsers');
+    let userCheckboxes = Array.from(document.getElementsByClassName('checkbox'));
+
+    // create an empty array and add the authorID to it 
+    let selectUsers = [];
+    let authorID = document.querySelector('#authorID').innerHTML;
+    selectUsers.push(authorID)
+
     window.addEventListener('load', () => {
+        // if public status is checked when the page loads, make sure user dropdown is available
         if(selectRadio.checked) {
             multiUserSelectWrapper.classList.toggle('hide');
         }
+
+        userCheckboxes.forEach(box => {
+            // add selectUsers if already checked
+            if(box.checked) {
+                selectUsers.push(box.value);
+            }
+        });
+        selectUsersInput.value = selectUsers;
     });
 
     // toggle user dropdown when scroll status changes to/from private/friends/public and select
@@ -158,20 +174,10 @@ if(scrollStatusToggle != null) {
         multiUserCheckboxes.classList.toggle('hide');
     });
 
-    // create an empty array and add the authorID to it 
-    let selectUsers = [];
-    let authorID = document.querySelector('#authorID').innerHTML;
-    selectUsers.push(authorID)
     
     // everytime a user box is checked, a list of selectUsers is updated
     // and the hidden input which gets submitted with the form as selectUsers is populated
-    let selectUsersInput = document.querySelector('#selectUsers');
-    let userCheckboxes = Array.from(document.getElementsByClassName('checkbox'));
     userCheckboxes.forEach(box => {
-        // add selectUser if already checked
-        if(box.checked) {
-            selectUsers.push(box.value);
-        }
         // add/remove selectUser when checked/unchecked
         box.addEventListener('click', () => {
             if(box.checked) {
@@ -183,7 +189,6 @@ if(scrollStatusToggle != null) {
             selectUsersInput.value = selectUsers;
         });        
     });
-    console.log(selectUsers);
 }
 
 
