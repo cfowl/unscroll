@@ -96,7 +96,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
         if(!scroll) return res.render('error/404');
 
         if(scroll.author != req.user.id) {
-            console.log('DOESNT MATCH ???????');
             res.redirect('/scrolls');
         }
         else {
