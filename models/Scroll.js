@@ -13,7 +13,8 @@ const scrollSchema = new mongoose.Schema({
     status: {
         type: String,
         default: 'private',
-        enum: ['private', 'select', 'friends', 'public']
+        enum: ['private', 'select', 'friends', 'public'],
+        required: true
     },
     selectUsers: {
         type: String,
@@ -21,7 +22,12 @@ const scrollSchema = new mongoose.Schema({
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
+    },
+    coAuthors: {
+        type: String,
+        default: ''
     },
     tags: {
         type: String
