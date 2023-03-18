@@ -113,71 +113,68 @@ if(scrollStatusToggle != null) {
     let friendsRadio = document.querySelector('#friends');
     let publicRadio = document.querySelector('#public');
     let message = document.querySelector('#message');
-    let multiUserSelectWrapper = document.querySelector('#multiUserSelectWrapper');
+    let shareUserSelectWrapper = document.querySelector('#shareUserSelectWrapper');
     let selectUsersInput = document.querySelector('#selectUsers');
-    let userCheckboxes = Array.from(document.getElementsByClassName('checkbox'));
+    let selectUserCheckboxes = Array.from(document.getElementsByClassName('selectUserCheckbox'));
 
     // create an empty array and add the authorID to it 
     let selectUsers = [];
-    let authorID = document.querySelector('#authorID').innerHTML;
-    selectUsers.push(authorID)
+    let authorID = document.querySelector('#authorID');
+    if(authorID != null) {
+        // only add authorID on add page
+        selectUsers.push(authorID.innerHTML);
+    }
 
     window.addEventListener('load', () => {
         // if public status is checked when the page loads, make sure user dropdown is available
         if(selectRadio.checked) {
-            multiUserSelectWrapper.classList.toggle('hide');
+            shareUserSelectWrapper.classList.toggle('hide');
         }
 
-        userCheckboxes.forEach(box => {
-            // add selectUsers if already checked
-            if(box.checked) {
-                selectUsers.push(box.value);
-            }
-        });
-        selectUsersInput.value = selectUsers;
+        if(selectUsersInput.value != '') {
+            selectUsers = selectUsersInput.value.split(',');
+        }
     });
 
     // toggle user dropdown when scroll status changes to/from private/friends/public and select
     privateRadio.addEventListener('click', () => {
-        multiUserSelectWrapper.classList.add('hide');
+        shareUserSelectWrapper.classList.add('hide');
         if(message != null) {
             message.innerHTML = '* this scroll will only be visible to you';
         }
     });
     selectRadio.addEventListener('click', () => {
-        multiUserSelectWrapper.classList.remove('hide');
+        shareUserSelectWrapper.classList.remove('hide');
         if(message != null) {
             message.innerHTML = '* this scroll will only be visible to users you select';
         }
     });
     friendsRadio.addEventListener('click', () => {
-        multiUserSelectWrapper.classList.add('hide');
+        shareUserSelectWrapper.classList.add('hide');
         if(message != null) {
             message.innerHTML = '* this scroll will only be visible to your friends';
         }
     });
     publicRadio.addEventListener('click', () => {
-        multiUserSelectWrapper.classList.add('hide');
+        shareUserSelectWrapper.classList.add('hide');
         if(message != null) {
             message.innerHTML = '* this scroll will be visible to everyone';
         }
     });
     
-
     // toggle user checkboxes when user dropdown is clicked
-    let multiUserDropdown = document.querySelector('#multiUserDropdown');
-    let multiUserCheckboxes = document.querySelector('#multiUserCheckboxes');
-    multiUserDropdown.addEventListener('click', (event) => {
+    let shareUserDropdown = document.querySelector('#shareUserDropdown');
+    let shareUserCheckboxes = document.querySelector('#shareUserCheckboxes');
+    shareUserDropdown.addEventListener('click', (event) => {
         event.preventDefault();
-        multiUserDropdown.classList.toggle('row');
-        multiUserDropdown.querySelector('.search-box').classList.toggle('no-border-radius-bottom');
-        multiUserCheckboxes.classList.toggle('hide');
+        shareUserDropdown.classList.toggle('row');
+        shareUserDropdown.querySelector('.search-box').classList.toggle('no-border-radius-bottom');
+        shareUserCheckboxes.classList.toggle('hide');
     });
 
-    
     // everytime a user box is checked, a list of selectUsers is updated
     // and the hidden input which gets submitted with the form as selectUsers is populated
-    userCheckboxes.forEach(box => {
+    selectUserCheckboxes.forEach(box => {
         // add/remove selectUser when checked/unchecked
         box.addEventListener('click', () => {
             if(box.checked) {
@@ -187,6 +184,56 @@ if(scrollStatusToggle != null) {
                 selectUsers.splice(i, 1);
             }
             selectUsersInput.value = selectUsers;
+        });        
+    });
+}
+
+
+// ++++++++++++ //
+// add coAuthors to a scroll functionality
+// ------------ //
+let hasCoAuthors = document.querySelector('#hasCoAuthors');
+
+if(hasCoAuthors != null) {
+    let coAuthorUserDropdown = document.querySelector('#coAuthorUserDropdown');
+    let coAuthorUserCheckboxes = document.querySelector('#coAuthorUserCheckboxes');
+    let coAuthorUserSelectWrapper = document.querySelector('#coAuthorUserSelectWrapper');
+    let coAuthorCheckboxes = Array.from(document.getElementsByClassName('coAuthorCheckbox'));
+    let coAuthorsInput = document.querySelector('#coAuthors');
+    let coAuthors = [];
+
+    window.addEventListener('load', ()=> {
+        if(hasCoAuthors.checked) {
+            coAuthorUserSelectWrapper.classList.remove('hide');
+        }
+
+        if(coAuthorsInput.value != '') {
+            coAuthors = coAuthorsInput.value.split(',');
+        }
+    });
+
+    hasCoAuthors.addEventListener('change', ()=> {
+        coAuthorUserSelectWrapper.classList.toggle('hide');
+    });
+
+    coAuthorUserDropdown.addEventListener('click', (event) => {
+        event.preventDefault();
+        coAuthorUserDropdown.classList.toggle('row');
+        coAuthorUserDropdown.querySelector('.search-box').classList.toggle('no-border-radius-bottom');
+        coAuthorUserCheckboxes.classList.toggle('hide');
+    });
+
+    coAuthorCheckboxes.forEach(box => {
+        box.addEventListener('click', () => {
+            if(box.checked) {
+                coAuthors.push(box.value);
+            } else {
+                let i = coAuthors.indexOf(box.value);
+                coAuthors.splice(i, 1);
+            }
+            coAuthorsInput.value = coAuthors;
+
+            console.log(coAuthors);
         });        
     });
 }

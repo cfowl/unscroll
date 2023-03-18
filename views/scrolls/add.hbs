@@ -1,35 +1,26 @@
 <h1>Create a Scroll</h1>
 
 <form action="/scrolls" method="POST" id="add_edit-form" class="form">
+    {{!-- hidden authorID --}}
+    <div class="hide" id="authorID">{{getUserIdFrom user}}</div>
     {{!-- Scroll Title --}}
     <div class="row">
         <label for="title">Title: 
             <input type="text" name="title" id="title" class="block pad-0_5 font1 wide15" required>
         </label>
     </div>
-    {{!-- Scroll Status --}}
-    <div class="row">Status:
-        <fieldset id="scrollStatusToggle" class="wide-fit font1 pad-0_4 flex space-around wide15">
-            <label for="private">Private
-                <input type="radio" name="status" id="private" value="private" checked>
-            </label>
-            <label for="select">Select
-                <input type="radio" name="status" id="select" value="select">
-            </label>
-            <label for="friends">Friends
-                <input type="radio" name="status" id="friends" value="friends">
-            </label>
-            <label for="public">Public
-                <input type="radio" name="status" id="public" value="public">
-            </label>
-        </fieldset>
-        <div id="message" class="font08 no-marg">* this scroll will only be visible to you</div>
-    </div>
-    {{!-- Select Users to Share With --}}
-    <div id="multiUserSelectWrapper" class="hide">
+    {{!-- Yes/No coAuthor --}}
+    <label class="row hover-pointer">Co-Authors: 
+        <div class="switch">
+            <input id="hasCoAuthors" type="checkbox">
+            <span class="slider round"></span>
+        </div>
+    </label>
+    {{!-- Select coAuthor(s) --}}
+    <div id="coAuthorUserSelectWrapper" class="hide marg-top-0_25">
         {{!-- Dropdown Toggle Box --}}
-        <div id="multiUserDropdown" class="row">
-            <label>Users shared with: 
+        <div id="coAuthorUserDropdown" class="row">
+            <label class="hover-pointer">
                 <select class="search-box block wide15 font1 pad-0_5">
                     <option>click to select</option>
                 </select>
@@ -37,18 +28,59 @@
             </label>
         </div>
         {{!-- User Checkbox Options --}}
-        <div id="multiUserCheckboxes" class="row hide wide15 pad-0_5 font1">
+        <div id="coAuthorUserCheckboxes" class="row hide wide15 pad-0_5 font1">
             {{#each users}}
                 {{#if (not (isLoggedUser _id ../user))}}
-                    <label for="{{displayName}}" class="block marg-top-0_5 marg-bot-0_5">
-                        <input class="checkbox" type="checkbox" name="{{displayName}}" id="{{displayName}}" value="{{_id}}">
+                    <label for="{{displayName}}" class="block marg-top-0_5 marg-bot-0_5 hover-pointer">
+                        <input class="coAuthorCheckbox" type="checkbox" name="{{displayName}}" id="{{displayName}}" value="{{_id}}">
+                        <img class="circle wide1 inline" src="{{image}}" alt="{{displayName}}'s profile picture"> {{displayName}}
+                    </label>
+                {{/if}}
+            {{/each}}
+        </div>
+        <input class="hide" type="text" name="coAuthors" id="coAuthors">
+    </div>
+    {{!-- Scroll Status --}}
+    <div class="row">Status:
+        <fieldset id="scrollStatusToggle" class="wide-fit font1 pad-0_4 flex space-around wide15">
+            <label for="private" class="hover-pointer">Private
+                <input type="radio" name="status" id="private" value="private" checked>
+            </label>
+            <label for="select" class="hover-pointer">Select
+                <input type="radio" name="status" id="select" value="select">
+            </label>
+            <label for="friends" class="hover-pointer">Friends
+                <input type="radio" name="status" id="friends" value="friends">
+            </label>
+            <label for="public" class="hover-pointer">Public
+                <input type="radio" name="status" id="public" value="public">
+            </label>
+        </fieldset>
+        <div id="message" class="font08 no-marg">* this scroll will only be visible to you</div>
+    </div>
+    {{!-- Select Users to Share With --}}
+    <div id="shareUserSelectWrapper" class="hide">
+        {{!-- Dropdown Toggle Box --}}
+        <div id="shareUserDropdown" class="row">
+            <label class="hover-pointer">Users shared with: 
+                <select class="search-box block wide15 font1 pad-0_5">
+                    <option>click to select</option>
+                </select>
+                <div id="over-select"></div>
+            </label>
+        </div>
+        {{!-- User Checkbox Options --}}
+        <div id="shareUserCheckboxes" class="row hide wide15 pad-0_5 font1">
+            {{#each users}}
+                {{#if (not (isLoggedUser _id ../user))}}
+                    <label for="{{_id}}" class="block marg-top-0_5 marg-bot-0_5 hover-pointer">
+                        <input class="selectUserCheckbox" type="checkbox" name="{{_id}}" id="{{_id}}" value="{{_id}}">
                         <img class="circle wide1 inline" src="{{image}}" alt="{{displayName}}'s profile picture"> {{displayName}}
                     </label>
                 {{/if}}
             {{/each}}
         </div>
         <input class="hide" type="text" name="selectUsers" id="selectUsers">
-        <div class="hide" id="authorID">{{getUserIdFrom user}}</div>
     </div>
     {{!-- Scroll Tags --}}
     <div class="row">

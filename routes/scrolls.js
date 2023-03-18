@@ -59,7 +59,11 @@ router.get('/:id', async (req, res) => {
         
         if(!scroll) return res.render('error/404');
 
-        res.render('scrolls/show', { scroll });
+        const users = await User.find()
+          .sort({ firstName: 'asc' })
+          .lean();
+
+        res.render('scrolls/show', { scroll, users });
     } catch (err) {
         console.error(err);
         res.render('error/500');
@@ -73,7 +77,7 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         const scroll = await Scroll.findOne({ _id: req.params.id }).lean();
         if(!scroll) return res.render('error/404');
 
-        if(scroll.author != req.user.id) {
+        if(scroll.author != req.user.id && !(scroll.coAuthors.toString().includes(req.user.id.toString()))) {
             res.redirect('/scrolls');
         } else {
             const users = await User.find()
@@ -95,7 +99,7 @@ router.put('/:id', ensureAuth, async (req, res) => {
         let scroll = await Scroll.findById(req.params.id).lean();
         if(!scroll) return res.render('error/404');
 
-        if(scroll.author != req.user.id) {
+        if(scroll.author != req.user.id && !(scroll.coAuthors.toString().includes(req.user.id.toString()))) {
             res.redirect('/scrolls');
         }
         else {
@@ -119,8 +123,9 @@ router.delete('/:id', ensureAuth, async (req, res) => {
         const scroll = await Scroll.findById(req.params.id).lean();
         if(!scroll) return res.render('error/404');
 
-        if(scroll.author != req.user.id) res.redirect('/scrolls');
-
+        if(scroll.author != req.user.id && !(scroll.coAuthors.toString().includes(req.user.id.toString()))) {
+            res.redirect('/scrolls');
+        }
         else {
             await Scroll.remove({ _id: req.params.id });
             res.redirect('/dashboard');
