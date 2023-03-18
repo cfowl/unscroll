@@ -38,12 +38,15 @@ module.exports = {
     stripTags: (input) => {
         return input.replace(/<(?:.|\n)*?>/gm, '');
     },
-    editIcon: (scrollUser, loggedUser, scrollId) => {
+    editIcon: (author, coAuthors, loggedUser, scrollId) => {
         if(loggedUser === null) {
             // guests will be null, don't show anything
             return '';
         }
-        if(scrollUser._id.toString() === loggedUser._id.toString()) {
+        if(coAuthors === undefined) {
+            coAuthors = '';
+        }
+        if(author._id.toString() === loggedUser._id.toString() || coAuthors.toString().includes(loggedUser._id.toString())) {
             // scroll user and logged user match, so show the editIcon
             return `<a href="/scrolls/edit/${scrollId}">
                 <i class="material-icons bg-color5 white marg-left-0_5 pad-0_5 circle">edit</i></a>`;
@@ -108,18 +111,53 @@ module.exports = {
     getLoggedUserId: (loggedUser) => {
         return loggedUser._id;
     },
-    isViewableScroll: (author, status, selectUsers, users, loggedUser) => {
+    isInAllScrolls: (author, status, selectUsers, coAuthors, users, loggedUser) => {
         author = author._id.toString();
         status = status.toString();
         selectUsers = selectUsers.toString();
         loggedUser = loggedUser._id.toString();
         let authorFriends = users.find(i => i._id.toString() === author).friends;
 
+        if(coAuthors === undefined) {
+            coAuthors = '';
+        } else {
+            coAuthors = coAuthors.toString();
+        }
+
         if(status === 'public') {
             return true;
-        } else if(status.toString() === 'select' && selectUsers.includes(loggedUser)) {
+        } else if(status === 'select' && selectUsers.includes(loggedUser)) {
             return true;
-        } else if(status.toString() === 'friends' && (authorFriends.includes(loggedUser) || author === loggedUser)) {
+        } else if(status === 'friends' && (authorFriends.includes(loggedUser) || author === loggedUser)) {
+            return true;
+        } else if(status === 'private' && coAuthors.includes(loggedUser)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    isViewableScroll: (author, status, selectUsers, coAuthors, users, loggedUser) => {
+        author = author._id.toString();
+        status = status.toString();
+        selectUsers = selectUsers.toString();
+        loggedUser = loggedUser._id.toString();
+        let authorFriends = users.find(i => i._id.toString() === author).friends;
+
+        if(coAuthors === undefined) {
+            coAuthors = '';
+        } else {
+            coAuthors = coAuthors.toString();
+        }
+
+        if(status === 'public') {
+            return true;
+        } else if(status === 'select' && selectUsers.includes(loggedUser)) {
+            return true;
+        } else if(status === 'friends' && authorFriends.includes(loggedUser)) {
+            return true;
+        } else if(status === 'private' && coAuthors.includes(loggedUser)) {
+            return true;
+        } else if(author === loggedUser) {
             return true;
         } else {
             return false;
@@ -135,7 +173,10 @@ module.exports = {
             return false;
         }
     },
-    areStatusUsers: (selectUsers) => {
+    hasSelectUsers: (selectUsers) => {
+        if(selectUsers === undefined) {
+            return false;
+        }
         if(selectUsers.toString() === '') {
             return false;
         } else {
@@ -149,6 +190,26 @@ module.exports = {
             return false
         }
     },
+    isCoAuthor: (user, coAuthors) => {
+        if(coAuthors === undefined) {
+            return false;
+        }
+        if(coAuthors.toString().includes(user.toString())) {
+            return true;
+        } else {
+            return false
+        }
+    },
+    hasCoAuthors: (coAuthors) => {
+        if(coAuthors === undefined) {
+            return false;
+        }
+        if(coAuthors.toString() === '') {
+            return false;
+        } else {
+            return true;
+        }
+    },
     getFriendsInfo: (friends, users) => {
         let friendsInfo = [];
         friends.forEach(friend => {
@@ -159,5 +220,12 @@ module.exports = {
             });
         });
         return friendsInfo;
+    },
+    isAuthor: (author, loggedUser) => {
+        if(author.toString() === loggedUser._id.toString()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 };
