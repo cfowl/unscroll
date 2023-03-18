@@ -59,15 +59,17 @@
     </div>
 </div>
 
+{{!-- DISPLAY SCROLL --}}
 <div class="flex-large marg-top-2">
     {{#each scrolls}}
-        {{#if (isViewableScroll author status selectUsers ../users ../user)}}
+        {{#if (isInAllScrolls author status selectUsers coAuthors ../users ../user)}}
             <div class="public-scroll card pad-1 bg-color4">
-                <span class="float-r">{{{editIcon author ../user _id}}}</span>
+                <span class="float-r">{{{editIcon author coAuthors ../user _id}}}</span>
                 <h2 class="scroll-title no-marg">{{{title}}}
                 </h2>
                 <span class="italic font08">
-                    by <span class="scroll-user">{{{author.displayName}}}</span>,
+                    by <span class="scroll-user">{{{author.displayName}}}</span>
+                    {{#if (hasCoAuthors coAuthors)}}and <span class="scroll-coAuthors">others </span>{{/if}}-
                     <span class="scroll-date">{{formatDate createdOn}}</span>
                 </span>
                 <div class="italic font08">
