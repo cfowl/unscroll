@@ -109,7 +109,11 @@ module.exports = {
         }
     },
     getLoggedUserId: (loggedUser) => {
-        return loggedUser._id;
+        if(loggedUser === null) {
+            return 'guest';
+        } else {
+            return loggedUser._id;
+        }
     },
     isInAllScrolls: (author, status, selectUsers, coAuthors, users, loggedUser) => {
         author = author._id.toString();
@@ -140,8 +144,14 @@ module.exports = {
         author = author._id.toString();
         status = status.toString();
         selectUsers = selectUsers.toString();
-        loggedUser = loggedUser._id.toString();
+
         let authorFriends = users.find(i => i._id.toString() === author).friends;
+
+        if(loggedUser === null) {
+            loggedUser = 'NONE';
+        } else {
+            loggedUser = loggedUser._id.toString();
+        }
 
         if(coAuthors === undefined) {
             coAuthors = '';
