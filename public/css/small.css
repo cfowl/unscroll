@@ -104,7 +104,7 @@ footer {
 /* ---------------------------------------------------------------------- */
 /* ------------------------------ CLASSES ------------------------------  */
 
-.hide, .hide-small, .title-hide, .tag-hide, .status-hide, .user-hide, .date-hide {
+.hide, .hide-small, .title-hide, .tag-hide, .status-hide, .user-hide, .date-hide, .favorites-hide {
     display: none !important;
 }
 
@@ -546,6 +546,10 @@ fieldset label input {
 
 .hover-pointer:hover {
     cursor: pointer;
+}
+
+#favoritesButton.active {
+    background-color: var(--color1);
 }
 
 
