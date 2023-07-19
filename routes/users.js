@@ -80,7 +80,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
 // @route   PUT /users/:id/friends/push
 router.put('/:id/friends/push', ensureAuth, async (req, res) => {
     try {
-
         let user = await User.findById(req.params.id).lean();
         if(!user) return res.render('error/404');
 
@@ -121,6 +120,56 @@ router.put('/:id/friends/pull/:friendID', ensureAuth, async (req, res) => {
             );
 
             res.redirect(`/users/${user._id}/friends`);
+        }
+    } catch (err) {
+        console.error(err);
+        res.render('error/500');
+    }
+});
+
+// @desc    Update user's favorite scrolls --> pushing a favorite
+// @route   PUT /users/:id/favorites/push/:favoriteID
+router.put('/:id/favorites/push/:favoriteID', ensureAuth, async (req, res) => {
+    try {
+        let user = await User.findById(req.params.id).lean();
+        if(!user) return res.render('error/404');
+
+        if(user._id != req.user.id) res.render('error/500');
+        else if(req.body.favorites === '') res.render('error/500');
+        else {
+            // push favorite to favorites array
+            user = await User.findOneAndUpdate(
+                { _id: req.params.id }, 
+                { $push: { favorites: req.params.favoriteID } },
+                {   new: true,
+                    runValidators: true
+                }
+            );
+
+            res.redirect(`/`);
+        }
+    } catch (err) {
+        console.error(err);
+        res.render('error/500');
+    }
+});
+
+// @desc    Update user's favorite scrolls --> pulling a favorite
+// @route   PUT /users/:id/favorites/pull/:favoriteID
+router.put('/:id/favorites/pull/:favoriteID', ensureAuth, async (req, res) => {
+    try {
+        let user = await User.findById(req.params.id).lean();
+        if(!user) return res.render('error/404');
+
+        if(user._id != req.user.id) res.render('error/500');
+        else {
+            // remove favorite from favorites array
+            user = await User.findOneAndUpdate(
+                { _id: req.params.id }, 
+                { $pull: { favorites: req.params.favoriteID } }
+            );
+
+            res.redirect(`/`);
         }
     } catch (err) {
         console.error(err);
