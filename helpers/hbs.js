@@ -237,5 +237,15 @@ module.exports = {
         } else {
             return false;
         }
+    },
+    isFavorite: (scrollId, favorites) => {
+        if(favorites === undefined) {
+            return false;
+        }
+        if(favorites.toString().includes(scrollId.toString())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 };
