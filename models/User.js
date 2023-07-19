@@ -32,6 +32,10 @@ const UserSchema = new mongoose.Schema({
     friends: {
         type: Array,
         default: ''
+    },
+    favorites: {
+        type: Array,
+        default: ''
     }
 });
 
