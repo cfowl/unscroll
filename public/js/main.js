@@ -3,6 +3,17 @@ import { enableDashSearch } from "./modules/dashSearch.js";
 import { enablePublicSearch } from "./modules/publicSearch.js";
 import { enableFavoriteSearch } from "./modules/favoriteSearch.js";
 
+
+// ++++++++++++ //
+// update the <title>
+// ------------ //
+let docTitle = document.querySelector('#doc-title');
+let scrollTitle = document.querySelector('#scroll-title');
+if(scrollTitle != null) {
+    docTitle.innerText = scrollTitle.innerText;
+}
+
+
 // ++++++++++++ //
 // format the dates dynamically outside the Heroku server
 // ------------ //

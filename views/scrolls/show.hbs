@@ -1,6 +1,6 @@
 {{!-- Shows ONE scroll --}}
 {{#if (isViewableScroll scroll.author scroll.status scroll.selectUsers scroll.coAuthors users user)}}
-    <h1 class="no-marg">{{scroll.title}}</h1>
+    <h1 id="scroll-title" class="no-marg">{{scroll.title}}</h1>
 
     <div class="card pad-0_5 pad-4-large bg-color4">
         <span class="float-r">{{{editIcon scroll.author scroll.coAuthors user scroll._id}}}</span>
