@@ -10,7 +10,13 @@ import { enableFavoriteSearch } from "./modules/favoriteSearch.js";
 let docTitle = document.querySelector('#doc-title');
 let scrollTitle = document.querySelector('#scroll-title');
 if(scrollTitle != null) {
+    // set the page title
     docTitle.innerText = scrollTitle.innerText;
+    // set a shared link preview title using <meta>
+    let newMeta = document.createElement('meta');
+    newMeta.setAttribute('property', 'og:title');
+    newMeta.setAttribute('content', scrollTitle.innerText);
+    document.querySelector('#head').append(newMeta);
 }
 
 
