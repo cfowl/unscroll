@@ -11,7 +11,9 @@ let printBtn = document.querySelector('#print-btn');
 if(printBtn != null) {
     printBtn.addEventListener('click', () => {
         // print the scroll
+        document.getElementsByTagName('footer')[0].classList.add('hide');
         window.print();
+        document.getElementsByTagName('footer')[0].classList.remove('hide');
         // still want to add then remove print styles
     });
     
