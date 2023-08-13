@@ -5,6 +5,20 @@ import { enableFavoriteSearch } from "./modules/favoriteSearch.js";
 
 
 // ++++++++++++ //
+// print a scroll
+// ------------ //
+let printBtn = document.querySelector('#print-btn');
+if(printBtn != null) {
+    printBtn.addEventListener('click', () => {
+        // print the scroll
+        window.print();
+        // still want to add then remove print styles
+    });
+    
+}
+
+
+// ++++++++++++ //
 // update the <title>
 // ------------ //
 let docTitle = document.querySelector('#doc-title');

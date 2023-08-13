@@ -3,7 +3,13 @@
     <h1 id="page-title" class="no-marg">{{scroll.title}}</h1>
 
     <div class="card pad-0_5 pad-4-large bg-color4">
+        {{!-- edit icon --}}
         <span class="float-r">{{{editIcon scroll.author scroll.coAuthors user scroll._id}}}</span>
+        {{!-- print icon --}}
+        <span class="float-r">
+                <i id="print-btn" class="material-icons bg-color2 white marg-left-0_5 pad-0_5 circle hover-pointer">print</i>
+        </span>
+        {{!-- scroll --}}
         <span class="italic font08 border-bot1">
             by <span class="scroll-user">{{{scroll.author.displayName}}}</span>
             {{#if (hasCoAuthors scroll.coAuthors)}}and <span class="scroll-coAuthors">others </span>{{/if}}-
