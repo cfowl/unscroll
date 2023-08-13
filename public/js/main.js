@@ -8,10 +8,10 @@ import { enableFavoriteSearch } from "./modules/favoriteSearch.js";
 // update the <title>
 // ------------ //
 let docTitle = document.querySelector('#doc-title');
-let h1Title = document.querySelector('#page-title');
-if(scrollTitle != null) {
+let headingTitle = document.querySelector('#page-title');
+if(headingTitle != null) {
     // set the page title
-    docTitle.innerText = scrollTitle.innerText;
+    docTitle.innerText = headingTitle.innerText;
 }
 
 
