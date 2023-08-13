@@ -8,7 +8,7 @@ import { enableFavoriteSearch } from "./modules/favoriteSearch.js";
 // update the <title>
 // ------------ //
 let docTitle = document.querySelector('#doc-title');
-let scrollTitle = document.querySelector('#scroll-title');
+let h1Title = document.querySelector('#page-title');
 if(scrollTitle != null) {
     // set the page title
     docTitle.innerText = scrollTitle.innerText;
