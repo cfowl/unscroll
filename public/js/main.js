@@ -13,10 +13,14 @@ if(scrollTitle != null) {
     // set the page title
     docTitle.innerText = scrollTitle.innerText;
     // set a shared link preview title using <meta>
-    let newMeta = document.createElement('meta');
-    newMeta.setAttribute('property', 'og:title');
-    newMeta.setAttribute('content', scrollTitle.innerText);
-    document.querySelector('#head').append(newMeta);
+    // let newMeta = document.createElement('meta');
+    // newMeta.setAttribute('property', 'og:title');
+    // newMeta.setAttribute('content', scrollTitle.innerText);
+    // document.querySelector('#head').append(newMeta);
+    $(document).ready(() => {
+        let metaTitle = scrollTitle.innerText;
+		$('head').append(`<meta property="og:title" content="${metaTitle}">`);
+    });
 }
 
 
