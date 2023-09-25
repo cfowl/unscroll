@@ -24,14 +24,14 @@
 <div id="friendList" class="flex-large marg-top-2">
     {{#if oneUser.friends}}
         {{#each (getFriendsInfo oneUser.friends users)}}
-            <div class="card pad-1 marg-top-1 wide20">
+            <div class="card pad-1 marg-top-1 wide20 ">
                 <img src="{{image}}" alt="{{displayName}}'s profile image" class="circle wide2_5">
-                <span>{{displayName}}</span>
+                <a href="/scrolls/user/{{_id}}" class="color3 hover-color1">{{displayName}}</a>
                 {{!-- Delete Button --}}
                 <form action="/users/{{../oneUser._id}}/friends/pull/{{_id}}" method="POST" class="inline">
                     {{!-- overrides the POST method --}}
                     <input type="hidden" name="_method" value="PUT">
-                    <button type="submit" class="btn float-r white bg-color5 marg-top-0_5">Unfriend</button>
+                    <button type="submit" class="btn float-r white bg-color5 marg-top-0_5"><i class="material-icons">delete_forever</i></button>
                 </form>
             </div>
         {{/each}}
