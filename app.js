@@ -39,13 +39,13 @@ if(process.env.NODE_ENV === "development") {
 }
 
 // Handelbars helpers
-const { formatDate, stripTags, truncate, editIcon, equals, contains, usersLink, usersMatch, logOutInLink, not, getLoggedUserId, isInAllScrolls, isViewableScroll, getUserIdFrom, isLoggedUser, hasSelectUsers, isSelectUser, getFriendsInfo, isCoAuthor, hasCoAuthors, isAuthor, isFavorite } = require('./helpers/hbs');
+const { formatDate, stripTags, truncate, editIcon, equals, contains, usersLink, usersMatch, logOutInLink, not, getLoggedUserId, isInAllScrolls, isViewableScroll, getUserIdFrom, isLoggedUser, hasSelectUsers, isSelectUser, getFriendsInfo, isCoAuthor, hasCoAuthors, isAuthor, isFavorite, youtubeEmbed, } = require('./helpers/hbs');
 
 // Handlebars
 app.engine('hbs',
     exphbs.engine({
         helpers: {
-            formatDate, stripTags, truncate, editIcon, equals, contains, usersLink, usersMatch, logOutInLink, not, getLoggedUserId, isInAllScrolls, isViewableScroll, getUserIdFrom, isLoggedUser, hasSelectUsers, isSelectUser, getFriendsInfo, isCoAuthor, hasCoAuthors, isAuthor, isFavorite,
+            formatDate, stripTags, truncate, editIcon, equals, contains, usersLink, usersMatch, logOutInLink, not, getLoggedUserId, isInAllScrolls, isViewableScroll, getUserIdFrom, isLoggedUser, hasSelectUsers, isSelectUser, getFriendsInfo, isCoAuthor, hasCoAuthors, isAuthor, isFavorite, youtubeEmbed,
         },
         defaultLayout: 'main',
         extname: '.hbs'

@@ -19,7 +19,7 @@
             {{#if (equals scroll.status 'select')}}(shared with select users){{/if}}
             {{#if (equals scroll.status 'friends')}}(shared with friends){{/if}}
         </div>
-        <div>{{{scroll.body}}}</div>
+        <div>{{{youtubeEmbed scroll.body}}}</div>
         {{#if tags}}<span class="italic">Tags: {{scroll.tags}}</span>{{/if}}
     </div>
 

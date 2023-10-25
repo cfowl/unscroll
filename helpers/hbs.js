@@ -247,5 +247,38 @@ module.exports = {
         } else {
             return false;
         }
+    },
+    youtubeEmbed: (body) => {
+        // if string is not defined, return empty string
+        if(body === undefined) {
+            return '';
+        }
+        // replace all https://youtu.be links with embedded video
+        if(body.toString().includes('https://youtu')) {
+            while (body.toString().includes('https://youtu')) {
+                let indexStart = body.indexOf('https://youtu');
+                let indexEndSpace = body.indexOf(' ', indexStart);
+                if(indexEndSpace === -1) indexEndSpace = body.length;
+                let indexEndTag = body.indexOf('<', indexStart);
+                let indexEnd = indexEndTag - indexStart;
+                if(indexEndSpace < indexEndTag) indexEnd = indexEndSpace - indexStart;
+    
+                let youtubeLink = body.substr(indexStart, indexEnd).trim();
+    
+                indexStart = youtubeLink.indexOf('.be/') + 4;
+                indexEnd = youtubeLink.indexOf('?') - indexStart;
+    
+                let partialYoutubeLink = youtubeLink.substr(indexStart, indexEnd);
+    
+                let youtubeFrame = `<iframe style="display:block" width="560" height="315" src="https://www.youtube.com/embed/${partialYoutubeLink}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+
+                body = body.replace(youtubeLink, youtubeFrame);
+            }
+
+            return body;
+        }
+
+        // return original body
+        return body;
     }
 };
