@@ -436,7 +436,7 @@ footer {
     font-family: sans-serif;
     text-decoration: none;
     font-size: 2rem;
-    z-index: 2;
+    z-index: 99;
 }
 
 #logo-brand {
@@ -642,6 +642,7 @@ fieldset label input {
     flex-direction: column;
     justify-content: end;
     transition: 250ms ease-out;
+    z-index: 98;
 }
 
 .navMenu ul {
