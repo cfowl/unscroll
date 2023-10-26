@@ -61,6 +61,10 @@
         border-radius: 1rem;
     }
 
+    .video-wrapper iframe {
+        border-radius: 1rem;
+    }
+
     .tool-btn {
         height: 48px;
         margin: 0 1rem 0 0;

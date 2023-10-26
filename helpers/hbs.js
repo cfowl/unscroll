@@ -270,7 +270,7 @@ module.exports = {
     
                 let partialYoutubeLink = youtubeLink.substr(indexStart, indexEnd);
     
-                let youtubeFrame = `<iframe style="display:block" width="560" height="315" src="https://www.youtube.com/embed/${partialYoutubeLink}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                let youtubeFrame = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${partialYoutubeLink}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
 
                 body = body.replace(youtubeLink, youtubeFrame);
             }
