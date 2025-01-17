@@ -37,6 +37,10 @@
             });
             // Enable spell check
             CKEDITOR.config.disableNativeSpellChecker = false;
+            // hide notification showing version 4.22.1 is not a secure version
+            // maybe star using quillJS ?? https://quilljs.com/
+            CKEDITOR.config.versionCheck = false;
+            
 
             // Shows a warning if the scroll body is blank
             editor.on( 'required', (event) => {
